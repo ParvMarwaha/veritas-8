@@ -102,15 +102,17 @@
   background-color: var(--btn-hover-bg, #000);
 }
 
-.custom-btn:hover::after {
-  transform-origin: bottom center;
-  transform: skewY(9.3deg) scaleY(2);
-}
+@media (hover: hover) and (pointer: fine) {
+  .custom-btn:hover::after {
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+  }
 
-.custom-btn:hover .btn-text-2 {
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 1;
-  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+  .custom-btn:hover .btn-text-2 {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+  }
 }
 
 .custom-btn-light {
@@ -159,7 +161,9 @@
 .custom-btn-text .btn-text-1 {
   transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
 }
-.custom-btn-text:hover .btn-text-1 {
-  transform: translateY(-150%);
-  opacity: 0;
+@media (hover: hover) and (pointer: fine) {
+  .custom-btn-text:hover .btn-text-1 {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
 }

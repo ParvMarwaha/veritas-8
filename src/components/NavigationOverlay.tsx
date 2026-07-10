@@ -37,10 +37,10 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
       } ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'}`}
     >
       {/* Left Panel - With StaticHeroBackground Inbuilt */}
-      <div className={`flex-1 min-h-[70vh] md:min-h-0 h-auto md:h-full px-8 md:px-24 pt-20 pb-12 md:py-0 flex flex-col justify-center relative z-10 overflow-hidden shrink-0 ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'}`}>
+      <div className={`flex-1 min-h-[70vh] px-8 md:px-24 pt-20 pb-12 md:py-0 flex flex-col justify-center relative z-10 overflow-hidden shrink-0 ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'}`}>
         
         {/* Render the hero background fixed so it covers completely without scrolling gaps */}
-        <div className={`fixed top-0 left-0 w-[100vw] h-[100vh] z-0 transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'} pointer-events-none`}>
+        <div className={`fixed inset-0 z-0 transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'} pointer-events-none`}>
           {isOpen && (isInteractiveBg ? <InteractiveHeroBackground layoutMode="menu" /> : <StaticHeroBackground />)}
         </div>
         {/* Close Button Mobile */}
@@ -82,7 +82,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
       </div>
 
       {/* Right Panel - Solid Black */}
-      <div className="w-full md:w-[28.125rem] lg:w-[31.25rem] h-auto md:h-full bg-[#090909] flex flex-col justify-center px-6 md:px-16 py-12 md:py-0 border-t md:border-t-0 md:border-l border-white/5 relative z-10 shrink-0">
+      <div className="w-full md:w-[28.125rem] lg:w-[31.25rem] min-h-full bg-[#090909] flex flex-col justify-center px-6 md:px-16 py-12 md:py-0 relative z-10 shrink-0">
         
         {/* Close Button Desktop */}
         <button 
@@ -106,7 +106,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
         </div>
 
         {/* Bottom Contact Info */}
-        <div className={`relative z-20 flex flex-col md:grid md:grid-cols-2 space-y-8 md:space-y-0 gap-8 border-t border-white/10 pt-8 mt-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+        <div className={`relative z-20 flex flex-col md:grid md:grid-cols-2 space-y-8 md:space-y-0 gap-8 pt-8 mt-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div className="flex flex-col space-y-6">
             <h4 className="text-white/40 font-sans text-[0.65rem] uppercase tracking-[0.2em] font-medium">Connect</h4>
             <ul className="flex flex-col space-y-4 font-sans text-[0.9rem] tracking-tight text-white/80 font-light">

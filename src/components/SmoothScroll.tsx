@@ -9,8 +9,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       lerp: 0.06, 
       duration: 1.8, 
       smoothWheel: true,
-      wheelMultiplier: 0.8,
-      touchMultiplier: 1.2
+      wheelMultiplier: 0.8
     }}>
       {children}
     </ReactLenis>

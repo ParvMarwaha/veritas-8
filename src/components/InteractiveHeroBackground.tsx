@@ -342,7 +342,6 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
         ref={ref}
         aria-hidden
         className="w-full h-full"
-        style={{ touchAction: 'none' }}
       />
     </motion.div>
   );
