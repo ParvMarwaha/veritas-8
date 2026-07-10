@@ -2,7 +2,7 @@ import React from 'react';
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'light' | 'dark' | 'accent' | 'text' | 'brand';
+  variant?: 'light' | 'dark' | 'accent' | 'text' | 'brand' | 'outline';
   className?: string;
 }
 

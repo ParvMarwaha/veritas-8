@@ -31,9 +31,13 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
 
     const mouse = { x: -9999, y: -9999, active: false, vx: 0, vy: 0, px: 0, py: 0 };
 
-    const getExclusionZones = (width: number, height: number) => {
+    type Zone = 
+      | { type: 'ellipse'; cx: number; cy: number; rx: number; ry: number }
+      | { type: 'rect'; x: number; y: number; w: number; h: number };
+
+    const getExclusionZones = (width: number, height: number): Zone[] => {
       const isMobile = width < 768;
-      const zones = [];
+      const zones: Zone[] = [];
 
       if (layoutMode === 'menu') {
         zones.push({
