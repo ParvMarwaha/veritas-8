@@ -32,21 +32,21 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
 
   return (
     <div 
-      className={`fixed inset-0 z-[100] flex flex-col md:flex-row overflow-y-auto overflow-x-hidden bg-[#090909] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+      className={`fixed inset-0 z-[100] flex flex-col md:flex-row overflow-y-auto overflow-x-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
         isOpen ? 'opacity-[0.99] pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}
+      } ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'}`}
     >
       {/* Left Panel - With StaticHeroBackground Inbuilt */}
-      <div className="flex-1 min-h-[70vh] md:min-h-0 h-auto md:h-full bg-[#090909] px-8 md:px-24 pt-20 pb-12 md:py-0 flex flex-col justify-center relative z-10 overflow-hidden shrink-0">
+      <div className={`flex-1 min-h-[70vh] md:min-h-0 h-auto md:h-full px-8 md:px-24 pt-20 pb-12 md:py-0 flex flex-col justify-center relative z-10 overflow-hidden shrink-0 ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'}`}>
         
-        {/* Render the hero background at viewport width so it acts as a perfect mask/cutout without squashing */}
-        <div className={`absolute top-0 left-0 w-[100vw] h-[100vh] z-0 transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Render the hero background fixed so it covers completely without scrolling gaps */}
+        <div className={`fixed top-0 left-0 w-[100vw] h-[100vh] z-0 transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'} pointer-events-none`}>
           {isOpen && (isInteractiveBg ? <InteractiveHeroBackground layoutMode="menu" /> : <StaticHeroBackground />)}
         </div>
         {/* Close Button Mobile */}
         <button 
           onClick={onClose}
-          className={`md:hidden absolute top-8 right-8 text-white/50 hover:text-[#D02717] transition-all duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'} z-20`}
+          className={`md:hidden absolute top-8 right-8 ${isInteractiveBg ? 'text-[#18181B]/50' : 'text-white/50'} hover:text-[#D02717] transition-all duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'} z-20`}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -69,10 +69,10 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
                 className={`group relative flex items-center w-fit transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
                 style={{ transitionDelay: `${isOpen ? index * 80 : 0}ms` }}
               >
-                <span className="text-white/70 font-sans font-medium text-[0.8rem] md:text-[0.85rem] mr-6 md:mr-10 tracking-widest group-hover:text-[#D02717] group-hover:-translate-y-[2px] transition-all duration-300 ease-out will-change-transform">
+                <span className={`${isInteractiveBg ? 'text-[#18181B]/70 group-hover:text-[#D02717]' : 'text-white/70 group-hover:text-[#D02717]'} font-sans font-medium text-[0.8rem] md:text-[0.85rem] mr-6 md:mr-10 tracking-widest group-hover:-translate-y-[2px] transition-all duration-300 ease-out will-change-transform`}>
                   0{index + 1}
                 </span>
-                <span className="text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] font-sans font-semibold tracking-tight text-white/80 group-hover:text-white group-hover:translate-x-2 transition-all duration-300 ease-out leading-[1.1] will-change-transform">
+                <span className={`text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] font-sans font-semibold tracking-tight ${isInteractiveBg ? 'text-[#18181B]/80 group-hover:text-black' : 'text-white/80 group-hover:text-white'} group-hover:translate-x-2 transition-all duration-300 ease-out leading-[1.1] will-change-transform`}>
                   {item}
                 </span>
               </a>

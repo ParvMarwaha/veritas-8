@@ -22,12 +22,16 @@ export function Navbar({
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const isHovered = useRef(false);
   
   const lastScrollY = useRef(0);
   const hideTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Trigger entrance animation on mount
+    const timer = setTimeout(() => setHasMounted(true), 100);
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -59,6 +63,7 @@ export function Navbar({
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
       if (hideTimeout.current) clearTimeout(hideTimeout.current);
     };
@@ -88,8 +93,8 @@ export function Navbar({
       <header 
         onMouseEnter={() => isHovered.current = true}
         onMouseLeave={() => isHovered.current = false}
-        className={`fixed top-0 left-0 w-full z-[90] px-6 md:px-16 py-8 transition-all duration-500 ease-out ${
-          isMenuOpen ? 'opacity-0 pointer-events-none translate-y-[-10px]' : (isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-100')
+        className={`fixed top-0 left-0 w-full z-[90] px-6 md:px-16 py-8 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${
+          !hasMounted ? '-translate-y-full opacity-0' : (isMenuOpen ? 'opacity-0 pointer-events-none translate-y-[-10px]' : (isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-100'))
         }`}
       >
         {/* Permanent dark gradients for dark theme (Split left/right to keep center bright) */}

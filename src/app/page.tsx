@@ -14,8 +14,8 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 export default function Home() {
   const [isAppReady, setIsAppReady] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navTheme, setNavTheme] = useState<'dark' | 'light'>('dark');
-  const [isInteractiveBg, setIsInteractiveBg] = useState(false);
+  const [navTheme, setNavTheme] = useState<'dark' | 'light'>('light');
+  const [isInteractiveBg, setIsInteractiveBg] = useState(true);
   
   const { scrollY } = useScroll();
   // Move hero up at 50% scroll speed to make the overlap slower
@@ -30,8 +30,9 @@ export default function Home() {
   
   useEffect(() => {
     const handleScroll = () => {
-      let theme: 'dark' | 'light' = 'dark'; // Default for Hero & ScrollReveal
       const offset = 80; // Navbar trigger offset
+      // Default to light for the white hero (if interactive), but switch to dark when scrolling down or if interactive is off
+      let theme: 'dark' | 'light' = window.scrollY < window.innerHeight - offset ? (isInteractiveBg ? 'light' : 'dark') : 'dark';
 
       const services = servicesRef.current?.getBoundingClientRect();
       const insights = insightsRef.current?.getBoundingClientRect();
@@ -66,14 +67,14 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isInteractiveBg]);
 
   const handleReady = useCallback(() => {
     setIsAppReady(true);
   }, []);
 
   return (
-    <main className="w-full bg-[#090909] text-white/90 font-sans selection:bg-[#D02717]/30">
+    <main className={`w-full ${isInteractiveBg ? 'bg-white' : 'bg-[#090909]'} text-white/90 font-sans selection:bg-[#D02717]/30`}>
       <Navbar 
         isReady={isAppReady} 
         isMenuOpen={isMenuOpen} 
@@ -83,7 +84,7 @@ export default function Home() {
         setIsInteractiveBg={setIsInteractiveBg}
       />
       
-      <div className="sticky top-0 w-full h-screen z-0 overflow-hidden">
+      <div className="sticky top-0 w-full h-[101vh] z-0 overflow-hidden">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="w-full h-full">
           <StaticHero 
             onReady={handleReady} 
@@ -94,7 +95,7 @@ export default function Home() {
         </motion.div>
       </div>
       
-      <div className="relative z-10 bg-[#090909]">
+      <div className="relative z-10">
         <ScrollRevealSection />
         
         {/* Sticky Overlap Container */}
@@ -119,7 +120,7 @@ export default function Home() {
         </div>
         
         <div ref={ctaRef}>
-          <CTASection isInteractiveBg={isInteractiveBg} />
+          <CTASection />
           <Footer />
         </div>
       </div>

@@ -6,11 +6,11 @@ import { InteractiveHeroBackground } from './InteractiveHeroBackground';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from './AnimatedButton';
 
-export function CTASection({ isInteractiveBg = false }: { isInteractiveBg?: boolean }) {
+export function CTASection() {
   return (
     <section className="relative w-full bg-[#090909] text-white py-24 md:py-32 overflow-hidden flex flex-col items-center justify-center border-t border-white/5">
-      {/* Reusing the exact topography physics from the hero section */}
-      {isInteractiveBg ? <InteractiveHeroBackground /> : <StaticHeroBackground />}
+      {/* Background topography */}
+      <StaticHeroBackground />
       
       <div className="relative z-10 max-w-[800px] mx-auto px-6 text-center flex flex-col items-center">
         <motion.h2 
