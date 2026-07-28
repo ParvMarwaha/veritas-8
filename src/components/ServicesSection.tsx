@@ -57,7 +57,7 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
     >
       {/* 1. High Impact Geometric Sweep Fill from Center Circle */}
       <div 
-        className={`absolute ${config.sweepPos} w-[300%] aspect-square bg-[#111111] rounded-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] scale-0 group-hover:scale-100 z-0 will-change-transform transform-gpu`}
+        className={`absolute ${config.sweepPos} w-[300%] aspect-square bg-[#2A2A2A] rounded-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] scale-0 group-hover:scale-100 z-0 will-change-transform transform-gpu`}
       />
 
       {/* 2. Spotlight Hover Effect (Stronger) */}
