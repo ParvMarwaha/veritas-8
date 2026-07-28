@@ -99,13 +99,9 @@ export default function Home() {
         <div className="relative w-full z-20">
           
           {/* Services Section slides over the hero and sticks at the top */}
-          <div className="sticky top-0 w-full flex flex-col">
-            {/* Seamless gradient transition from transparent to the section's background */}
-            <div className="w-full h-32 bg-gradient-to-b from-transparent to-[#F7F5F2]"></div>
-            <div className="w-full bg-[#F7F5F2] pb-10">
-              <div ref={servicesRef}>
-                <ServicesSection />
-              </div>
+          <div className="sticky top-0 w-full bg-white pb-10">
+            <div ref={servicesRef}>
+              <ServicesSection />
             </div>
           </div>
           

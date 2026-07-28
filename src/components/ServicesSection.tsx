@@ -115,7 +115,7 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="w-full bg-[#F7F5F2] text-black pt-24 pb-32 md:pt-32 md:pb-48 px-6 md:px-16 font-sans relative z-20 overflow-x-hidden">
+    <section className="w-full bg-white text-black pt-24 pb-32 md:pt-32 md:pb-48 px-6 md:px-16 font-sans relative z-20 overflow-x-hidden">
       <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start relative">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,7 @@ export function ServicesSection() {
           ))}
 
           {/* Center Circle - Clean & Elegant */}
-          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] lg:w-[140px] lg:h-[140px] bg-[#F7F5F2] rounded-full items-center justify-center z-30 pointer-events-none shadow-md">
+          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] lg:w-[140px] lg:h-[140px] bg-white rounded-full items-center justify-center z-30 pointer-events-none shadow-md">
             <span className="text-[14px] lg:text-[15px] font-semibold text-black tracking-tight text-center leading-[1.2]">
               How to get<br/>it right?
             </span>
