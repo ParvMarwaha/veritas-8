@@ -57,9 +57,9 @@ export default function Home() {
         theme = 'light';
       }
 
-      // 4. CTA and Footer are Dark (or Light if interactive bg is active)
+      // 4. CTA and Footer are Dark
       if (cta && cta.top <= offset) {
-        theme = isInteractiveBg ? 'light' : 'dark';
+        theme = 'dark';
       }
 
       setNavTheme(theme);
@@ -119,10 +119,10 @@ export default function Home() {
         </div>
         
         <div ref={ctaRef} className="relative w-full overflow-hidden bg-[#090909]">
-          {isInteractiveBg ? <InteractiveHeroBackground layoutMode="menu" /> : <StaticHeroBackground />}
+          <StaticHeroBackground />
           <div className="relative z-10 flex flex-col">
-            <CTASection isInteractiveBg={isInteractiveBg} />
-            <Footer isInteractiveBg={isInteractiveBg} />
+            <CTASection />
+            <Footer />
           </div>
         </div>
       </div>
