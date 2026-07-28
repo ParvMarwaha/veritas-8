@@ -115,22 +115,6 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
                   LinkedIn
                 </a>
               </li>
-              <li>
-                <button 
-                  onClick={onFlip} 
-                  className="inline-block text-left transition-all duration-300 ease-out hover:text-[#D02717] hover:translate-x-1.5 will-change-transform"
-                >
-                  Flip Layout {isFlipped ? '(Active)' : ''}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={onToggleBg} 
-                  className="inline-block text-left transition-all duration-300 ease-out hover:text-[#D02717] hover:translate-x-1.5 will-change-transform"
-                >
-                  Change Background {isInteractiveBg ? '(Interactive)' : '(Static)'}
-                </button>
-              </li>
             </ul>
           </div>
           
