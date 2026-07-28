@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from './AnimatedButton';
 
-export function CTASection({ isInteractiveBg = false }: { isInteractiveBg?: boolean }) {
+export function CTASection() {
   return (
     <section className="relative w-full py-24 md:py-32 flex flex-col items-center justify-center border-t border-white/5">
       <div className="relative z-10 max-w-[800px] mx-auto px-6 text-center flex flex-col items-center">
@@ -23,7 +23,7 @@ export function CTASection({ isInteractiveBg = false }: { isInteractiveBg?: bool
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className={`text-3xl md:text-[38px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-2xl drop-shadow-2xl ${isInteractiveBg ? 'text-[#18181B]' : 'text-white'}`}
+          className="text-3xl md:text-[38px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-2xl drop-shadow-2xl text-white"
         >
           Ready to Redefine Your <br className="hidden md:block"/> Equity Structure?
         </motion.h3>
@@ -33,7 +33,7 @@ export function CTASection({ isInteractiveBg = false }: { isInteractiveBg?: bool
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`text-[15px] md:text-base mb-10 max-w-xl font-light ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}
+          className="text-[15px] md:text-base mb-10 max-w-xl font-light text-white/70"
         >
           Join the vanguard of modern organizations building a sustainable culture of ownership and trust.
         </motion.p>
