@@ -89,7 +89,7 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-3 block"
+                className="text-[#E82C18] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-3 block drop-shadow-sm"
               >
                 From our Knowledge Hub
               </motion.span>
@@ -113,7 +113,7 @@ export function InsightsSection() {
               className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
             >
               View All Articles
-              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
+              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#E82C18] group-hover:w-12 transition-all duration-500" />
             </motion.button>
           </div>
 
@@ -134,8 +134,10 @@ export function InsightsSection() {
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
-                  className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717] transition-colors duration-700" 
-                />
+                  className="w-full h-[1.5px] bg-white/20 mb-8 relative overflow-hidden origin-left" 
+                >
+                  <div className="absolute inset-0 bg-[#E82C18] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                </motion.div>
                 <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white transition-colors duration-700 pr-4">
                   {item.title}
                 </h3>

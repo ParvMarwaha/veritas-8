@@ -1,9 +1,57 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useState, useEffect } from 'react';
 
 export function Footer() {
+  const containerRef = useRef<HTMLElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({ 
+          x: e.clientX - rect.left, 
+          y: e.clientY - rect.top 
+        });
+      }
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseenter', () => setIsHovering(true));
+      container.addEventListener('mouseleave', () => setIsHovering(false));
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseenter', () => setIsHovering(true));
+        container.removeEventListener('mouseleave', () => setIsHovering(false));
+      }
+    };
+  }, []);
+
   return (
-    <footer className="w-full bg-[#090909] text-white pt-16 md:pt-20 pb-10 px-6 md:px-16 border-t border-white/10 relative z-20 font-sans">
-      <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
+    <footer ref={containerRef} className="w-full bg-[#090909] text-white pt-16 md:pt-20 pb-10 px-6 md:px-16 border-t border-white/10 relative z-20 font-sans overflow-hidden">
+      {/* Interactive Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.12), transparent 80%)' }}></div>
+      
+      {/* Flashlight Dot Grid */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-out"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          maskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
+          WebkitMaskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
+          opacity: isHovering ? 1 : 0
+        }}
+      />
+      
+      <div className="relative z-10 max-w-[1300px] mx-auto flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
         
         {/* Logo */}
         <div className="lg:w-[30%]">
