@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 const insights = [
   {
@@ -43,15 +43,55 @@ const insights = [
 ];
 
 export function InsightsSection() {
-  const featured = insights[0];
-  const listItems = insights.slice(1);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  
+  // Mouse position tracking for the floating image (Viewport relative)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  // Smooth spring physics for the cursor following
+  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Offset by half the width/height (175px/225px) to center the image perfectly on the cursor
+      mouseX.set(e.clientX - 175); 
+      mouseY.set(e.clientY - 225);
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
 
   return (
-    <section className="w-full bg-[#090909] text-white pt-32 pb-32 md:pt-40 md:pb-48 px-6 md:px-16 font-sans overflow-hidden">
-      <div className="max-w-[1400px] w-full mx-auto flex flex-col">
+    <section className="w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-16 font-sans relative overflow-x-hidden">
+      
+      {/* Floating Cursor Image (Desktop Only) */}
+      <motion.div 
+        className="fixed top-0 left-0 w-[350px] h-[450px] pointer-events-none z-50 overflow-hidden hidden lg:block"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          opacity: hoveredIndex !== null ? 1 : 0,
+          scale: hoveredIndex !== null ? 1 : 0.8,
+        }}
+      >
+        {insights.map((item, idx) => (
+          <img 
+            key={item.id}
+            src={item.img}
+            alt={item.title}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${hoveredIndex === idx ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
+      </motion.div>
+
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col relative z-20">
         
-        {/* Editorial Top Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 pb-12 border-b border-white/10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 pb-12 border-b border-white/10">
           <div className="flex flex-col">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -77,11 +117,8 @@ export function InsightsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-8 md:mt-0 flex flex-col md:items-end max-w-sm"
+            className="mt-8 md:mt-0"
           >
-            <p className="text-[14px] md:text-[15px] text-white/60 leading-[1.6] tracking-tight mb-6 md:text-right">
-              Explore our latest thinking on cap table management, compliance, and how to build a lasting culture of ownership.
-            </p>
             <button className="group flex items-center gap-3 text-[12px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors">
               View Archive
               <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] transition-colors" />
@@ -89,78 +126,52 @@ export function InsightsSection() {
           </motion.div>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
-          {/* Featured Article - 7 Columns */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7 group cursor-pointer"
-          >
-            <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-[#111111] mb-6 md:mb-8">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-[#090909]/20 to-transparent opacity-80 z-10 transition-opacity duration-500 group-hover:opacity-60" />
-              <img 
-                src={featured.img} 
-                alt={featured.title}
-                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
-              />
-              <div className="absolute top-6 left-6 z-20">
-                <span className="bg-white text-black px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase">
-                  {featured.category}
+        {/* The Hover-Reveal List */}
+        <div className="flex flex-col border-t border-white/10">
+          {insights.map((item, idx) => (
+            <motion.div 
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group relative flex flex-col lg:flex-row lg:items-center justify-between border-b border-white/10 py-12 md:py-20 cursor-pointer"
+            >
+              {/* Desktop Overlay Background to dim other items on hover */}
+              <div className="absolute inset-0 bg-[#090909]/0 group-hover:bg-[#111111]/50 transition-colors duration-500 -z-10" />
+              
+              <div className="flex items-center gap-8 md:gap-16 z-10 w-full transition-transform duration-500 ease-out lg:group-hover:translate-x-12">
+                <span className="text-[14px] md:text-[16px] font-mono text-white/30 tracking-widest lg:group-hover:text-[#D02717] transition-colors duration-300">
+                  {item.id}
                 </span>
-              </div>
-            </div>
-            
-            <div className="flex flex-col pr-8">
-              <div className="flex items-center gap-6 mb-4 text-[12px] font-mono text-white/50 tracking-widest uppercase">
-                <span>{featured.date}</span>
-                <span className="w-1 h-1 rounded-full bg-white/20" />
-                <span>By {featured.author}</span>
-              </div>
-              <h4 className="text-3xl md:text-5xl font-semibold tracking-tighter leading-[1.1] mb-5 group-hover:text-[#D02717] transition-colors duration-300">
-                {featured.title}
-              </h4>
-              <p className="text-white/60 text-[15px] leading-[1.6] max-w-xl">
-                {featured.description}
-              </p>
-            </div>
-          </motion.div>
-
-          {/* List Articles - 5 Columns */}
-          <div className="lg:col-span-5 flex flex-col border-t lg:border-t-0 border-white/10 pt-12 lg:pt-0">
-            {listItems.map((item, idx) => (
-              <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
-                className="group flex flex-col border-b border-white/10 pb-8 mb-8 last:border-b-0 last:pb-0 last:mb-0 cursor-pointer"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-mono text-white/40 tracking-widest uppercase">
-                    {item.id} — {item.category}
-                  </span>
-                  <span className="text-[11px] font-mono text-[#D02717] tracking-widest uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    Read Story →
-                  </span>
-                </div>
-                
-                <h4 className="text-2xl md:text-[28px] font-medium tracking-tight leading-[1.2] mb-3 group-hover:text-white text-white/80 transition-colors duration-300">
+                <h4 className="text-3xl md:text-5xl lg:text-7xl font-medium tracking-tighter leading-[1.1] lg:group-hover:text-white text-white/70 transition-colors duration-300">
                   {item.title}
                 </h4>
-                
-                <div className="flex items-center justify-between mt-4">
-                  <span className="text-[13px] text-white/50">{item.date}</span>
-                  <span className="text-[13px] text-white/40">By {item.author}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
+              </div>
+              
+              <div className="flex flex-col lg:items-end mt-6 lg:mt-0 z-10 w-full lg:w-auto transition-transform duration-500 ease-out lg:group-hover:-translate-x-8 opacity-100 lg:opacity-50 lg:group-hover:opacity-100">
+                <span className="text-[12px] font-mono text-white/50 tracking-widest uppercase mb-2">
+                  {item.category}
+                </span>
+                <span className="text-[12px] text-white/40">
+                  {item.date}
+                </span>
+              </div>
+              
+              {/* Mobile Image (Hidden on Desktop) */}
+              <div className="w-full h-[250px] mt-8 overflow-hidden block lg:hidden">
+                <img 
+                  src={item.img} 
+                  alt={item.title}
+                  className="w-full h-full object-cover grayscale opacity-70 transition-all duration-500"
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
+        
       </div>
     </section>
   );
