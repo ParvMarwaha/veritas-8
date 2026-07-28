@@ -34,27 +34,27 @@ export function InsightsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 xl:gap-24">
           
           {/* Column 1: Header */}
-          <div className="flex flex-col h-full min-h-[500px]">
-            <div>
-              <span className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-4 block">
+          <div className="flex flex-col h-full">
+            {/* Top Block: Fixed height on desktop ensures the description below aligns perfectly with other columns */}
+            <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
+              <span className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-6 block">
                 From our Knowledge Hub
               </span>
-              <h2 className="text-6xl md:text-7xl lg:text-[80px] xl:text-[90px] font-bold tracking-tighter leading-[0.9]">
+              <h2 className="text-6xl md:text-7xl lg:text-[70px] xl:text-[84px] font-bold tracking-tighter leading-[0.9]">
                 Insights
               </h2>
             </div>
             
-            {/* mb-[calc(100%+2rem)] creates the exact vertical spacing to align this text with the descriptions in Col 2,3,4 */}
-            <div className="mt-8 lg:mt-auto lg:mb-[calc(100%+2rem)] lg:pr-8">
-              <p className="text-white/50 text-[14px] leading-[1.8]">
-                Explore our latest thinking on cap table management, compliance, and how to build a lasting culture of ownership across your organization.
-              </p>
-              
-              <button className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors w-fit mt-12">
-                View All Articles
-                <span className="w-3 h-3 bg-white/30 group-hover:bg-[#D02717] transition-colors" />
-              </button>
-            </div>
+            {/* Description Text */}
+            <p className="text-white/50 text-[14px] leading-[1.8] lg:pr-8">
+              Explore our latest thinking on cap table management, compliance, and how to build a lasting culture of ownership across your organization.
+            </p>
+            
+            {/* Button pushed to the bottom to align with the images in other columns */}
+            <button className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors w-fit mt-12 lg:mt-auto pb-4">
+              View All Articles
+              <span className="w-3 h-3 bg-white/30 group-hover:bg-[#D02717] transition-colors" />
+            </button>
           </div>
 
           {/* Columns 2, 3, 4: Articles */}
@@ -67,27 +67,27 @@ export function InsightsSection() {
               transition={{ delay: idx * 0.15 }}
               className="flex flex-col group cursor-pointer h-full"
             >
-              {/* Top border & Title */}
-              <div className="mb-16 lg:mb-0">
-                <div className="w-full h-[1px] bg-white/20 mb-6 group-hover:bg-white/50 transition-colors duration-300" />
+              {/* Top Block: Fixed height on desktop aligns the titles and pushes the descriptions down uniformly */}
+              <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
+                <div className="w-full h-[1.5px] bg-white/20 mb-6 group-hover:bg-white/50 transition-colors duration-300" />
                 <h3 className="text-2xl lg:text-[28px] font-medium tracking-tight leading-[1.3] group-hover:text-[#D02717] transition-colors duration-300 pr-4">
                   {item.title}
                 </h3>
               </div>
 
-              {/* Description & Image pinned to the bottom */}
-              <div className="mt-auto flex flex-col gap-8">
-                <p className="text-[14px] text-white/50 leading-[1.8]">
-                  {item.description}
-                </p>
-                <div className="w-full aspect-square bg-[#111111] overflow-hidden relative">
-                  <div className="absolute inset-0 bg-[#090909]/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
-                  <img 
-                    src={item.img} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
-                  />
-                </div>
+              {/* Description Text */}
+              <p className="text-[14px] text-white/50 leading-[1.8]">
+                {item.description}
+              </p>
+
+              {/* Image pushed to the bottom */}
+              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
+                <div className="absolute inset-0 bg-[#090909]/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+                <img 
+                  src={item.img} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                />
               </div>
             </motion.div>
           ))}
