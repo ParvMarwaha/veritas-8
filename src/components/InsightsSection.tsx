@@ -89,7 +89,7 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-6 block"
+                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-3 block"
               >
                 From our Knowledge Hub
               </motion.span>
@@ -136,7 +136,7 @@ export function InsightsSection() {
                   transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
                   className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717] group-hover:scale-y-[2] transition-all duration-500 origin-left" 
                 />
-                <h3 className="text-2xl lg:text-[32px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-3">
+                <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-3">
                   {item.title}
                 </h3>
               </div>
