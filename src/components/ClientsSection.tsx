@@ -4,16 +4,24 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 
 const logos = [
-  { name: "L&T Technology Services", url: "/partners/lt.png", scale: "scale-150 group-hover:scale-[1.6]" },
-  { name: "Bajaj Allianz", url: "/partners/bajaj2.png", scale: "scale-[3] md:scale-[3.5] group-hover:scale-[3.1] md:group-hover:scale-[3.6]" },
-  { name: "Isthara", url: "/partners/isthara.png", scale: "scale-100 group-hover:scale-110" },
-  { name: "Client 1", url: "/partners/logo1.png", scale: "scale-150 group-hover:scale-[1.6]" },
-  { name: "Client 2", url: "/partners/logo2.jpeg", scale: "scale-150 group-hover:scale-[1.6]" },
-  { name: "Client 3", url: "/partners/logo3.jpeg", scale: "scale-150 group-hover:scale-[1.6]" },
-  { name: "Client 4", url: "/partners/logo4.png", scale: "scale-150 group-hover:scale-[1.6]" },
-  { name: "Prepladder", url: "/partners/prepladder.png", scale: "scale-90 group-hover:scale-100" },
-  { name: "Client 5", url: "/partners/logo5.png", scale: "scale-110 group-hover:scale-[1.2]" },
-  { name: "Client 6", url: "/partners/logo6.png", scale: "scale-110 group-hover:scale-[1.2]" }
+  { name: "AngelList", url: "/partners/resized%20logos/angellist.png" },
+  { name: "Bajaj", url: "/partners/resized%20logos/bajaj.png" },
+  { name: "Bajaj 2", url: "/partners/resized%20logos/bajaj2.png" },
+  { name: "Games24x7", url: "/partners/resized%20logos/games24x7.png" },
+  { name: "ImageKit", url: "/partners/resized%20logos/imagekit.png" },
+  { name: "Isthara", url: "/partners/resized%20logos/isthara.png" },
+  { name: "Client 1", url: "/partners/resized%20logos/logo1.png" },
+  { name: "Client 2", url: "/partners/resized%20logos/logo2.png" },
+  { name: "Client 3", url: "/partners/resized%20logos/logo3.png" },
+  { name: "Client 4", url: "/partners/resized%20logos/logo4.png" },
+  { name: "Client 5", url: "/partners/resized%20logos/logo5.png" },
+  { name: "Client 6", url: "/partners/resized%20logos/logo6.png" },
+  { name: "L&T", url: "/partners/resized%20logos/lt.png" },
+  { name: "LTTS", url: "/partners/resized%20logos/ltts.png" },
+  { name: "Netcore", url: "/partners/resized%20logos/netcore.png" },
+  { name: "Prepladder", url: "/partners/resized%20logos/prepladder.png" },
+  { name: "TopHire", url: "/partners/resized%20logos/tophire.png" },
+  { name: "Zetwerk", url: "/partners/resized%20logos/zetwerk.png" }
 ];
 
 // Reusable Counter Component for dynamic metrics
