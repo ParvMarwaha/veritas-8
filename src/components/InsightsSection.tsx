@@ -110,7 +110,7 @@ export function InsightsSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/50 transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
+              className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
             >
               View All Articles
               <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
@@ -136,13 +136,13 @@ export function InsightsSection() {
                   transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
                   className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717] transition-colors duration-700" 
                 />
-                <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white/90 group-hover:text-white transition-colors duration-700 pr-4">
+                <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white transition-colors duration-700 pr-4">
                   {item.title}
                 </h3>
               </div>
 
-              {/* Description Text */}
-              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/70 transition-colors duration-700">
+              {/* Description Text with increased bottom margin for spacing */}
+              <p className="text-[14px] text-white leading-[1.8] transition-colors duration-700 mb-10 lg:mb-16">
                 {item.description}
               </p>
 
