@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const insights = [
   {
@@ -43,135 +43,119 @@ const insights = [
 ];
 
 export function InsightsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
-  // Mouse position tracking for the floating image (Viewport relative)
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  // Smooth spring physics for the cursor following
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  // Track scroll progress purely within this massive section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      // Offset by half the width/height (175px/225px) to center the image perfectly on the cursor
-      mouseX.set(e.clientX - 175); 
-      mouseY.set(e.clientY - 225);
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+  // Calculate the opacity for each background image based on scroll progress.
+  // The first image starts at 1, fades out at 25%. The next fades in, and so on.
+  const opacities = [
+    useTransform(scrollYProgress, [0, 0.2, 0.25, 1], [1, 1, 0, 0]),
+    useTransform(scrollYProgress, [0.15, 0.25, 0.45, 0.5], [0, 1, 1, 0]),
+    useTransform(scrollYProgress, [0.4, 0.5, 0.7, 0.75], [0, 1, 1, 0]),
+    useTransform(scrollYProgress, [0.65, 0.75, 1, 1], [0, 1, 1, 1])
+  ];
 
   return (
-    <section className="w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-16 font-sans relative overflow-x-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#090909] text-white font-sans">
       
-      {/* Floating Cursor Image (Desktop Only) */}
-      <motion.div 
-        className="fixed top-0 left-0 w-[350px] h-[450px] pointer-events-none z-50 overflow-hidden hidden lg:block"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          opacity: hoveredIndex !== null ? 1 : 0,
-          scale: hoveredIndex !== null ? 1 : 0.8,
-        }}
-      >
+      {/* Pinned Cinematic Background */}
+      <div className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0">
         {insights.map((item, idx) => (
-          <img 
-            key={item.id}
-            src={item.img}
-            alt={item.title}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${hoveredIndex === idx ? 'opacity-100' : 'opacity-0'}`}
-          />
-        ))}
-      </motion.div>
-
-      <div className="max-w-[1400px] w-full mx-auto flex flex-col relative z-20">
-        
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 pb-12 border-b border-white/10">
-          <div className="flex flex-col">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-4"
-            >
-              Our Thinking
-            </motion.h2>
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold tracking-tighter leading-none"
-            >
-              Insights.
-            </motion.h3>
-          </div>
-          
           <motion.div 
+            key={`bg-${item.id}`}
+            className="absolute inset-0 w-full h-full"
+            style={{ opacity: opacities[idx] }}
+          >
+            {/* Dark overlays to ensure text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-[#090909]/70 to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#090909] via-[#090909]/40 to-transparent z-10" />
+            <div className="absolute inset-0 bg-[#090909]/30 z-10" />
+            <img 
+              src={item.img} 
+              alt={item.title}
+              className="w-full h-full object-cover grayscale opacity-80 scale-105"
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Scrolling Content - Each block is exactly 1 viewport height (100vh) to align with the background fades */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-16 pb-[10vh]">
+        
+        {/* Intro Header - Takes up the first screen */}
+        <div className="h-[80vh] flex flex-col justify-center items-start pt-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-6"
+          >
+            Our Thinking
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-6xl md:text-8xl lg:text-[140px] font-bold tracking-tighter leading-[0.9]"
+          >
+            Insights.
+          </motion.h3>
+          <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-8 md:mt-0"
+            className="mt-12 text-lg md:text-2xl text-white/60 max-w-xl font-light leading-[1.6]"
           >
-            <button className="group flex items-center gap-3 text-[12px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors">
-              View Archive
-              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] transition-colors" />
-            </button>
-          </motion.div>
+            Explore our latest thinking on cap table management, compliance, and how to build a lasting culture of ownership.
+          </motion.p>
         </div>
 
-        {/* The Hover-Reveal List */}
-        <div className="flex flex-col border-t border-white/10">
+        {/* Article Blocks - Each one takes a full screen height to scroll through */}
+        <div className="flex flex-col">
           {insights.map((item, idx) => (
-            <motion.div 
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              onMouseEnter={() => setHoveredIndex(idx)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative flex flex-col lg:flex-row lg:items-center justify-between border-b border-white/10 py-12 md:py-20 cursor-pointer"
-            >
-              {/* Desktop Overlay Background to dim other items on hover */}
-              <div className="absolute inset-0 bg-[#090909]/0 group-hover:bg-[#111111]/50 transition-colors duration-500 -z-10" />
-              
-              <div className="flex items-center gap-8 md:gap-16 z-10 w-full transition-transform duration-500 ease-out lg:group-hover:translate-x-12">
-                <span className="text-[14px] md:text-[16px] font-mono text-white/30 tracking-widest lg:group-hover:text-[#D02717] transition-colors duration-300">
-                  {item.id}
-                </span>
-                <h4 className="text-3xl md:text-5xl lg:text-7xl font-medium tracking-tighter leading-[1.1] lg:group-hover:text-white text-white/70 transition-colors duration-300">
+            <div key={`content-${item.id}`} className="h-screen flex flex-col justify-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "-20% 0px -20% 0px", once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="flex flex-col max-w-4xl"
+              >
+                <div className="flex items-center gap-6 mb-8">
+                  <span className="text-2xl md:text-3xl font-mono text-[#D02717]">{item.id}</span>
+                  <span className="w-12 h-[1px] bg-white/20" />
+                  <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-white/50">{item.category}</span>
+                </div>
+                
+                <h4 className="text-4xl md:text-6xl lg:text-[80px] font-semibold tracking-tighter leading-[1.05] mb-10 drop-shadow-2xl">
                   {item.title}
                 </h4>
-              </div>
-              
-              <div className="flex flex-col lg:items-end mt-6 lg:mt-0 z-10 w-full lg:w-auto transition-transform duration-500 ease-out lg:group-hover:-translate-x-8 opacity-100 lg:opacity-50 lg:group-hover:opacity-100">
-                <span className="text-[12px] font-mono text-white/50 tracking-widest uppercase mb-2">
-                  {item.category}
-                </span>
-                <span className="text-[12px] text-white/40">
-                  {item.date}
-                </span>
-              </div>
-              
-              {/* Mobile Image (Hidden on Desktop) */}
-              <div className="w-full h-[250px] mt-8 overflow-hidden block lg:hidden">
-                <img 
-                  src={item.img} 
-                  alt={item.title}
-                  className="w-full h-full object-cover grayscale opacity-70 transition-all duration-500"
-                />
-              </div>
-            </motion.div>
+                
+                <p className="text-lg md:text-2xl text-white/70 leading-[1.5] mb-14 font-light drop-shadow-xl max-w-2xl">
+                  {item.description}
+                </p>
+                
+                <div className="flex flex-col sm:flex-row sm:items-center gap-8 md:gap-12">
+                  <button className="w-fit px-8 py-4 bg-white text-black text-[11px] md:text-[13px] font-bold uppercase tracking-widest hover:bg-[#D02717] hover:text-white transition-colors duration-300 rounded-full">
+                    Read Story
+                  </button>
+                  <div className="flex items-center gap-4 text-[11px] md:text-[12px] font-mono text-white/40 uppercase tracking-widest">
+                    <span>{item.date}</span>
+                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span>By {item.author}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           ))}
         </div>
-        
       </div>
     </section>
   );
