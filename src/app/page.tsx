@@ -8,6 +8,8 @@ import { InsightsSection } from '@/components/InsightsSection';
 import { ClientsSection } from '@/components/ClientsSection';
 import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
+import { StaticHeroBackground } from '@/components/StaticHeroBackground';
+import { InteractiveHeroBackground } from '@/components/InteractiveHeroBackground';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 export default function Home() {
@@ -55,9 +57,9 @@ export default function Home() {
         theme = 'light';
       }
 
-      // 4. CTA and Footer are Dark
+      // 4. CTA and Footer are Dark (or Light if interactive bg is active)
       if (cta && cta.top <= offset) {
-        theme = 'dark';
+        theme = isInteractiveBg ? 'light' : 'dark';
       }
 
       setNavTheme(theme);
@@ -116,9 +118,12 @@ export default function Home() {
           <ClientsSection />
         </div>
         
-        <div ref={ctaRef}>
-          <CTASection />
-          <Footer />
+        <div ref={ctaRef} className="relative w-full overflow-hidden bg-[#090909]">
+          {isInteractiveBg ? <InteractiveHeroBackground layoutMode="menu" /> : <StaticHeroBackground />}
+          <div className="relative z-10 flex flex-col">
+            <CTASection isInteractiveBg={isInteractiveBg} />
+            <Footer isInteractiveBg={isInteractiveBg} />
+          </div>
         </div>
       </div>
     </main>
