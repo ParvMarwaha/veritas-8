@@ -16,7 +16,7 @@ const logos = [
   { name: "Client 4", url: "/partners/resized%20logos/logo4.png" },
   { name: "Client 5", url: "/partners/resized%20logos/logo5.png" },
   { name: "Client 6", url: "/partners/resized%20logos/logo6.png" },
-  { name: "LTTS", url: "/partners/resized%20logos/ltts.png" },
+  { name: "L&T", url: "/partners/resized%20logos/lt.png" },
   { name: "Netcore", url: "/partners/resized%20logos/netcore.png" },
   { name: "Prepladder", url: "/partners/resized%20logos/prepladder.png" },
   { name: "TopHire", url: "/partners/resized%20logos/tophire.png" },

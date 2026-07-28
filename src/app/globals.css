@@ -46,7 +46,7 @@
 }
 
 .animate-marquee-scroll {
-  animation: marquee-scroll 40s linear infinite;
+  animation: marquee-scroll 100s linear infinite;
 }
 
 /* Pause only when a specific logo (span) is hovered */
