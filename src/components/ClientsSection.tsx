@@ -6,16 +6,16 @@ import { motion, useMotionValue, useTransform, animate, useInView } from 'framer
 const logos = [
   { name: "AngelList", url: "/partners/resized%20logos/angellist.png" },
   { name: "Bajaj", url: "/partners/resized%20logos/bajaj.png" },
-  { name: "Bajaj 2", url: "/partners/resized%20logos/bajaj2.png" },
+  { name: "Bajaj 2", url: "/partners/resized%20logos/bajaj2.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
   { name: "Games24x7", url: "/partners/resized%20logos/games24x7.png" },
   { name: "ImageKit", url: "/partners/resized%20logos/imagekit.png" },
-  { name: "Isthara", url: "/partners/resized%20logos/isthara.png" },
-  { name: "Client 1", url: "/partners/resized%20logos/logo1.png" },
-  { name: "Client 2", url: "/partners/resized%20logos/logo2.png" },
-  { name: "Client 3", url: "/partners/resized%20logos/logo3.png" },
-  { name: "Client 4", url: "/partners/resized%20logos/logo4.png" },
-  { name: "Client 5", url: "/partners/resized%20logos/logo5.png" },
-  { name: "Client 6", url: "/partners/resized%20logos/logo6.png" },
+  { name: "Isthara", url: "/partners/resized%20logos/isthara.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 1", url: "/partners/resized%20logos/logo1.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 2", url: "/partners/resized%20logos/logo2.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 3", url: "/partners/resized%20logos/logo3.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 4", url: "/partners/resized%20logos/logo4.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 5", url: "/partners/resized%20logos/logo5.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
+  { name: "Client 6", url: "/partners/resized%20logos/logo6.png", scale: "scale-[1.7] group-hover:scale-[1.8]" },
   { name: "L&T", url: "/partners/resized%20logos/lt.png" },
   { name: "Netcore", url: "/partners/resized%20logos/netcore.png" },
   { name: "Prepladder", url: "/partners/resized%20logos/prepladder.png" },
@@ -168,7 +168,7 @@ export function ClientsSection() {
               <img 
                 src={logo.url} 
                 alt={logo.name}
-                className="w-full h-full object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+                className={`w-full h-full object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 ${logo.scale || "scale-100 group-hover:scale-110"}`}
               />
             </span>
           ))}
