@@ -112,7 +112,7 @@ export default function Home() {
 
         </div>
 
-        <div ref={clientsRef} className="relative z-40 bg-[#F2F2F2]">
+        <div ref={clientsRef} className="relative z-40 bg-white">
           <ClientsSection />
         </div>
         

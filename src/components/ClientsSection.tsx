@@ -16,7 +16,6 @@ const logos = [
   { name: "Client 4", url: "/partners/resized%20logos/logo4.png" },
   { name: "Client 5", url: "/partners/resized%20logos/logo5.png" },
   { name: "Client 6", url: "/partners/resized%20logos/logo6.png" },
-  { name: "L&T", url: "/partners/resized%20logos/lt.png" },
   { name: "LTTS", url: "/partners/resized%20logos/ltts.png" },
   { name: "Netcore", url: "/partners/resized%20logos/netcore.png" },
   { name: "Prepladder", url: "/partners/resized%20logos/prepladder.png" },
@@ -47,7 +46,7 @@ function AnimatedCounter({ to, suffix = "", duration = 2 }: { to: number, suffix
 
 export function ClientsSection() {
   return (
-    <section className="w-full bg-[#F2F2F2] pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden relative font-sans">
+    <section className="w-full bg-white pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden relative font-sans">
       
       {/* 12-Column Layout container matching ServicesSection's padding structure */}
       <div className="w-full px-6 md:px-16 relative z-10">
@@ -156,15 +155,15 @@ export function ClientsSection() {
       <div className="w-full relative mt-10 md:mt-12 py-12 md:py-24 flex overflow-hidden">
         
         {/* Fade gradients for smooth entry/exit */}
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#F2F2F2] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#F2F2F2] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <div className="flex whitespace-nowrap items-center w-max animate-marquee-scroll">
           {/* Duplicate logos to ensure seamless looping without any absolute positioning overlaps */}
           {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((logo, index) => (
             <span 
               key={index} 
-              className="mx-8 lg:mx-12 cursor-pointer flex items-center justify-center w-[140px] md:w-[180px] h-[80px] md:h-[100px] group mix-blend-multiply"
+              className="mx-12 lg:mx-16 cursor-pointer flex items-center justify-center w-[180px] md:w-[260px] h-[100px] md:h-[130px] group mix-blend-multiply"
             >
               <img 
                 src={logo.url} 
