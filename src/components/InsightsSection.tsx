@@ -62,17 +62,17 @@ export function InsightsSection() {
       className="relative w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-12 lg:px-16 font-sans overflow-hidden"
     >
       {/* Interactive Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-60 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.1), transparent 80%)' }}></div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.12), transparent 80%)' }}></div>
       
       {/* Flashlight Dot Grid */}
       <div 
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-out"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
-          maskImage: `radial-gradient(circle 450px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
-          WebkitMaskImage: `radial-gradient(circle 450px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
+          maskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
+          WebkitMaskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
           opacity: isHovering ? 1 : 0
         }}
       />
@@ -83,53 +83,80 @@ export function InsightsSection() {
           
           {/* Column 1: Header */}
           <div className="flex flex-col h-full">
-            {/* Top Block: Fixed height on desktop ensures the description below aligns perfectly with other columns */}
-            <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
-              <span className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-6 block">
+            {/* Top Block */}
+            <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0 justify-start">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] uppercase mb-6 block"
+              >
                 From our Knowledge Hub
-              </span>
-              <h2 className="text-6xl md:text-7xl lg:text-[70px] xl:text-[84px] font-bold tracking-tighter leading-[0.9]">
+              </motion.span>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1]"
+              >
                 Insights
-              </h2>
+              </motion.h2>
             </div>
             
-            {/* Button pushed to the bottom to align with the images in other columns */}
-            <button className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors w-fit mt-12 lg:mt-auto pb-4">
+            {/* Button pushed to the bottom */}
+            <motion.button 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/50 transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
+            >
               View All Articles
-              <span className="w-3 h-3 bg-white/30 group-hover:bg-[#D02717] transition-colors" />
-            </button>
+              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
+            </motion.button>
           </div>
 
           {/* Columns 2, 3, 4: Articles */}
           {displayInsights.map((item, idx) => (
             <motion.div 
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
               className="flex flex-col group cursor-pointer h-full"
             >
-              {/* Top Block: Fixed height on desktop aligns the titles and pushes the descriptions down uniformly */}
+              {/* Top Block: Fixed height on desktop aligns the titles */}
               <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
-                <div className="w-full h-[1.5px] bg-white/20 mb-6 group-hover:bg-white/50 transition-colors duration-300" />
-                <h3 className="text-2xl lg:text-[28px] font-medium tracking-tight leading-[1.3] group-hover:text-[#D02717] transition-colors duration-300 pr-4">
+                <motion.div 
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
+                  className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717]/60 transition-colors duration-500 origin-left" 
+                />
+                <h3 className="text-2xl lg:text-[32px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-2">
                   {item.title}
                 </h3>
               </div>
 
               {/* Description Text */}
-              <p className="text-[14px] text-white/50 leading-[1.8]">
+              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/70 transition-colors duration-500">
                 {item.description}
               </p>
 
               {/* Image pushed to the bottom */}
               <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
-                <div className="absolute inset-0 bg-[#090909]/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-[#090909]/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
+                
+                {/* Moody Red Tint Overlay */}
+                <div className="absolute inset-0 bg-[#D02717]/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-700 z-20 pointer-events-none" />
+                
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                  className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
                 />
               </div>
             </motion.div>
