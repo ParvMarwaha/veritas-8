@@ -82,7 +82,7 @@ export function InsightsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 xl:gap-24">
           
           {/* Column 1: Header */}
-          <div className="flex flex-col h-full relative">
+          <div className="flex flex-col h-full">
             {/* Top Block */}
             <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0 justify-start">
               <motion.span 
@@ -104,27 +104,17 @@ export function InsightsSection() {
               </motion.h2>
             </div>
             
-            {/* Bottom Content added for balance */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            {/* Button pushed to the bottom */}
+            <motion.button 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-12 lg:mt-auto pb-4"
+              transition={{ delay: 0.4 }}
+              className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/50 transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
             >
-              <div className="flex items-baseline gap-1 mb-3">
-                <span className="text-5xl lg:text-6xl font-bold tracking-tighter text-white">400</span>
-                <span className="text-[#D02717] font-bold text-3xl">+</span>
-              </div>
-              <p className="text-[14px] text-white/50 leading-[1.8] max-w-[280px] mb-8">
-                Articles, case studies, and industry reports published by the Veritas research team to keep you ahead of the curve.
-              </p>
-              
-              <button className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/50 transition-all duration-300 w-fit hover:translate-x-1">
-                View All Articles
-                <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
-              </button>
-            </motion.div>
+              View All Articles
+              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
+            </motion.button>
           </div>
 
           {/* Columns 2, 3, 4: Articles */}
@@ -135,12 +125,10 @@ export function InsightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className={`flex flex-col group cursor-pointer h-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-4 ${
-                idx === 1 ? 'lg:mt-12' : idx === 2 ? 'lg:mt-24' : ''
-              }`}
+              className="flex flex-col group cursor-pointer h-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-3"
             >
               {/* Top Block: Fixed height on desktop aligns the titles */}
-              <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0 relative">
+              <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
                 <motion.div 
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -148,35 +136,24 @@ export function InsightsSection() {
                   transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
                   className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717] group-hover:scale-y-[2] transition-all duration-500 origin-left" 
                 />
-                
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-2xl lg:text-[30px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 group-hover:translate-x-2">
-                    {item.title}
-                  </h3>
-                  
-                  {/* Arrow Icon that slides in on hover */}
-                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shrink-0 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:border-[#D02717] group-hover:bg-[#D02717]/10 transition-all duration-500 mt-1">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#D02717] -rotate-45 group-hover:rotate-0 transition-transform duration-500">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                </div>
+                <h3 className="text-2xl lg:text-[32px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-3">
+                  {item.title}
+                </h3>
               </div>
 
               {/* Description Text */}
-              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/80 transition-colors duration-500 mt-4 lg:mt-0 relative z-10">
+              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/80 transition-colors duration-500">
                 {item.description}
               </p>
 
               {/* Image pushed to the bottom */}
-              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto shadow-2xl group-hover:shadow-[0_20px_40px_rgba(208,39,23,0.15)] transition-shadow duration-700">
+              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto shadow-lg">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
                 
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.15] group-hover:rotate-2 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.12] group-hover:rotate-1 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
                 />
               </div>
             </motion.div>
