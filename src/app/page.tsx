@@ -26,6 +26,7 @@ export default function Home() {
   const insightsRef = useRef<HTMLDivElement>(null);
   const clientsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +38,7 @@ export default function Home() {
       const insights = insightsRef.current?.getBoundingClientRect();
       const clients = clientsRef.current?.getBoundingClientRect();
       const cta = ctaRef.current?.getBoundingClientRect();
+      const footer = footerRef.current?.getBoundingClientRect();
 
       // Check in chronological scroll order. Later sections override earlier ones if overlapping.
       
@@ -55,8 +57,13 @@ export default function Home() {
         theme = 'light';
       }
 
-      // 4. CTA and Footer are Dark (or Light for CTA if interactive)
+      // 4. CTA is Light if interactive, Dark if not
       if (cta && cta.top <= offset) {
+        theme = isInteractiveBg ? 'light' : 'dark';
+      }
+
+      // 5. Footer is always Dark
+      if (footer && footer.top <= offset) {
         theme = 'dark';
       }
 
@@ -118,6 +125,8 @@ export default function Home() {
         
         <div ref={ctaRef}>
           <CTASection isInteractiveBg={isInteractiveBg} />
+        </div>
+        <div ref={footerRef}>
           <Footer />
         </div>
       </div>

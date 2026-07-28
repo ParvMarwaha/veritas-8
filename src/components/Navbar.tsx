@@ -93,7 +93,7 @@ export function Navbar({
       <header 
         onMouseEnter={() => isHovered.current = true}
         onMouseLeave={() => isHovered.current = false}
-        className={`fixed top-0 left-0 w-full z-[90] px-6 md:px-16 py-10 md:py-12 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${
+        className={`fixed top-0 left-0 w-full z-[90] px-6 md:px-16 py-6 md:py-8 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${
           !hasMounted ? '-translate-y-full opacity-0' : (isMenuOpen ? 'opacity-0 pointer-events-none translate-y-[-10px]' : (isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-100'))
         }`}
       >
