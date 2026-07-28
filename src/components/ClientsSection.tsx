@@ -156,12 +156,12 @@ export function ClientsSection() {
           {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((logo, index) => (
             <span 
               key={index} 
-              className="mx-12 lg:mx-16 cursor-pointer flex items-center justify-center min-w-[160px] md:min-w-[200px] group mix-blend-multiply"
+              className="mx-8 lg:mx-12 cursor-pointer flex items-center justify-center w-[140px] md:w-[180px] h-[80px] md:h-[100px] group mix-blend-multiply"
             >
               <img 
                 src={logo.url} 
                 alt={logo.name}
-                className={`h-12 md:h-16 lg:h-20 w-auto max-w-[180px] md:max-w-[220px] lg:max-w-[280px] object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 ${logo.scale}`}
+                className="w-full h-full object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
               />
             </span>
           ))}
