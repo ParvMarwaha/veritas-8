@@ -53,11 +53,11 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
   return (
     <div 
       onMouseMove={handleMouseMove}
-      className={`group relative bg-[#D02717] text-white px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]`}
+      className={`group relative bg-[#F4F4F5] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]`}
     >
       {/* 1. High Impact Geometric Sweep Fill from Center Circle */}
       <div 
-        className={`absolute ${config.sweepPos} w-[300%] aspect-square bg-[#090909] rounded-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] scale-0 group-hover:scale-100 z-0 will-change-transform transform-gpu`}
+        className={`absolute ${config.sweepPos} w-[300%] aspect-square bg-[#111111] rounded-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] scale-0 group-hover:scale-100 z-0 will-change-transform transform-gpu`}
       />
 
       {/* 2. Spotlight Hover Effect (Stronger) */}
@@ -76,10 +76,10 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
       
       {/* 3. Content wrapper (Pushed to safe corners) */}
       <div className={`relative z-10 transform transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${index >= 2 ? 'group-hover:translate-y-1' : 'group-hover:-translate-y-1'} group-hover:scale-[1.01] flex flex-col items-start text-left will-change-transform transform-gpu`}>
-        <h3 className="text-[24px] lg:text-[30px] font-bold mb-3 tracking-tight drop-shadow-sm transition-colors duration-700 group-hover:text-[#F7F5F2]">
+        <h3 className="text-[24px] lg:text-[30px] font-bold mb-3 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {card.title}
         </h3>
-        <p className="text-[14px] lg:text-[15px] leading-[1.6] text-white/80 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white group-hover:drop-shadow-md">
+        <p className="text-[14px] lg:text-[15px] leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
           {card.desc}
         </p>
       </div>
