@@ -118,7 +118,7 @@ export function Navbar({
             <img src="/logo.png" alt="Veritas Logo" className="h-8 md:h-10 lg:h-12 w-auto object-contain" />
           </a>
           
-          <div className={`flex items-center text-[18px] md:text-[22px] font-sans font-medium uppercase tracking-tight cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
+          <div className={`flex items-center text-[14px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
             <AnimatedButton 
               variant="text" 
               className="px-0 py-0 transition-colors duration-500"
