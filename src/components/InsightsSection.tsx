@@ -125,7 +125,7 @@ export function InsightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="flex flex-col group cursor-pointer h-full"
+              className="flex flex-col group cursor-pointer h-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-3"
             >
               {/* Top Block: Fixed height on desktop aligns the titles */}
               <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
@@ -134,29 +134,26 @@ export function InsightsSection() {
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
-                  className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717]/60 transition-colors duration-500 origin-left" 
+                  className="w-full h-[1.5px] bg-white/20 mb-8 group-hover:bg-[#D02717] group-hover:scale-y-[2] transition-all duration-500 origin-left" 
                 />
-                <h3 className="text-2xl lg:text-[32px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-2">
+                <h3 className="text-2xl lg:text-[32px] font-medium tracking-tight leading-[1.2] text-white/90 group-hover:text-[#D02717] transition-all duration-500 pr-4 group-hover:translate-x-3">
                   {item.title}
                 </h3>
               </div>
 
               {/* Description Text */}
-              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/70 transition-colors duration-500">
+              <p className="text-[14px] text-white/50 leading-[1.8] group-hover:text-white/80 transition-colors duration-500">
                 {item.description}
               </p>
 
               {/* Image pushed to the bottom */}
-              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
-                <div className="absolute inset-0 bg-[#090909]/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
-                
-                {/* Moody Red Tint Overlay */}
-                <div className="absolute inset-0 bg-[#D02717]/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-700 z-20 pointer-events-none" />
+              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto shadow-lg">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
                 
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.12] group-hover:rotate-1 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
                 />
               </div>
             </motion.div>
