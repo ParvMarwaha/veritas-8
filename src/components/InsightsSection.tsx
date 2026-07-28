@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const insights = [
@@ -26,10 +26,58 @@ const insights = [
 
 export function InsightsSection() {
   const displayInsights = insights.slice(0, 3); 
+  const containerRef = useRef<HTMLElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({ 
+          x: e.clientX - rect.left, 
+          y: e.clientY - rect.top 
+        });
+      }
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseenter', () => setIsHovering(true));
+      container.addEventListener('mouseleave', () => setIsHovering(false));
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseenter', () => setIsHovering(true));
+        container.removeEventListener('mouseleave', () => setIsHovering(false));
+      }
+    };
+  }, []);
 
   return (
-    <section className="w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-12 lg:px-16 font-sans">
-      <div className="max-w-[1600px] w-full mx-auto">
+    <section 
+      ref={containerRef}
+      className="relative w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-12 lg:px-16 font-sans overflow-hidden"
+    >
+      {/* Interactive Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-60 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.1), transparent 80%)' }}></div>
+      
+      {/* Flashlight Dot Grid */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          maskImage: `radial-gradient(circle 450px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
+          WebkitMaskImage: `radial-gradient(circle 450px at ${mousePosition.x}px ${mousePosition.y}px, black 20%, transparent 100%)`,
+          opacity: isHovering ? 1 : 0
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1600px] w-full mx-auto">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 xl:gap-24">
           
@@ -44,11 +92,6 @@ export function InsightsSection() {
                 Insights
               </h2>
             </div>
-            
-            {/* Description Text */}
-            <p className="text-white/50 text-[14px] leading-[1.8] lg:pr-8">
-              Explore our latest thinking on cap table management, compliance, and how to build a lasting culture of ownership across your organization.
-            </p>
             
             {/* Button pushed to the bottom to align with the images in other columns */}
             <button className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest hover:text-white text-white/70 transition-colors w-fit mt-12 lg:mt-auto pb-4">
