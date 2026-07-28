@@ -53,8 +53,8 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
           type: 'ellipse',
           cx: width / 2,
           cy: height / 2, 
-          rx: Math.min(420, width * 0.35),
-          ry: Math.min(220, height * 0.45),
+          rx: Math.min(360, width * 0.3),
+          ry: Math.min(130, height * 0.22),
         });
       } else {
         // Center text zone
@@ -99,7 +99,8 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
       const zones = getExclusionZones(w, h);
 
       // Uniform grid-based distribution for even coverage (Capped to prevent O(N^2) lag on high-res screens)
-      const targetDensity = Math.min(450, Math.floor((w * h) / 5000));
+      const densityDivisor = layoutMode === 'cta' ? 2000 : 5000;
+      const targetDensity = Math.min(450, Math.floor((w * h) / densityDivisor));
       const cols = Math.ceil(Math.sqrt(targetDensity * (w / h)));
       const rows = Math.ceil(targetDensity / cols);
       const cellW = w / cols;
