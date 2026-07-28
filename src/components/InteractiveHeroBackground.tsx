@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
  * - A soft crimson glow follows the cursor.
  * - Connections within range are drawn; near the cursor they turn crimson.
  */
-export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?: 'hero' | 'menu' }) {
+export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?: 'hero' | 'menu' | 'cta' }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -46,6 +46,15 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
           cy: height / 2,
           rx: isMobile ? width * 0.4 : 260, 
           ry: isMobile ? height * 0.35 : 280, 
+        });
+      } else if (layoutMode === 'cta') {
+        // Center text zone for CTA
+        zones.push({
+          type: 'ellipse',
+          cx: width / 2,
+          cy: height / 2, 
+          rx: Math.min(420, width * 0.35),
+          ry: Math.min(220, height * 0.45),
         });
       } else {
         // Center text zone

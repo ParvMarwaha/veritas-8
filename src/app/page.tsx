@@ -55,7 +55,7 @@ export default function Home() {
         theme = 'light';
       }
 
-      // 4. CTA and Footer are Dark
+      // 4. CTA and Footer are Dark (or Light for CTA if interactive)
       if (cta && cta.top <= offset) {
         theme = 'dark';
       }
@@ -117,7 +117,7 @@ export default function Home() {
         </div>
         
         <div ref={ctaRef}>
-          <CTASection />
+          <CTASection isInteractiveBg={isInteractiveBg} />
           <Footer />
         </div>
       </div>
