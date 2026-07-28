@@ -53,7 +53,7 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
   return (
     <div 
       onMouseMove={handleMouseMove}
-      className={`group relative bg-[#E4E4E7] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]`}
+      className={`group relative bg-[#FAFAFA] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]`}
     >
       {/* 1. High Impact Geometric Sweep Fill from Center Circle */}
       <div 
