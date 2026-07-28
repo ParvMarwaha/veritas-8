@@ -3,7 +3,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Navbar } from "@/components/Navbar";
 import { StaticHero } from '@/components/StaticHero';
-import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { InsightsSection } from '@/components/InsightsSection';
 import { ClientsSection } from '@/components/ClientsSection';
@@ -96,12 +95,10 @@ export default function Home() {
       </div>
       
       <div className="relative z-10">
-        <ScrollRevealSection />
-        
         {/* Sticky Overlap Container */}
-        <div className="relative w-full z-20 -mt-[100vh]">
+        <div className="relative w-full z-20">
           
-          {/* Services Section slides over the Scroll Reveal section and sticks at the top */}
+          {/* Services Section slides over the hero and sticks at the top */}
           <div className="sticky top-0 w-full bg-[#F7F5F2] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
             <div ref={servicesRef}>
               <ServicesSection />

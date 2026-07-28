@@ -48,7 +48,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
           onClick={onClose}
           className={`md:hidden absolute top-8 right-8 ${isInteractiveBg ? 'text-[#18181B]/50' : 'text-white/50'} hover:text-[#D02717] transition-all duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'} z-20`}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -89,7 +89,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
           onClick={onClose}
           className="hidden md:flex absolute top-8 right-8 text-white/50 hover:text-[#D02717] p-2 transition-colors duration-300 group z-20"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-90">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-90">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>

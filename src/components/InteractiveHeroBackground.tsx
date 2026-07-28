@@ -89,8 +89,8 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
 
       const zones = getExclusionZones(w, h);
 
-      // Uniform grid-based distribution for even coverage
-      const targetDensity = Math.floor((w * h) / 4500);
+      // Uniform grid-based distribution for even coverage (Capped to prevent O(N^2) lag on high-res screens)
+      const targetDensity = Math.min(450, Math.floor((w * h) / 5000));
       const cols = Math.ceil(Math.sqrt(targetDensity * (w / h)));
       const rows = Math.ceil(targetDensity / cols);
       const cellW = w / cols;
