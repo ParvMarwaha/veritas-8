@@ -41,7 +41,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
         
         {/* Render the hero background fixed so it covers completely without scrolling gaps */}
         <div className={`fixed inset-0 z-0 transition-opacity duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'} pointer-events-none`}>
-          {isOpen && (isInteractiveBg ? <InteractiveHeroBackground layoutMode="menu" /> : <StaticHeroBackground />)}
+          {isOpen && <InteractiveHeroBackground layoutMode="menu" />}
         </div>
         {/* Close Button Mobile */}
         <button 
