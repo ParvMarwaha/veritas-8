@@ -121,7 +121,7 @@ export function Navbar({
           <div className={`flex items-center text-[14px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
             <div 
               onClick={() => setIsMenuOpen(true)}
-              className={`relative w-16 h-16 rounded-full flex justify-center items-center group cursor-pointer overflow-hidden ${isFlipped ? '-ml-3' : '-mr-3'}`}
+              className={`relative w-12 h-12 rounded-full flex justify-center items-center group cursor-pointer overflow-hidden ${isFlipped ? '-ml-3' : '-mr-3'}`}
             >
               {/* Hover fill background */}
               <div 
@@ -129,12 +129,12 @@ export function Navbar({
                 style={{ backgroundColor: '#ff3333' }}
               ></div>
               
-              <div className={`relative z-10 w-9 h-4 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
+              <div className={`relative z-10 w-7 h-3 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
                 <div 
-                  className={`w-full h-[2.5px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
+                  className={`w-full h-[2px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
                 ></div>
                 <div 
-                  className={`w-2/3 h-[2.5px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
+                  className={`w-2/3 h-[2px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
                 ></div>
               </div>
             </div>
