@@ -119,27 +119,23 @@ export function Navbar({
           </a>
           
           <div className={`flex items-center text-[14px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
-            <AnimatedButton 
-              variant="text" 
-              className="px-0 py-0 transition-colors duration-500"
-              style={{
-                '--btn-text': isDark ? '#ffffff' : '#090909',
-                '--btn-hover-text': isDark ? '#ffffff' : '#090909'
-              } as React.CSSProperties}
-            >
-              Get in Touch
-            </AnimatedButton>
             <div 
               onClick={() => setIsMenuOpen(true)}
-              className={`w-20 h-20 flex justify-center items-center group cursor-pointer ${isFlipped ? '-ml-3' : '-mr-3'}`}
+              className={`relative w-16 h-16 rounded-full flex justify-center items-center group cursor-pointer overflow-hidden ${isFlipped ? '-ml-3' : '-mr-3'}`}
             >
-              <div className={`w-10 h-4 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
+              {/* Hover fill background */}
+              <div 
+                className="absolute inset-0 w-full h-full rounded-full scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
+                style={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }}
+              ></div>
+              
+              <div className={`relative z-10 w-9 h-4 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
                 <div 
-                  className={`w-full h-[3px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-50 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu`}
+                  className={`w-full h-[2.5px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu`}
                   style={{ backgroundColor: isDark ? '#ffffff' : '#090909' }}
                 ></div>
                 <div 
-                  className={`w-2/3 h-[3px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-150 will-change-transform transform-gpu`}
+                  className={`w-2/3 h-[2.5px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu`}
                   style={{ backgroundColor: isDark ? '#ffffff' : '#090909' }}
                 ></div>
               </div>
