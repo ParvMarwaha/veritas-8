@@ -26,31 +26,30 @@ export function AboutHero() {
   }), []);
 
   return (
-    <section className="relative w-full min-h-[70vh] flex flex-col justify-end bg-[#090909] text-white pb-24 pt-48 px-6 md:px-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-[#090909] pointer-events-none" />
+    <section className="relative w-full min-h-[90vh] flex flex-col justify-center bg-[#F6F5F2] text-[#18181B] pb-24 pt-48 px-6 md:px-16 overflow-hidden">
       
       <motion.div 
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="relative z-30 flex flex-col items-start justify-end w-full max-w-7xl mx-auto"
+        className="relative z-30 flex flex-col w-full max-w-7xl mx-auto h-full justify-center"
       >
-        <motion.h3 variants={itemVariants} className="text-[#D02717] font-sans font-semibold tracking-[0.15em] text-[12px] md:text-[14px] uppercase mb-8 md:mb-12">
-          About Veritas
-        </motion.h3>
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-12">
-          <div className="flex flex-col max-w-4xl">
-            <motion.h1 variants={itemVariants} className="text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] font-sans font-semibold tracking-[-0.02em] leading-[1.05] text-white mb-6">
-              Purposeful ownership structures.
-            </motion.h1>
-            <motion.h2 variants={itemVariants} className="text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] font-sans font-light tracking-tight leading-[1.2] text-white/70 max-w-2xl">
-              We empower companies with the strategic insights required to design equity programs that drive long-term value.
-            </motion.h2>
-          </div>
+        <motion.h1 variants={itemVariants} className="text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] font-sans font-medium tracking-tight leading-[1] text-[#18181B] mb-16 md:mb-24">
+          About Us
+        </motion.h1>
+        
+        <div className="flex flex-col md:flex-row items-start justify-between w-full gap-12 md:gap-24">
+          <motion.div variants={itemVariants} className="flex flex-col max-w-lg space-y-6">
+            <p className="text-[0.9rem] sm:text-[1rem] md:text-[1.1rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
+              Built around four essential pillars, our services combine financial precision, legal clarity, governance expertise, and employee engagement to create ownership structures that scale with your business.
+            </p>
+            <p className="text-[0.9rem] sm:text-[1rem] md:text-[1.1rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
+              We empower companies with the strategic insights required to design equity programs that drive long-term value, aligning incentives and attracting top tier talent to push your vision forward.
+            </p>
+          </motion.div>
           
-          <motion.div variants={itemVariants} className="flex flex-col items-start md:items-end text-left md:text-right hidden lg:flex">
-            <p className="text-white/40 text-[0.8rem] uppercase tracking-widest font-medium mb-2">Scroll</p>
-            <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent"></div>
+          <motion.div variants={itemVariants} className="w-full md:w-1/2 lg:w-[600px] aspect-[4/3] bg-[#d9d9d9] relative overflow-hidden rounded-sm">
+            {/* Image Placeholder */}
           </motion.div>
         </div>
       </motion.div>

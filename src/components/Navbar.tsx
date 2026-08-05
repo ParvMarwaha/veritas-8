@@ -99,11 +99,11 @@ export function Navbar({
       >
         {/* Permanent dark gradients for dark theme (Split left/right to keep center bright) */}
         <div 
-          className={`absolute top-0 left-0 w-[60%] h-[250%] bg-gradient-to-b from-[#090909] via-[#090909]/80 to-transparent -z-20 pointer-events-none transition-opacity duration-500 ${isDark ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute top-0 left-0 w-[60%] h-[250%] bg-gradient-to-b from-[#090909] via-[#090909]/80 to-transparent -z-20 pointer-events-none transition-opacity duration-500 ${isDark && !isScrolled ? 'opacity-100' : 'opacity-0'}`}
           style={{ WebkitMaskImage: 'linear-gradient(to right, black 30%, transparent 100%)', maskImage: 'linear-gradient(to right, black 30%, transparent 100%)' }}
         ></div>
         <div 
-          className={`absolute top-0 right-0 w-[60%] h-[250%] bg-gradient-to-b from-[#090909] via-[#090909]/80 to-transparent -z-20 pointer-events-none transition-opacity duration-500 ${isDark ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute top-0 right-0 w-[60%] h-[250%] bg-gradient-to-b from-[#090909] via-[#090909]/80 to-transparent -z-20 pointer-events-none transition-opacity duration-500 ${isDark && !isScrolled ? 'opacity-100' : 'opacity-0'}`}
           style={{ WebkitMaskImage: 'linear-gradient(to left, black 30%, transparent 100%)', maskImage: 'linear-gradient(to left, black 30%, transparent 100%)' }}
         ></div>
         
