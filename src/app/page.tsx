@@ -105,8 +105,8 @@ export default function Home() {
         {/* Sticky Overlap Container */}
         <div className="relative w-full z-20">
           
-          {/* Services Section slides over the hero and sticks at the top */}
-          <div className="sticky top-0 w-full bg-white pb-10 rounded-t-3xl md:rounded-t-[2.5rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)] transition-all duration-500">
+          {/* Services Section slides over the hero */}
+          <div className="relative w-full bg-white pb-10 rounded-t-3xl md:rounded-t-[2.5rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)] transition-all duration-500">
             <div ref={servicesRef}>
               <ServicesSection />
             </div>
