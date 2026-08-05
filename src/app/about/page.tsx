@@ -118,7 +118,7 @@ export default function AboutPage() {
         </div>
         
         <div ref={ctaRef} className="relative z-[60]">
-          <CTASection isInteractiveBg={isInteractiveBg} />
+          <CTASection isInteractiveBg={isInteractiveBg} showBackground={false} />
         </div>
         <div ref={footerRef} className="relative z-[70]">
           <Footer />

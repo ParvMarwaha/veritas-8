@@ -44,16 +44,16 @@ export function AboutStory() {
             className="w-full h-[1px] bg-[#D02717] mb-12 lg:mb-16 origin-left"
           ></motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-            <div>
-              <h4 className="text-[20px] font-semibold text-[#090909] mb-4">Our Vision</h4>
-              <p className="text-[14px] md:text-[15px] text-[#090909]/70 leading-[1.6] font-light">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="group border border-black/10 p-8 lg:p-10 hover:bg-[#090909] transition-colors duration-500 cursor-default">
+              <h4 className="text-[24px] font-semibold text-[#090909] group-hover:text-white mb-4 transition-colors duration-500">Our Vision</h4>
+              <p className="text-[15px] md:text-[16px] text-[#090909]/70 group-hover:text-white/70 leading-[1.6] font-light transition-colors duration-500">
                 To create a business landscape where every stakeholder is genuinely invested in the collective success of the organization. We envision a future where ownership structures are transparent, fair, and incredibly motivating.
               </p>
             </div>
-            <div>
-              <h4 className="text-[20px] font-semibold text-[#090909] mb-4">Our Mission</h4>
-              <p className="text-[14px] md:text-[15px] text-[#090909]/70 leading-[1.6] font-light">
+            <div className="group border border-black/10 p-8 lg:p-10 hover:bg-[#D02717] transition-colors duration-500 cursor-default">
+              <h4 className="text-[24px] font-semibold text-[#090909] group-hover:text-white mb-4 transition-colors duration-500">Our Mission</h4>
+              <p className="text-[15px] md:text-[16px] text-[#090909]/70 group-hover:text-white/90 leading-[1.6] font-light transition-colors duration-500">
                 To empower companies with the structural frameworks and strategic insights required to design, implement, and manage equity programs that attract top talent and drive long-term value creation.
               </p>
             </div>

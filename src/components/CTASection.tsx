@@ -6,13 +6,15 @@ import { InteractiveHeroBackground } from './InteractiveHeroBackground';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from './AnimatedButton';
 
-export function CTASection({ isInteractiveBg = false }: { isInteractiveBg?: boolean }) {
+export function CTASection({ isInteractiveBg = false, showBackground = true }: { isInteractiveBg?: boolean, showBackground?: boolean }) {
   return (
     <section className={`relative w-full py-24 md:py-32 overflow-hidden flex flex-col items-center justify-center ${isInteractiveBg ? 'bg-white text-[#090909]' : 'bg-[#090909] text-white'}`}>
       {/* Background topography with smooth fade at top and bottom */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
-        {isInteractiveBg ? <InteractiveHeroBackground layoutMode="cta" /> : <StaticHeroBackground />}
-      </div>
+      {showBackground && (
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
+          {isInteractiveBg ? <InteractiveHeroBackground layoutMode="cta" /> : <StaticHeroBackground />}
+        </div>
+      )}
       
       <div className="relative z-10 max-w-[800px] mx-auto px-6 text-center flex flex-col items-center">
         <motion.h2 
