@@ -5,6 +5,7 @@ import { motion, Variants } from 'framer-motion';
 import { StaticHeroBackground } from './StaticHeroBackground';
 import { InteractiveHeroBackground } from './InteractiveHeroBackground';
 import { AnimatedButton } from './AnimatedButton';
+import { usePreloader } from '@/context/PreloaderContext';
 
 export function StaticHero({ 
   onReady, 
@@ -17,6 +18,7 @@ export function StaticHero({
   isMenuOpen?: boolean,
   isInteractiveBg?: boolean
 }) {
+  const { isPreloaderComplete } = usePreloader();
 
   React.useEffect(() => {
     if (isInteractiveBg && onReady) {
@@ -41,7 +43,7 @@ export function StaticHero({
   }), []);
 
   const itemVariants: Variants = useMemo(() => ({
-    hidden: { opacity: 0, y: 25, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
     visible: { 
       opacity: 1, 
       y: 0, 
@@ -57,7 +59,7 @@ export function StaticHero({
       {/* Hero Content */}
       <motion.div 
         initial="hidden"
-        animate={isMenuOpen ? "exit" : ((isReady || isInteractiveBg) ? "visible" : "hidden")}
+        animate={isMenuOpen ? "exit" : ((isReady || isInteractiveBg) && isPreloaderComplete ? "visible" : "hidden")}
         variants={containerVariants}
         className={`relative z-30 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl transition-opacity duration-500 mt-8 md:mt-12`}
       >

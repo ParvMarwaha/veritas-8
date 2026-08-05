@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { useLenis } from 'lenis/react';
 import { StaticHeroBackground } from './StaticHeroBackground';
@@ -58,7 +60,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
           {[
             { name: 'Home', href: '/' },
             { name: 'About Us', href: '/about' },
-            { name: 'Our Framework', href: '#' },
+            { name: 'Our Framework', href: '/framework' },
             { name: 'Insights', href: '#' },
             { name: 'Contact Us', href: '#' }
           ].map((item, index) => (

@@ -3,7 +3,7 @@
 import React, { useMemo, useRef } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 
-export function AboutHero() {
+export function FrameworkHero() {
   const containerRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -11,7 +11,7 @@ export function AboutHero() {
     offset: ["start start", "end start"]
   });
 
-  // "About Us" text moves upwards slightly with the scroll
+  // Text moves upwards slightly with the scroll
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-150%"]);
   
   // Image stretches on the top side a little initially (scaleY with bottom origin)
@@ -54,18 +54,18 @@ export function AboutHero() {
         <motion.h1 
           variants={itemVariants} 
           style={{ y: textY }}
-          className="text-[4.5rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] font-sans font-medium tracking-[-0.03em] leading-[0.9] text-[#18181B] mb-12 md:mb-20"
+          className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] font-sans font-medium tracking-[-0.03em] leading-[0.9] text-[#18181B] mb-12 md:mb-20"
         >
-          About Us
+          Our Framework
         </motion.h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start w-full">
           <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col space-y-6 pt-1">
             <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
-              Built around four essential pillars, our services combine financial precision, legal clarity, governance expertise, and employee engagement to create ownership structures that scale with your business.
+              A comprehensive, end-to-end approach to designing, implementing, and managing ownership structures that drive true alignment between your company and its people.
             </p>
             <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
-              We empower companies with the strategic insights required to design equity programs that drive long-term value, aligning incentives and attracting top tier talent to push your vision forward.
+              From mathematical pool sizing to risk mitigation, precise legal documentation, and employee communication, we cover every aspect of the equity lifecycle.
             </p>
           </motion.div>
           
@@ -75,8 +75,8 @@ export function AboutHero() {
               className="absolute inset-0 w-full h-full bg-[#d9d9d9]"
             >
               <img 
-                src="/about_hero.png" 
-                alt="Veritas architectural aesthetic" 
+                src="/about_today.png" 
+                alt="Veritas Methodology" 
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>

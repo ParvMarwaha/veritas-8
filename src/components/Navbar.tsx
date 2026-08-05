@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AnimatedButton } from './AnimatedButton';
 import { NavigationOverlay } from './NavigationOverlay';
+import { usePreloader } from '@/context/PreloaderContext';
 
 export function Navbar({ 
   isReady = true, 
@@ -19,6 +20,7 @@ export function Navbar({
   isInteractiveBg?: boolean;
   setIsInteractiveBg?: (val: boolean) => void;
 }) {
+  const { isPreloaderComplete } = usePreloader();
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -29,9 +31,15 @@ export function Navbar({
   const hideTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Trigger entrance animation on mount
-    const timer = setTimeout(() => setHasMounted(true), 100);
-    
+    // Trigger entrance animation after preloader completes
+    if (isPreloaderComplete) {
+      // Slight delay so the navbar glides in right after the hero content
+      const timer = setTimeout(() => setHasMounted(true), 400);
+      return () => clearTimeout(timer);
+    }
+  }, [isPreloaderComplete]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -63,7 +71,6 @@ export function Navbar({
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
       if (hideTimeout.current) clearTimeout(hideTimeout.current);
     };

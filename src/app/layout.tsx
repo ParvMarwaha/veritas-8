@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Ownership structures designed for growth",
 };
 
+import { PreloaderProvider } from "@/context/PreloaderContext";
+import { InitialPreloader } from "@/components/InitialPreloader";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
 export default function RootLayout({
@@ -34,7 +36,10 @@ export default function RootLayout({
     >
       <body className="flex flex-col font-sans tracking-tight bg-[#090909]" suppressHydrationWarning>
         <SmoothScroll>
-          {children}
+          <PreloaderProvider>
+            <InitialPreloader />
+            {children}
+          </PreloaderProvider>
         </SmoothScroll>
       </body>
     </html>

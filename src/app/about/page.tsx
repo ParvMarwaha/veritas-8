@@ -15,12 +15,10 @@ import { AboutToday } from '@/components/about/AboutToday';
 export default function AboutPage() {
   const [isAppReady, setIsAppReady] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navTheme, setNavTheme] = useState<'dark' | 'light'>('dark'); // Hero is dark
+  const [navTheme, setNavTheme] = useState<'dark' | 'light'>('light'); // Hero is light
   const [isInteractiveBg, setIsInteractiveBg] = useState(false); // Disabled for About page
   
   const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, (y) => -y * 0.5);
-  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0.2]);
   
   const storyRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
@@ -28,11 +26,24 @@ export default function AboutPage() {
   const todayRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
+
+  // Parallax overlapping effect for Story and Values
+  const { scrollYProgress: storyProgress } = useScroll({
+    target: storyRef,
+    offset: ["start start", "end start"]
+  });
+  const storyY = useTransform(storyProgress, [0, 1], ["0%", "40%"]); // Story moves down at 40% speed when scrolled past
+
+  const { scrollYProgress: valuesProgress } = useScroll({
+    target: valuesRef,
+    offset: ["start start", "end start"]
+  });
+  const valuesY = useTransform(valuesProgress, [0, 1], ["0%", "40%"]); // Values moves down at 40% speed when scrolled past
   
   useEffect(() => {
     const handleScroll = () => {
       const offset = 80;
-      let theme: 'dark' | 'light' = 'dark'; // Default hero theme is dark
+      let theme: 'dark' | 'light' = 'light'; // Default hero theme is light
 
       const story = storyRef.current?.getBoundingClientRect();
       const values = valuesRef.current?.getBoundingClientRect();
@@ -90,30 +101,35 @@ export default function AboutPage() {
         setIsInteractiveBg={setIsInteractiveBg}
       />
       
-      <div className="sticky top-0 w-full h-[101vh] z-0 overflow-hidden">
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="w-full h-full">
-          <AboutHero />
-        </motion.div>
+      <div className="relative w-full z-10 overflow-hidden">
+        <AboutHero />
       </div>
       
-      <div className="relative z-10">
-        <div className="relative w-full z-20">
-          <div className="relative w-full bg-white pb-10 rounded-t-3xl md:rounded-t-[2.5rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)] transition-all duration-500">
-            <div ref={storyRef}>
-              <AboutStory />
-            </div>
-          </div>
-          
-          <div ref={valuesRef} className="relative z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] bg-[#090909]">
-            <AboutValues />
-          </div>
-        </div>
-
-        <div ref={leadershipRef} className="relative z-40 bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
-          <AboutLeadership />
+      <div className="relative z-10 w-full bg-[#090909]">
+        
+        {/* 2. Story Section (Moves slower to get overlapped by Values) */}
+        <div className="relative w-full z-20 bg-white" ref={storyRef}>
+          <motion.div style={{ y: storyY }}>
+            <AboutStory />
+          </motion.div>
         </div>
         
-        <div ref={todayRef} className="relative z-50 bg-[#090909] shadow-[0_-20px_50px_rgba(0,0,0,0.3)]">
+        {/* 3. Values Section - Slides over Story, then moves slower to get overlapped by Leadership */}
+        <div className="relative w-full z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] bg-[#090909]" ref={valuesRef}>
+          <motion.div style={{ y: valuesY }}>
+            <AboutValues />
+          </motion.div>
+        </div>
+
+        {/* 4. Leadership Section - Slides over Values */}
+        <div className="relative w-full z-40 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] bg-white">
+          <div ref={leadershipRef}>
+            <AboutLeadership />
+          </div>
+        </div>
+        
+        {/* 5. Today Section */}
+        <div ref={todayRef} className="relative w-full z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] bg-[#090909]">
           <AboutToday />
         </div>
         

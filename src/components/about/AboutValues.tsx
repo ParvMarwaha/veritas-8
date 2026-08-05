@@ -1,40 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 function ValueCard({ title, desc, index }: { title: string; desc: string; index: number }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
+  // Sweep originates from alternating corners
+  const sweepPos = index % 2 === 0 
+    ? "bottom-0 right-0 translate-x-1/2 translate-y-1/2" 
+    : "bottom-0 left-0 -translate-x-1/2 translate-y-1/2";
 
   return (
     <div 
-      onMouseMove={handleMouseMove}
-      className="group relative bg-[#111111] border border-white/5 px-8 py-10 flex flex-col items-start overflow-hidden transition-transform duration-700 hover:scale-[1.02] hover:z-20 cursor-pointer h-full min-h-[220px]"
+      className="group relative bg-[#111111] border border-white/5 px-8 py-10 flex flex-col items-start overflow-hidden transition-all duration-700 hover:border-white/30 hover:shadow-2xl hover:z-20 cursor-pointer h-full min-h-[220px]"
     >
-      <motion.div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 z-0"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              400px circle at ${mouseX}px ${mouseY}px,
-              rgba(208, 39, 23, 0.15),
-              transparent 80%
-            )
-          `,
-        }}
+      {/* Sweeping Geometric Fill */}
+      <div 
+        className={`absolute ${sweepPos} w-[250%] aspect-square bg-white rounded-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] scale-0 group-hover:scale-100 z-0 will-change-transform transform-gpu`}
       />
-      <div className="relative z-10 w-full">
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-[#D02717] transition-colors duration-500">
+
+      <div className="relative z-10 w-full transform transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-1 group-hover:scale-[1.02] will-change-transform transform-gpu">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-[#090909] transition-colors duration-700">
           {title}
         </h3>
-        <p className="text-[14px] md:text-[15px] leading-[1.6] text-white/60 font-light group-hover:text-white/90 transition-colors duration-500">
+        <p className="text-[14px] md:text-[15px] leading-[1.6] text-white/60 font-light group-hover:text-black/80 transition-colors duration-700">
           {desc}
         </p>
       </div>
@@ -43,6 +31,36 @@ function ValueCard({ title, desc, index }: { title: string; desc: string; index:
 }
 
 export function AboutValues() {
+  const containerRef = useRef<HTMLElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({ 
+          x: e.clientX - rect.left, 
+          y: e.clientY - rect.top 
+        });
+      }
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseenter', () => setIsHovering(true));
+      container.addEventListener('mouseleave', () => setIsHovering(false));
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseenter', () => setIsHovering(true));
+        container.removeEventListener('mouseleave', () => setIsHovering(false));
+      }
+    };
+  }, []);
+
   const values = [
     {
       title: "Integrity First",
@@ -63,8 +81,25 @@ export function AboutValues() {
   ];
 
   return (
-    <section className="w-full bg-[#090909] text-white py-24 md:py-32 px-6 md:px-16 font-sans relative z-20">
-      <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
+    <section ref={containerRef} className="w-full bg-[#090909] text-white py-24 md:py-32 px-6 md:px-16 font-sans relative z-20 overflow-hidden">
+      
+      {/* Interactive Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.12), transparent 80%)' }}></div>
+      
+      {/* Flashlight Dot Grid */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-out"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          maskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
+          WebkitMaskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
+          opacity: isHovering ? 1 : 0
+        }}
+      />
+
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center relative z-10">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

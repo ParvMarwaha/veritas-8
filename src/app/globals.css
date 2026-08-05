@@ -12,10 +12,9 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
-  /* Mobile & Tablet: Standard 100% scaling */
   html {
     font-size: 16px;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   
   /* Desktop only: The zoomed-out aesthetic */
@@ -31,7 +30,7 @@
     color: #ffffff;
     /* Hide the scrollbar for an editorial, immersive feel */
     scrollbar-width: none; /* Firefox */
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   
   body::-webkit-scrollbar {
