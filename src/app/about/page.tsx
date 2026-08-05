@@ -61,9 +61,9 @@ export default function AboutPage() {
         theme = 'dark';
       }
 
-      // 5. CTA is Dark (since interactive bg is false)
+      // 5. CTA is Light (matching home page)
       if (cta && cta.top <= offset) {
-        theme = 'dark';
+        theme = 'light';
       }
 
       // 6. Footer is Dark
@@ -118,7 +118,7 @@ export default function AboutPage() {
         </div>
         
         <div ref={ctaRef} className="relative z-[60]">
-          <CTASection isInteractiveBg={isInteractiveBg} />
+          <CTASection isInteractiveBg={true} />
         </div>
         <div ref={footerRef} className="relative z-[70]">
           <Footer />
