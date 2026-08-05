@@ -56,16 +56,21 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
 
         <nav className="flex flex-col space-y-5 md:space-y-8 relative z-20">
           {[
-            'Home',
-            'About Us',
-            'Our Framework',
-            'Insights',
-            'Contact Us'
+            { name: 'Home', href: '/' },
+            { name: 'About Us', href: '/about' },
+            { name: 'Our Framework', href: '#' },
+            { name: 'Insights', href: '#' },
+            { name: 'Contact Us', href: '#' }
           ].map((item, index) => (
-            <div className="overflow-hidden py-1 md:py-2" key={item}>
+            <div className="overflow-hidden py-1 md:py-2" key={item.name}>
               <a 
-                href="#" 
-                onClick={(e) => { e.preventDefault(); onClose(); }}
+                href={item.href} 
+                onClick={(e) => { 
+                  if (item.href === '#') {
+                    e.preventDefault(); 
+                  }
+                  onClose(); 
+                }}
                 className={`group relative flex items-center w-fit transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
                 style={{ transitionDelay: `${isOpen ? index * 80 : 0}ms` }}
               >
@@ -73,7 +78,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
                   0{index + 1}
                 </span>
                 <span className={`text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] font-sans font-semibold tracking-tight ${isInteractiveBg ? 'text-[#18181B]/80 group-hover:text-black' : 'text-white/80 group-hover:text-white'} group-hover:translate-x-2 transition-all duration-300 ease-out leading-[1.1] will-change-transform`}>
-                  {item}
+                  {item.name}
                 </span>
               </a>
             </div>
