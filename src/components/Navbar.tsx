@@ -126,17 +126,15 @@ export function Navbar({
               {/* Hover fill background */}
               <div 
                 className="absolute inset-0 w-full h-full rounded-full scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
-                style={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }}
+                style={{ backgroundColor: '#ff3333' }}
               ></div>
               
               <div className={`relative z-10 w-9 h-4 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
                 <div 
-                  className={`w-full h-[2.5px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu`}
-                  style={{ backgroundColor: isDark ? '#ffffff' : '#090909' }}
+                  className={`w-full h-[2.5px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
                 ></div>
                 <div 
-                  className={`w-2/3 h-[2.5px] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu`}
-                  style={{ backgroundColor: isDark ? '#ffffff' : '#090909' }}
+                  className={`w-2/3 h-[2.5px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu ${isDark ? 'bg-white' : 'bg-[#090909]'}`}
                 ></div>
               </div>
             </div>
