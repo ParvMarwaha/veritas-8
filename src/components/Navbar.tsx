@@ -126,7 +126,7 @@ export function Navbar({
               {/* Hover fill background */}
               <div 
                 className="absolute inset-0 w-full h-full rounded-full scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
-                style={{ backgroundColor: '#ff3333' }}
+                style={{ backgroundColor: '#D02717' }}
               ></div>
               
               <div className={`relative z-10 w-7 h-3 flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
