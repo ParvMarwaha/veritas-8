@@ -89,10 +89,17 @@ export function StaticHero({
           <div className="flex items-center space-x-3 md:space-x-4">
             {/* Overlapping Avatars */}
             <div className="flex -space-x-3">
-              {['bg-neutral-200', 'bg-neutral-300', 'bg-neutral-400', 'bg-neutral-500'].map((colorClass, i) => (
-                <div 
+              {[
+                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80',
+                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&h=100&q=80',
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80',
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80'
+              ].map((src, i) => (
+                <img 
                   key={i}
-                  className={`w-7 h-7 md:w-8 md:h-8 rounded-full ${colorClass}`}
+                  src={src}
+                  alt={`Trusted User ${i + 1}`}
+                  className={`w-7 h-7 md:w-8 md:h-8 rounded-full border-2 object-cover object-center relative z-10 ${isInteractiveBg ? 'border-white' : 'border-[#090909]'}`}
                 />
               ))}
             </div>
