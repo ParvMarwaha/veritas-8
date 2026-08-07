@@ -6,6 +6,8 @@ import { motion, useInView } from "framer-motion";
 // Physics Configuration
 const HOVER_RADIUS = 550;       // Tone down radius slightly
 const MAX_ELEVATION = 24;       // Moderate depth, not too extreme
+const SPRING_STIFFNESS = 0.08;
+const SPRING_DAMPING = 0.85;
 
 interface TileState {
   el: SVGRectElement;
