@@ -8,7 +8,7 @@ import { AnimatedButton } from './AnimatedButton';
 
 export function CTASection({ isInteractiveBg = false, showBackground = true }: { isInteractiveBg?: boolean, showBackground?: boolean }) {
   return (
-    <section className={`relative w-full py-24 md:py-32 overflow-hidden flex flex-col items-center justify-center ${isInteractiveBg ? 'bg-white text-[#090909]' : 'bg-[#090909] text-white'}`}>
+    <section className={`relative w-full py-24 md:py-32 px-6 md:px-16 overflow-hidden flex flex-col items-center justify-center ${isInteractiveBg ? 'bg-white text-[#090909]' : 'bg-[#090909] text-white'}`}>
       {/* Background topography with smooth fade at top and bottom */}
       {showBackground && (
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
@@ -16,7 +16,7 @@ export function CTASection({ isInteractiveBg = false, showBackground = true }: {
         </div>
       )}
       
-      <div className="relative z-10 max-w-[800px] mx-auto px-6 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-[1400px] w-full mx-auto text-center flex flex-col items-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

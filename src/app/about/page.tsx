@@ -41,7 +41,9 @@ export default function AboutPage() {
   const valuesY = useTransform(valuesProgress, [0, 1], ["0%", "40%"]); // Values moves down at 40% speed when scrolled past
   
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    
+    const updateTheme = () => {
       const offset = 80;
       let theme: 'dark' | 'light' = 'light'; // Default hero theme is light
 
@@ -67,9 +69,9 @@ export default function AboutPage() {
         theme = 'light';
       }
 
-      // 4. Today is Dark
+      // 4. Today is Light
       if (today && today.top <= offset && today.bottom > offset) {
-        theme = 'dark';
+        theme = 'light';
       }
 
       // 5. CTA is Light (matching home page)
@@ -84,9 +86,19 @@ export default function AboutPage() {
 
       setNavTheme(theme);
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateTheme();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    updateTheme();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -109,14 +121,14 @@ export default function AboutPage() {
         
         {/* 2. Story Section (Moves slower to get overlapped by Values) */}
         <div className="relative w-full z-20 bg-white" ref={storyRef}>
-          <motion.div style={{ y: storyY }}>
+          <motion.div style={{ y: storyY }} className="transform-gpu will-change-transform">
             <AboutStory />
           </motion.div>
         </div>
         
         {/* 3. Values Section - Slides over Story, then moves slower to get overlapped by Leadership */}
         <div className="relative w-full z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] bg-[#090909]" ref={valuesRef}>
-          <motion.div style={{ y: valuesY }}>
+          <motion.div style={{ y: valuesY }} className="transform-gpu will-change-transform">
             <AboutValues />
           </motion.div>
         </div>
@@ -129,7 +141,7 @@ export default function AboutPage() {
         </div>
         
         {/* 5. Today Section */}
-        <div ref={todayRef} className="relative w-full z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] bg-[#090909]">
+        <div ref={todayRef} className="relative w-full z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] bg-white">
           <AboutToday />
         </div>
         

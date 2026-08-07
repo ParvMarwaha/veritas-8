@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 /**
  * Playful, cursor-reactive field for the hero.
@@ -14,6 +14,12 @@ import { motion } from "framer-motion";
  */
 export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?: 'hero' | 'menu' | 'cta' }) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const isInView = useInView(ref);
+  const inViewRef = useRef(true);
+
+  useEffect(() => {
+    inViewRef.current = isInView;
+  }, [isInView]);
 
   useEffect(() => {
     const canvas = ref.current;
@@ -66,22 +72,25 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
           ry: Math.min(280, height * 0.35),
         });
 
+        const maxW = 1400;
+        const paddingX = width > maxW ? (width - maxW) / 2 : 0;
+        
         // Logo zone (Top Left)
         zones.push({
           type: 'rect',
-          x: 40,
-          y: 20,
-          w: 140,
-          h: 60,
+          x: paddingX - 20,
+          y: -20,
+          w: 300,
+          h: 140,
         });
 
         // Navbar buttons zone (Top Right)
         zones.push({
           type: 'rect',
-          x: width - (isMobile ? 240 : 320),
-          y: 20,
-          w: isMobile ? 220 : 280,
-          h: 60,
+          x: (width - paddingX) - (isMobile ? 160 : 200),
+          y: -20,
+          w: 240,
+          h: 140,
         });
       }
       return zones;
@@ -178,6 +187,11 @@ export function InteractiveHeroBackground({ layoutMode = 'hero' }: { layoutMode?
     const CONNECT = 210;
 
     const tick = () => {
+      if (!inViewRef.current) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+
       t += 0.006;
       ctx.clearRect(0, 0, w, h);
 

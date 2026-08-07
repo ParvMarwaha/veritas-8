@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const insights = [
   {
@@ -59,7 +60,7 @@ export function InsightsSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full bg-[#090909] text-white py-32 md:py-48 px-6 md:px-12 lg:px-16 font-sans overflow-hidden"
+      className="relative w-full bg-[#090909] text-white py-16 md:py-32 lg:py-48 px-6 md:px-16 font-sans overflow-hidden"
     >
       {/* Interactive Background */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
@@ -77,7 +78,7 @@ export function InsightsSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1600px] w-full mx-auto">
+      <div className="relative z-10 max-w-[1400px] w-full mx-auto">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 xl:gap-24">
           
@@ -89,7 +90,7 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#E82C18] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-3 block drop-shadow-sm"
+                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-3 block drop-shadow-sm"
               >
                 From our Knowledge Hub
               </motion.span>
@@ -105,16 +106,21 @@ export function InsightsSection() {
             </div>
             
             {/* Button pushed to the bottom */}
-            <motion.button 
+            <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit mt-12 lg:mt-auto pb-4 hover:translate-x-1"
+              className="mt-12 lg:mt-auto pb-4"
             >
-              View All Articles
-              <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#E82C18] group-hover:w-12 transition-all duration-500" />
-            </motion.button>
+              <Link 
+                href="/insights"
+                className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit hover:translate-x-1"
+              >
+                View All Articles
+                <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Columns 2, 3, 4: Articles */}
@@ -125,39 +131,41 @@ export function InsightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="flex flex-col group cursor-pointer h-full"
+              className="h-full"
             >
-              {/* Top Block: Fixed height on desktop aligns the titles */}
-              <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
-                <motion.div 
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
-                  className="w-full h-[1.5px] bg-white/20 mb-8 relative overflow-hidden origin-left" 
-                >
-                  <div className="absolute inset-0 bg-[#E82C18] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
-                </motion.div>
-                <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white transition-colors duration-700 pr-4">
-                  {item.title}
-                </h3>
-              </div>
+              <Link href={`/insights/${item.id}`} className="flex flex-col group cursor-pointer h-full">
+                {/* Top Block: Fixed height on desktop aligns the titles */}
+                <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
+                  <motion.div 
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + (idx * 0.15), duration: 1, ease: "easeOut" }}
+                    className="w-full h-[1.5px] bg-white/20 mb-8 relative overflow-hidden origin-left" 
+                  >
+                    <div className="absolute inset-0 bg-[#D02717] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                  </motion.div>
+                  <h3 className="text-xl lg:text-[24px] font-medium tracking-tight leading-[1.3] text-white transition-colors duration-700 pr-4">
+                    {item.title}
+                  </h3>
+                </div>
 
-              {/* Description Text with increased bottom margin for spacing */}
-              <p className="text-[14px] text-white leading-[1.8] transition-colors duration-700 mb-10 lg:mb-16">
-                {item.description}
-              </p>
+                {/* Description Text with increased bottom margin for spacing */}
+                <p className="text-[14px] text-white leading-[1.8] transition-colors duration-700 mb-10 lg:mb-16">
+                  {item.description}
+                </p>
 
-              {/* Image pushed to the bottom */}
-              <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-colors duration-700 z-10 pointer-events-none" />
-                
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
-              </div>
+                {/* Image pushed to the bottom */}
+                <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-colors duration-700 z-10 pointer-events-none" />
+                  
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  />
+                </div>
+              </Link>
             </motion.div>
           ))}
 

@@ -61,12 +61,12 @@ export function StaticHero({
         initial="hidden"
         animate={isMenuOpen ? "exit" : ((isReady || isInteractiveBg) && isPreloaderComplete ? "visible" : "hidden")}
         variants={containerVariants}
-        className={`relative z-30 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl transition-opacity duration-500 mt-8 md:mt-12`}
+        className={`relative z-30 flex flex-col items-center justify-center text-center px-6 md:px-16 w-full max-w-[1400px] transition-opacity duration-500 mt-8 md:mt-12`}
       >
-        <motion.h1 variants={itemVariants} className={`text-[2.5rem] sm:text-5xl md:text-[3.5rem] font-sans font-bold tracking-tighter leading-[1.1] mb-2 ${isInteractiveBg ? 'text-[#18181B]' : 'text-white'}`}>
+        <motion.h1 variants={itemVariants} className={`text-4xl sm:text-5xl md:text-[3.5rem] font-sans font-bold tracking-tighter leading-[1.1] mb-2 ${isInteractiveBg ? 'text-[#18181B]' : 'text-white'}`}>
           Ownership structures
         </motion.h1>
-        <motion.h2 variants={itemVariants} className={`text-[1.75rem] sm:text-4xl md:text-[2.75rem] font-sans font-medium tracking-tighter leading-[1.1] mb-6 md:whitespace-nowrap ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
+        <motion.h2 variants={itemVariants} className={`text-2xl sm:text-4xl md:text-[2.75rem] font-sans font-medium tracking-tighter leading-[1.1] mb-6 md:whitespace-nowrap ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
           designed for growth, not just compliance
         </motion.h2>
         <motion.p variants={itemVariants} className={`max-w-lg mx-auto text-[14px] md:text-[15px] font-sans font-light tracking-tight leading-relaxed mb-8 ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}>

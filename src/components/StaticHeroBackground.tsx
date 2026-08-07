@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useEffect, useState, useRef, memo } from 'react';
+import { motion, useInView } from "framer-motion";
 
 // Physics Configuration
-const SPRING_STIFFNESS = 0.035; // Slightly stiffer to handle higher elevation
-const SPRING_DAMPING = 0.88;    // Very organic, liquid-like settle
 const HOVER_RADIUS = 550;       // Tone down radius slightly
 const MAX_ELEVATION = 24;       // Moderate depth, not too extreme
 
@@ -21,6 +20,13 @@ interface TileState {
 
 export const StaticHeroBackground = memo(function StaticHeroBackground({ onRevealComplete }: { onRevealComplete?: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef);
+  const inViewRef = useRef(true);
+
+  useEffect(() => {
+    inViewRef.current = isInView;
+  }, [isInView]);
+
   const [svgContent, setSvgContent] = useState<string>('');
   const tilesRef = useRef<TileState[]>([]);
   // Use target coordinates to lerp the mouse position for buttery smooth tracking
@@ -150,6 +156,11 @@ export const StaticHeroBackground = memo(function StaticHeroBackground({ onRevea
 
     // 60FPS Render Loop
     const render = () => {
+      if (!inViewRef.current) {
+        reqRef.current = requestAnimationFrame(render);
+        return;
+      }
+
       try {
         if (!svgElement) return;
 
@@ -341,7 +352,7 @@ export const StaticHeroBackground = memo(function StaticHeroBackground({ onRevea
       
       {/* Premium Subsurface Glow Effect */}
       <div className="pointer-events-none absolute inset-0 mix-blend-screen transition-opacity duration-300">
-        <GlowOverlay mouseRef={mouseRef} svgMetricsRef={svgMetricsRef} />
+        <GlowOverlay mouseRef={mouseRef} svgMetricsRef={svgMetricsRef} inViewRef={inViewRef} />
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#090909] to-transparent z-10 pointer-events-none" />
@@ -350,12 +361,17 @@ export const StaticHeroBackground = memo(function StaticHeroBackground({ onRevea
 });
 
 // Independent component to handle just the glowing cursor update to prevent React from re-rendering the heavy SVG dom
-function GlowOverlay({ mouseRef, svgMetricsRef }: { mouseRef: React.MutableRefObject<any>, svgMetricsRef: React.MutableRefObject<any> }) {
+function GlowOverlay({ mouseRef, svgMetricsRef, inViewRef }: { mouseRef: React.MutableRefObject<any>, svgMetricsRef: React.MutableRefObject<any>, inViewRef: React.MutableRefObject<boolean> }) {
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let req: number;
     const render = () => {
+      if (!inViewRef.current) {
+        req = requestAnimationFrame(render);
+        return;
+      }
+
       if (glowRef.current) {
         const { x, y, isHovering } = mouseRef.current;
         const { left, top } = svgMetricsRef.current;

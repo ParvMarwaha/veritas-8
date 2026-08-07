@@ -35,17 +35,14 @@ export function AboutToday() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-[#090909] text-white py-24 md:py-32 px-6 md:px-16 font-sans relative z-20 overflow-hidden">
-      
-      {/* Interactive Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-80 mix-blend-screen" style={{ background: 'radial-gradient(circle 1000px at 100% 100%, rgba(167, 154, 200, 0.12), transparent 80%)' }}></div>
+    <section ref={containerRef} className="w-full bg-white text-[#090909] py-24 md:py-32 px-6 md:px-16 font-sans relative z-20 overflow-hidden">
+      {/* Interactive Background Removed for cleaner look */}
       
       {/* Flashlight Dot Grid */}
       <div 
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700 ease-out"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
           maskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
           WebkitMaskImage: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, black 30%, transparent 100%)`,
@@ -80,22 +77,22 @@ export function AboutToday() {
             Veritas Today
           </h2>
           
-          <h3 className="text-[32px] md:text-[46px] font-semibold tracking-tighter leading-[1.15] mb-8 lg:mb-10 max-w-[520px] text-white">
+          <h3 className="text-[32px] md:text-[46px] font-semibold tracking-tighter leading-[1.15] mb-8 lg:mb-10 max-w-[520px] text-[#090909]">
             Shaping the future of equitable business structures.
           </h3>
           
-          <p className="text-[15px] md:text-[16px] text-white/70 leading-[1.8] max-w-[520px] tracking-tight mb-12 lg:mb-16 font-light">
+          <p className="text-[15px] md:text-[16px] text-[#090909]/70 leading-[1.8] max-w-[520px] tracking-tight mb-12 lg:mb-16 font-light">
             Today, Veritas stands at the intersection of regulatory compliance and strategic growth. We partner with forward-thinking organizations to deploy ownership frameworks that do more than just satisfy the law—they actively drive performance and foster deeply engaged teams.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-12 lg:gap-16">
             <div className="flex flex-col">
-              <div className="text-[40px] lg:text-[46px] font-bold text-white mb-2 lg:mb-3 tracking-tighter leading-none">50+</div>
-              <div className="text-[12px] lg:text-[13px] text-white/40 uppercase tracking-[0.1em] font-medium">Programs Launched</div>
+              <div className="text-[40px] lg:text-[46px] font-bold text-[#090909] mb-2 lg:mb-3 tracking-tighter leading-none">50+</div>
+              <div className="text-[12px] lg:text-[13px] text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Programs Launched</div>
             </div>
             <div className="flex flex-col">
               <div className="text-[40px] lg:text-[46px] font-bold text-[#D02717] mb-2 lg:mb-3 tracking-tighter leading-none">100%</div>
-              <div className="text-[12px] lg:text-[13px] text-white/40 uppercase tracking-[0.1em] font-medium">Regulatory Compliance</div>
+              <div className="text-[12px] lg:text-[13px] text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Regulatory Compliance</div>
             </div>
           </div>
         </motion.div>

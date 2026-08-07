@@ -51,7 +51,7 @@ export function Footer() {
         }}
       />
       
-      <div className="relative z-10 max-w-[1300px] mx-auto flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 mb-12 md:mb-16">
         
         {/* Logo */}
         <div className="lg:w-[30%]">
@@ -98,7 +98,7 @@ export function Footer() {
       </div>
       
       {/* Bottom Bar */}
-      <div className="max-w-[1300px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 text-[13px] text-white/70">
+      <div className="max-w-[1400px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 text-[13px] text-white/70">
         
         {/* Left Side (Aligns with Logo) */}
         <div className="lg:w-[30%]">

@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
+import Link from 'next/link';
 
-function ServiceCard({ card, index }: { card: { title: string; desc: string }, index: number }) {
+function ServiceCard({ card, index }: { card: { id: string; title: string; desc: string }, index: number }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -51,9 +52,10 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
   const config = cardConfigs[index as keyof typeof cardConfigs];
 
   return (
-    <div 
+    <Link 
+      href={`/framework#${card.id}`}
       onMouseMove={handleMouseMove}
-      className={`group relative bg-[#EAEAEA] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]`}
+      className={`group relative bg-[#EAEAEA] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] block`}
     >
       {/* 1. High Impact Geometric Sweep Fill from Center Circle */}
       <div 
@@ -76,7 +78,7 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
       
       {/* 3. Content wrapper (Pushed to safe corners) */}
       <div className={`relative z-10 transform transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${index >= 2 ? 'group-hover:translate-y-1' : 'group-hover:-translate-y-1'} group-hover:scale-[1.01] flex flex-col items-start text-left will-change-transform transform-gpu`}>
-        <h3 className="text-[24px] lg:text-[30px] font-bold mb-3 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
+        <h3 className="text-xl md:text-2xl lg:text-[30px] font-bold mb-3 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {card.title}
         </h3>
         <p className="text-[14px] lg:text-[15px] leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
@@ -90,32 +92,36 @@ function ServiceCard({ card, index }: { card: { title: string; desc: string }, i
           <path d={config.arrowPath}/>
         </svg>
       </div>
-    </div>
+    </Link>
   );
 }
 
 export function ServicesSection() {
   const cards = [
     {
+      id: "mathematics",
       title: "Mathematics",
       desc: "Financial modelling that optimizes equity outcomes while balancing stakeholder interests strategically."
     },
     {
+      id: "risk-mitigation",
       title: "Risk Mitigation",
       desc: "Governance frameworks that reduce uncertainty while protecting long-term organizational value effectively."
     },
     {
+      id: "documentation",
       title: "Documentation",
       desc: "Comprehensive documentation that ensures absolute compliance while enabling confident, strategic decision-making across all levels of the organization."
     },
     {
+      id: "communication",
       title: "Communication",
       desc: "Clear communication that builds understanding and strengthens employee ownership participation confidently."
     }
   ];
 
   return (
-    <section className="w-full bg-white text-black pt-24 pb-32 md:pt-32 md:pb-48 px-6 md:px-16 font-sans relative z-20 overflow-x-hidden">
+    <section className="w-full bg-white text-black pt-16 pb-24 md:pt-32 md:pb-48 px-6 md:px-16 font-sans relative z-20 overflow-x-hidden">
       <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start relative">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

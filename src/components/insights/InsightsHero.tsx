@@ -4,7 +4,7 @@ import React, { useMemo, useRef } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { InteractiveHeroBackground } from '../InteractiveHeroBackground';
 
-export function FrameworkHero() {
+export function InsightsHero() {
   const containerRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -40,7 +40,7 @@ export function FrameworkHero() {
       <div className="absolute inset-0 z-10 opacity-[23%] pointer-events-auto mix-blend-multiply">
         <InteractiveHeroBackground layoutMode="hero" />
       </div>
-      
+
       <motion.div 
         initial="hidden"
         animate="visible"
@@ -51,28 +51,25 @@ export function FrameworkHero() {
           
           {/* Main Title */}
           <motion.div 
-            variants={itemVariants}
+            variants={itemVariants} 
             style={{ y: textY }}
             className="flex flex-col"
           >
             <h1 className="text-5xl sm:text-[4.5rem] md:text-[6rem] lg:text-[8.5rem] font-sans font-medium tracking-tighter leading-[0.9] text-[#18181B] transform-gpu will-change-transform">
-              Our <br/> Framework
+              Insights
             </h1>
           </motion.div>
           
           {/* Description */}
           <motion.div 
-            variants={itemVariants}
+            variants={itemVariants} 
             className="flex flex-col w-full lg:max-w-[480px] mb-2 lg:mb-3"
           >
-            <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80 mb-6">
-              A comprehensive, end-to-end approach to designing, implementing, and managing ownership structures that drive true alignment between your company and its people.
-            </p>
             <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
-              From mathematical pool sizing to risk mitigation, precise legal documentation, and employee communication, we cover every aspect of the equity lifecycle.
+              Explore the latest thinking from our experts on equity structures, global compliance, and building high-performance ownership cultures.
             </p>
           </motion.div>
-          
+
         </div>
       </motion.div>
     </section>

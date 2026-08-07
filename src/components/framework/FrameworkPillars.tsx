@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const pillars = [
@@ -50,9 +50,28 @@ const pillars = [
 export function FrameworkPillars() {
   const [activePillar, setActivePillar] = useState(pillars[0].id);
 
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window !== 'undefined') {
+        const hash = window.location.hash.replace('#', '');
+        if (pillars.some(p => p.id === hash)) {
+          setActivePillar(hash);
+        }
+      }
+    };
+    
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   return (
-    <section className="w-full bg-white text-black py-24 md:py-32 px-6 md:px-16 font-sans relative z-20">
-      <div className="max-w-[1200px] w-full mx-auto flex flex-col">
+    <section className="w-full bg-white text-black py-16 md:py-32 px-6 md:px-16 font-sans relative z-20">
+      {/* Invisible anchors at the top of the section for perfect scroll alignment */}
+      {pillars.map(p => (
+        <div key={`anchor-${p.id}`} id={p.id} className="absolute top-0 left-0" />
+      ))}
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

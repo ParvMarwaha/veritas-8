@@ -20,7 +20,9 @@ export default function FrameworkPage() {
   const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    
+    const updateTheme = () => {
       const offset = 80;
       let theme: 'dark' | 'light' = 'light'; // Default hero theme is light
 
@@ -51,9 +53,19 @@ export default function FrameworkPage() {
 
       setNavTheme(theme);
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateTheme();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    updateTheme();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

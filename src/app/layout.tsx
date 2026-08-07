@@ -34,7 +34,7 @@ export default function RootLayout({
       className={`${plusJakarta.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col font-sans tracking-tight bg-[#090909]" suppressHydrationWarning>
+      <body className="flex flex-col font-sans tracking-[-0.035em] bg-[#090909]" suppressHydrationWarning>
         <SmoothScroll>
           <PreloaderProvider>
             <InitialPreloader />

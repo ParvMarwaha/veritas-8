@@ -44,7 +44,7 @@ function LeaderRow({ leader }: { leader: { name: string, role: string, image: st
 
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-20">
         <div className="flex flex-col items-start gap-1 bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-r-lg pr-4">
-          <h4 className="text-[24px] md:text-[28px] font-semibold text-[#090909] tracking-tight group-hover:text-[#D02717] transition-colors duration-300 mix-blend-difference">
+          <h4 className="text-xl md:text-[28px] font-semibold text-[#090909] tracking-tight group-hover:text-[#D02717] transition-colors duration-300 mix-blend-difference">
             {leader.name}
           </h4>
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-black/40 text-[12px] md:text-[13px] font-medium hover:text-[#D02717] transition-all duration-300 transform origin-left hover:scale-105 inline-block mt-1">
@@ -68,7 +68,7 @@ export function AboutLeadership() {
   ];
 
   return (
-    <section className="w-full bg-white text-black py-24 md:py-32 overflow-hidden relative font-sans z-20">
+    <section className="w-full bg-white text-black py-16 md:py-32 overflow-hidden relative font-sans z-20">
       
       <div className="w-full px-6 md:px-16 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 xl:gap-32 items-start">

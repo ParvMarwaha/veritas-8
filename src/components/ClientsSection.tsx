@@ -46,7 +46,7 @@ function AnimatedCounter({ to, suffix = "", duration = 2 }: { to: number, suffix
 
 export function ClientsSection() {
   return (
-    <section className="w-full bg-white pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden relative font-sans">
+    <section className="w-full bg-white pt-16 md:pt-32 pb-12 md:pb-24 overflow-hidden relative font-sans">
       
       {/* 12-Column Layout container matching ServicesSection's padding structure */}
       <div className="w-full px-6 md:px-16 relative z-10">
@@ -95,7 +95,7 @@ export function ClientsSection() {
             ></motion.div>
 
             {/* 2x2 Metrics Grid */}
-            <div className="grid grid-cols-2 gap-y-12 lg:gap-y-16 gap-x-16 lg:gap-x-32 w-full">
+            <div className="grid grid-cols-2 gap-y-12 lg:gap-y-16 gap-x-8 sm:gap-x-16 lg:gap-x-32 w-full">
                
                {/* Metric 1 */}
                <div className="flex flex-col cursor-default">

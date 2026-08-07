@@ -29,7 +29,9 @@ export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    
+    const updateTheme = () => {
       const offset = 80; // Navbar trigger offset
       // Default to light for the white hero (if interactive), but switch to dark when scrolling down or if interactive is off
       let theme: 'dark' | 'light' = window.scrollY < window.innerHeight - offset ? (isInteractiveBg ? 'light' : 'dark') : 'dark';
@@ -69,9 +71,19 @@ export default function Home() {
 
       setNavTheme(theme);
     };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateTheme();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check on mount
+    updateTheme(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isInteractiveBg]);
 
@@ -91,7 +103,7 @@ export default function Home() {
       />
       
       <div className="sticky top-0 w-full h-[101vh] z-0 overflow-hidden">
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="w-full h-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="w-full h-full transform-gpu will-change-transform">
           <StaticHero 
             onReady={handleReady} 
             isReady={isAppReady} 

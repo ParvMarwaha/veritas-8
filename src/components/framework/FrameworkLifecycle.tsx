@@ -66,8 +66,8 @@ export function FrameworkLifecycle() {
   };
 
   return (
-    <section className="w-full bg-[#090909] text-white py-24 md:py-32 px-6 md:px-16 font-sans relative z-20">
-      <div className="max-w-[1000px] w-full mx-auto flex flex-col">
+    <section className="w-full bg-[#090909] text-white py-16 md:py-32 px-6 md:px-16 font-sans relative z-20">
+      <div className="max-w-[1400px] w-full mx-auto flex flex-col">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

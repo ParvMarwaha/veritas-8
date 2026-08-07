@@ -81,7 +81,7 @@ export function AboutValues() {
   ];
 
   return (
-    <section ref={containerRef} className="w-full bg-[#090909] text-white py-24 md:py-32 px-6 md:px-16 font-sans relative z-20 overflow-hidden">
+    <section ref={containerRef} className="w-full bg-[#090909] text-white py-16 md:py-32 px-6 md:px-16 font-sans relative z-20 overflow-hidden">
       
       {/* Interactive Background */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-100 mix-blend-screen" style={{ background: 'radial-gradient(circle 800px at 0px 0px, rgba(208, 39, 23, 0.15), transparent 80%)' }}></div>

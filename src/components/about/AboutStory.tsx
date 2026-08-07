@@ -41,7 +41,7 @@ function StoryCard({ title, desc, index }: { title: string; desc: string; index:
       />
       
       <div className={`relative z-10 transform transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-1 group-hover:scale-[1.01] flex flex-col items-start text-left will-change-transform transform-gpu`}>
-        <h4 className="text-[24px] lg:text-[28px] font-bold mb-4 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
+        <h4 className="text-xl md:text-[24px] lg:text-[28px] font-bold mb-4 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {title}
         </h4>
         <p className="text-[14px] lg:text-[15px] leading-[1.65] text-[#090909]/70 group-hover:text-white/80 font-light transition-colors duration-700">
@@ -65,7 +65,7 @@ export function AboutStory() {
   ];
 
   return (
-    <section className="w-full bg-white text-black py-24 md:py-32 px-6 md:px-16 font-sans relative z-20">
+    <section className="w-full bg-white text-black py-16 md:py-32 px-6 md:px-16 font-sans relative z-20">
       <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
         
         {/* Left Column - Title */}

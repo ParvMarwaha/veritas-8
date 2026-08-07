@@ -4,7 +4,7 @@ import React, { useMemo, useRef } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { InteractiveHeroBackground } from '../InteractiveHeroBackground';
 
-export function AboutHero() {
+export function ContactHero() {
   const containerRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -12,7 +12,7 @@ export function AboutHero() {
     offset: ["start start", "end start"]
   });
 
-  // "About Us" text moves upwards slightly with the scroll
+  // "Contact" text moves upwards slightly with the scroll
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-150%"]);
   
   // Image stretches on the top side a little initially (scaleY with bottom origin)
@@ -21,7 +21,7 @@ export function AboutHero() {
   // Image destretches from the bottom towards the upwards side when next fold approaches
   const imageClipBottom = useTransform(scrollYProgress, [0.4, 0.9], ["0%", "100%"]);
   const clipPath = useTransform(imageClipBottom, (val) => `inset(0% 0% ${val} 0%)`);
-
+  
   const containerVariants: Variants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
@@ -60,16 +60,16 @@ export function AboutHero() {
           style={{ y: textY }}
           className="text-5xl sm:text-[4.5rem] md:text-[6rem] lg:text-[8.5rem] font-sans font-medium tracking-[-0.03em] leading-[0.9] text-[#18181B] mb-12 md:mb-20 transform-gpu will-change-transform"
         >
-          About Us
+          Contact Us
         </motion.h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start w-full">
           <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col space-y-6 pt-1">
-            <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
-              Built around four essential pillars, our services combine financial precision, legal clarity, governance expertise, and employee engagement to create ownership structures that scale with your business.
+            <p className="text-[1.1rem] md:text-[1.25rem] font-sans font-medium tracking-tight leading-[1.4] text-[#18181B]">
+              Let's build a foundation for growth.
             </p>
             <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
-              We empower companies with the strategic insights required to design equity programs that drive long-term value, aligning incentives and attracting top tier talent to push your vision forward.
+              Select your requirement below to help us route your inquiry to the right expert. Whether you need to launch a new ESOP or manage corporate transactions, we are here to provide clarity.
             </p>
           </motion.div>
           
@@ -80,8 +80,8 @@ export function AboutHero() {
             >
               <img 
                 src="/about_hero.png" 
-                alt="Veritas architectural aesthetic" 
-                className="w-full h-full object-cover object-center"
+                alt="Veritas Contact" 
+                className="w-full h-full object-cover object-center grayscale opacity-80"
               />
             </motion.div>
           </motion.div>
