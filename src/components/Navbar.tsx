@@ -144,16 +144,16 @@ export function Navbar({
             >
               {/* Hover fill background */}
               <div 
-                className="absolute inset-0 w-full h-full rounded-full scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
+                className="absolute inset-0 w-full h-full rounded-full scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
                 style={{ backgroundColor: '#D02717' }}
               ></div>
               
               <div className={`relative z-10 w-8 h-[14px] flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
                 <div 
-                  className={`w-full h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white group-hover:scale-x-75 ${isFlipped ? 'origin-left group-hover:translate-x-1' : 'origin-right group-hover:-translate-x-1'} will-change-transform transform-gpu bg-[#D02717]`}
+                  className={`w-full h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white scale-x-75 group-hover:bg-[#D02717] group-hover:scale-x-100 ${isFlipped ? 'origin-left' : 'origin-right'} will-change-transform transform-gpu`}
                 ></div>
                 <div 
-                  className={`w-2/3 h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white ${isFlipped ? 'origin-left' : 'origin-right'} group-hover:scale-x-125 will-change-transform transform-gpu bg-[#D02717]`}
+                  className={`w-full h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white scale-x-75 group-hover:bg-[#D02717] group-hover:scale-x-100 ${isFlipped ? 'origin-left' : 'origin-right'} will-change-transform transform-gpu`}
                 ></div>
               </div>
             </div>
