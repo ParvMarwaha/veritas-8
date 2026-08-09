@@ -28,7 +28,7 @@ export function FeaturedInsight() {
             
             <div className="lg:col-span-7 h-[450px] md:h-[600px] w-full relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.06)] bg-[#e0e0e0]">
               <div className="absolute top-6 left-6 z-20 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-sm">
-                <span className="text-[#D02717] font-bold tracking-widest text-[10px] uppercase">Featured</span>
+                <span className="text-[#D02717] font-bold tracking-widest text-[15px] uppercase">Featured</span>
               </div>
               <motion.div style={{ y: imageY }} className="absolute inset-0 h-[116%] -top-[8%]">
                 <img 
@@ -46,7 +46,7 @@ export function FeaturedInsight() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="flex gap-4 items-center mb-6 text-[11px] font-bold tracking-widest uppercase text-[#18181B]/50">
+                <div className="flex gap-4 items-center mb-6 text-[15px] font-bold tracking-widest uppercase text-[#18181B]/50">
                   <span className="text-[#D02717]">Global Markets</span>
                   <span className="w-1 h-1 rounded-full bg-black/20"></span>
                   <span>5 Min Read</span>
@@ -60,7 +60,7 @@ export function FeaturedInsight() {
                   As the global workforce evolves, traditional equity models are struggling to keep pace. Discover how innovative companies are restructuring ownership to drive sustainable growth and build trust in a rapidly shifting economic landscape.
                 </p>
                 
-                <div className="inline-flex items-center gap-3 text-[12px] font-bold uppercase tracking-widest text-[#18181B]">
+                <div className="inline-flex items-center gap-3 text-[15px] font-bold uppercase tracking-widest text-[#18181B]">
                   Read Article
                   <span className="relative flex items-center justify-center w-10 h-10 rounded-full border border-black/10 group-hover:border-[#D02717] group-hover:bg-[#D02717] transition-all duration-300">
                     <svg className="w-4 h-4 text-[#18181B] group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

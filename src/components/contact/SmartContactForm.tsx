@@ -31,7 +31,7 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
               Step 02
             </h2>
             <h3 className="text-3xl md:text-[42px] lg:text-[48px] font-semibold tracking-tighter leading-[1.1] mb-6">
@@ -40,7 +40,7 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
             
             {selectedRequirement ? (
               <div className="mt-8 p-6 bg-[#FAFAFA] border-l-[3px] border-[#D02717]">
-                <p className="text-[12px] uppercase tracking-widest text-[#18181B]/50 font-bold mb-2">Selected Requirement</p>
+                <p className="text-[15px] uppercase tracking-widest text-[#18181B]/50 font-bold mb-2">Selected Requirement</p>
                 <p className="text-[18px] font-medium text-[#18181B]">{selectedRequirement}</p>
               </div>
             ) : (

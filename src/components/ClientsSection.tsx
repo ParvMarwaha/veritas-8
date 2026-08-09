@@ -60,7 +60,7 @@ export function ClientsSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-4 flex flex-col items-start lg:pr-8"
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
               Our Impact
             </h2>
             <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">

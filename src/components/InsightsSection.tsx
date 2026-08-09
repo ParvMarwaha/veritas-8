@@ -90,9 +90,9 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-3 block drop-shadow-sm"
+                className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-3 block drop-shadow-sm"
               >
-                From our Knowledge Hub
+                From our Knowledge&nbsp;Hub
               </motion.span>
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
@@ -115,7 +115,7 @@ export function InsightsSection() {
             >
               <Link 
                 href="/insights"
-                className="group flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit hover:translate-x-1"
+                className="group flex items-center gap-3 text-[15px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit hover:translate-x-1"
               >
                 View All Articles
                 <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />

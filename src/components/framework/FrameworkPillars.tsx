@@ -80,7 +80,7 @@ export function FrameworkPillars() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24 flex flex-col items-start"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[11px] md:text-[12px] uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
             Core Foundation
           </h2>
           <h3 className="text-3xl md:text-[42px] lg:text-[54px] font-semibold tracking-tighter leading-[1.1] text-[#090909]">
@@ -139,7 +139,7 @@ export function FrameworkPillars() {
                     className="flex flex-col h-full"
                   >
                     <div className="mb-8">
-                      <h4 className="text-[#D02717] text-[12px] md:text-[13px] uppercase tracking-widest font-bold mb-3">
+                      <h4 className="text-[#D02717] text-[15px] md:text-[15px] uppercase tracking-widest font-bold mb-3">
                         Pillar Focus
                       </h4>
                       <h5 className="text-[28px] md:text-[36px] font-semibold tracking-tighter">

@@ -192,12 +192,12 @@ export default function ArticlePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Link href="/insights" className="inline-flex items-center gap-2 text-[12px] font-bold tracking-widest uppercase text-white/70 hover:text-white transition-colors mb-8 group">
+            <Link href="/insights" className="inline-flex items-center gap-2 text-[15px] font-bold tracking-widest uppercase text-white/70 hover:text-white transition-colors mb-8 group">
               <span className="group-hover:-translate-x-1 transition-transform">←</span>
               Back to Insights
             </Link>
 
-            <div className="flex gap-4 items-center mb-6 text-[12px] font-bold tracking-widest uppercase text-white/70">
+            <div className="flex gap-4 items-center mb-6 text-[15px] font-bold tracking-widest uppercase text-white/70">
               <span className="text-[#D02717]">{article.topic}</span>
               <span>•</span>
               <span>{article.readTime}</span>

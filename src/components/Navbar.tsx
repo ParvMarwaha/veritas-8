@@ -137,24 +137,36 @@ export function Navbar({
             <img src="/logo.png" alt="Veritas Logo" className="h-7 sm:h-8 md:h-10 lg:h-12 w-auto object-contain" />
           </a>
           
-          <div className={`flex items-center text-[14px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
+          <div className={`flex items-center text-[15px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
             <div 
               onClick={() => setIsMenuOpen(true)}
               className={`relative w-14 h-14 rounded-full flex justify-center items-center group cursor-pointer overflow-hidden ${isFlipped ? '-ml-3' : '-mr-3'}`}
             >
-              {/* Hover fill background */}
+              {/* Base Red Background */}
+              <div className="absolute inset-0 w-full h-full bg-[#D02717]"></div>
+              
+              {/* Hover Fill: White circle scaling from center */}
               <div 
-                className="absolute inset-0 w-full h-full rounded-full scale-100 opacity-100 group-hover:scale-0 group-hover:opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center"
-                style={{ backgroundColor: '#D02717' }}
+                className="absolute inset-0 w-full h-full bg-white scale-0 group-hover:scale-100 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] rounded-full origin-center"
               ></div>
               
-              <div className={`relative z-10 w-8 h-[14px] flex flex-col justify-between ${isFlipped ? 'items-start' : 'items-end'}`}>
-                <div 
-                  className={`w-full h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white scale-x-75 group-hover:bg-[#D02717] group-hover:scale-x-100 ${isFlipped ? 'origin-left' : 'origin-right'} will-change-transform transform-gpu`}
-                ></div>
-                <div 
-                  className={`w-full h-[3px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white scale-x-75 group-hover:bg-[#D02717] group-hover:scale-x-100 ${isFlipped ? 'origin-left' : 'origin-right'} will-change-transform transform-gpu`}
-                ></div>
+              {/* Lines container */}
+              <div className="relative z-10 w-6 h-[10px] flex flex-col justify-between">
+                {/* Top line */}
+                <div className="relative w-full h-[2px] overflow-hidden rounded-full">
+                  <div className="absolute top-0 -left-full w-[200%] h-full flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1/2 transform-gpu">
+                    <div className="w-1/2 h-full bg-[#D02717]"></div>
+                    <div className="w-1/2 h-full bg-white"></div>
+                  </div>
+                </div>
+
+                {/* Bottom line */}
+                <div className="relative w-full h-[2px] overflow-hidden rounded-full">
+                  <div className="absolute top-0 -left-full w-[200%] h-full flex transition-transform duration-500 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1/2 transform-gpu">
+                    <div className="w-1/2 h-full bg-[#D02717]"></div>
+                    <div className="w-1/2 h-full bg-white"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

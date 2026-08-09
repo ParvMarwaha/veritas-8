@@ -24,21 +24,21 @@ export function LocationsAndDetails() {
             
             <div className="space-y-12">
               <div>
-                <p className="text-[#D02717] font-bold text-[11px] uppercase tracking-[0.2em] mb-4">General Inquiries</p>
+                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">General Inquiries</p>
                 <a href="mailto:contact@veritasequity.com" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   contact@veritasequity.com
                 </a>
               </div>
               
               <div>
-                <p className="text-[#D02717] font-bold text-[11px] uppercase tracking-[0.2em] mb-4">Partnership & Media</p>
+                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">Partnership & Media</p>
                 <a href="mailto:partners@veritasequity.com" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   partners@veritasequity.com
                 </a>
               </div>
               
               <div>
-                <p className="text-[#D02717] font-bold text-[11px] uppercase tracking-[0.2em] mb-4">Phone</p>
+                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">Phone</p>
                 <a href="tel:+18005550199" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   +1 (800) 555-0199
                 </a>
@@ -68,17 +68,15 @@ export function LocationsAndDetails() {
               </p>
               
               <div 
-                className="w-full flex-grow min-h-[350px] md:min-h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group"
+                className="w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group mt-auto"
                 onMouseEnter={() => setHasInteracted(true)}
               >
                 <iframe 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
+                  style={{ border: 0, width: '100%', height: '100%', display: 'block' }} 
                   src="https://maps.google.com/maps?q=Emaar%20The%20Palm%20Square,%20Gurugram&t=&z=14&ie=UTF8&iwloc=&output=embed" 
                   allowFullScreen
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full transition-[filter] duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] [filter:grayscale(1)_invert(0.92)_hue-rotate(180deg)_contrast(1.1)] group-hover:[filter:grayscale(0)_invert(0.9)_hue-rotate(180deg)_contrast(1.1)] will-change-[filter]"
+                  className="w-full h-full transition-[filter] duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] [filter:grayscale(1)_invert(0.92)_hue-rotate(180deg)_contrast(1.1)] group-hover:[filter:grayscale(0)_invert(0.9)_hue-rotate(180deg)_contrast(1.1)] will-change-[filter]"
                 ></iframe>
                 
                 {/* Custom Red Marker Overlay (Fades out permanently on first interaction) */}

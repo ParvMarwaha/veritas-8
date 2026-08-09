@@ -13,7 +13,7 @@
     border-color: var(--color-gray-200, currentColor);
   }
   html {
-    font-size: 16px;
+    font-size: 18px;
     overflow-x: clip;
   }
   
@@ -144,6 +144,14 @@
   --btn-border: transparent;
   --btn-hover-bg: #fff;
   --btn-hover-text: #D02717;
+}
+
+.custom-btn-outline {
+  --btn-bg: transparent;
+  --btn-text: #18181a;
+  --btn-border: #18181a;
+  --btn-hover-bg: #000;
+  --btn-hover-text: #fff;
 }
 
 /* Text-only variant */
