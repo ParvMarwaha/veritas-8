@@ -68,15 +68,16 @@ export function LocationsAndDetails() {
               </p>
               
               <div 
-                className="w-full h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group mt-auto"
+                className="w-full h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group mt-8"
                 onMouseEnter={() => setHasInteracted(true)}
               >
                 <iframe 
-                  style={{ border: 0, width: '100%', height: '100%', display: 'block' }} 
-                  src="https://maps.google.com/maps?q=Emaar%20The%20Palm%20Square,%20Gurugram&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                  className="absolute inset-0 w-full h-full transition-[filter] duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] [filter:grayscale(1)_invert(0.92)_hue-rotate(180deg)_contrast(1.1)] group-hover:[filter:grayscale(0)_invert(0.9)_hue-rotate(180deg)_contrast(1.1)] will-change-[filter]"
+                  src="https://maps.google.com/maps?q=Emaar%20The%20Palm%20Square,%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                  style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  className="w-full h-full transition-[filter] duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] [filter:grayscale(1)_invert(0.92)_hue-rotate(180deg)_contrast(1.1)] group-hover:[filter:grayscale(0)_invert(0.9)_hue-rotate(180deg)_contrast(1.1)] will-change-[filter]"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
                 
                 {/* Custom Red Marker Overlay (Fades out permanently on first interaction) */}
