@@ -117,7 +117,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
           <h3 className="text-white font-sans font-medium w-full text-left text-xl sm:text-2xl md:text-[1.85rem] leading-[1.3] mb-4 tracking-tight drop-shadow-lg break-words">
             "Designing for true business outcomes."
           </h3>
-          <p className="text-white/80 font-sans w-full text-left text-[0.9rem] md:text-[0.95rem] leading-relaxed max-w-full font-light drop-shadow-md">
+          <p className="text-white/80 font-sans w-full text-left text-[15px] md:text-base leading-relaxed max-w-full font-light drop-shadow-md">
             We help leaders design ownership programs that attract talent, align incentives, and create sustainable value for the long term.
           </p>
         </div>
@@ -126,7 +126,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
         <div className={`relative z-20 flex flex-col md:grid md:grid-cols-2 space-y-8 md:space-y-0 gap-8 pt-8 mt-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div className="flex flex-col space-y-6">
             <h4 className="text-white/40 font-sans text-[0.8rem] uppercase tracking-[0.2em] font-medium">Connect</h4>
-            <ul className="flex flex-col space-y-4 font-sans text-[0.9rem] tracking-tight text-white/80 font-light">
+            <ul className="flex flex-col space-y-4 font-sans text-[15px] md:text-base tracking-tight text-white/80 font-light">
               <li>
                 <a href="#" className="inline-block transition-all duration-300 ease-out hover:text-white hover:translate-x-1.5 will-change-transform">
                   LinkedIn
@@ -137,7 +137,7 @@ export const NavigationOverlay: React.FC<NavigationOverlayProps> = ({ isOpen, on
           
           <div className="flex flex-col space-y-6">
             <h4 className="text-white/40 font-sans text-[0.8rem] uppercase tracking-[0.2em] font-medium">Contact Us</h4>
-            <ul className="flex flex-col space-y-4 font-sans text-[0.9rem] tracking-tight text-white/80 leading-[1.6] font-light">
+            <ul className="flex flex-col space-y-4 font-sans text-[15px] md:text-base tracking-tight text-white/80 leading-[1.6] font-light">
               <li>
                 <a href="mailto:contact@veritas.in" className="inline-block transition-all duration-300 ease-out hover:text-white hover:translate-x-1.5 will-change-transform">
                   contact@veritas.in

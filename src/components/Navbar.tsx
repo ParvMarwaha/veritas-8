@@ -137,7 +137,7 @@ export function Navbar({
             <img src="/logo.png" alt="Veritas Logo" className="h-7 sm:h-8 md:h-10 lg:h-12 w-auto object-contain" />
           </a>
           
-          <div className={`flex items-center text-[15px] md:text-[15px] font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
+          <div className={`flex items-center text-[15px] md:text-base font-sans font-medium uppercase tracking-wide cursor-pointer z-10 transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'} ${isFlipped ? 'flex-row-reverse space-x-reverse space-x-8' : 'flex-row space-x-8'}`}>
             <div 
               onClick={() => setIsMenuOpen(true)}
               className={`relative w-14 h-14 rounded-full flex justify-center items-center group cursor-pointer overflow-hidden ${isFlipped ? '-ml-3' : '-mr-3'}`}

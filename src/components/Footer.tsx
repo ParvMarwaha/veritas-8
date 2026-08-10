@@ -63,8 +63,8 @@ export function Footer() {
         {/* Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[70%] gap-10 md:gap-8">
           <div>
-            <h4 className="font-bold text-[15px] text-[#D02717] mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-[14px] text-white/80">
+            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Quick Links</h4>
+            <ul className="space-y-4 text-[15px] md:text-base text-white/80">
               <li><a href="#" className="hover:text-[#D02717] transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-[#D02717] transition-colors">Why Veritas</a></li>
               <li><a href="#" className="hover:text-[#D02717] transition-colors">Solutions</a></li>
@@ -75,8 +75,8 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold text-[15px] text-[#D02717] mb-6">Our Services</h4>
-            <ul className="space-y-4 text-[14px] text-white/80">
+            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Our Services</h4>
+            <ul className="space-y-4 text-[15px] md:text-base text-white/80">
               <li><a href="#" className="hover:text-[#D02717] transition-colors">ESOP's</a></li>
               <li><a href="#" className="hover:text-[#D02717] transition-colors">Actuarial Valuations</a></li>
               <li><a href="#" className="hover:text-[#D02717] transition-colors">ESOP's</a></li>
@@ -85,8 +85,8 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-bold text-[15px] text-[#D02717] mb-6">Contact Info</h4>
-            <p className="text-[14px] text-white/80 leading-relaxed max-w-[220px]">
+            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Contact Info</h4>
+            <p className="text-[15px] md:text-base text-white/80 leading-relaxed max-w-[220px]">
               Emaar The Palm Square,<br/>
               Unit No: 002, 15th Floor,<br/>
               Golf Course Ext Rd, Sector 66,<br/>
@@ -98,7 +98,7 @@ export function Footer() {
       </div>
       
       {/* Bottom Bar */}
-      <div className="max-w-[1400px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 text-[13px] text-white/70">
+      <div className="max-w-[1400px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 text-[15px] md:text-base text-white/70">
         
         {/* Left Side (Aligns with Logo) */}
         <div className="lg:w-[30%]">
@@ -108,7 +108,7 @@ export function Footer() {
         {/* Right Side (Aligns with Columns using Grid) */}
         <div className="flex flex-col md:grid md:grid-cols-3 lg:w-[70%] gap-6 md:gap-8">
           <div>
-            <a href="#" className="hover:text-[#D02717] transition-colors font-medium text-[14px]">LinkedIn</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors font-medium text-[15px] md:text-base">LinkedIn</a>
           </div>
           
           <div className="hidden md:block">
@@ -116,8 +116,8 @@ export function Footer() {
           </div>
           
           <div className="flex gap-6">
-            <a href="#" className="hover:text-[#D02717] transition-colors text-[14px]">Disclaimer</a>
-            <a href="#" className="hover:text-[#D02717] transition-colors text-[14px]">Terms and Conditions</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors text-[15px] md:text-base">Disclaimer</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors text-[15px] md:text-base">Terms and Conditions</a>
           </div>
         </div>
         

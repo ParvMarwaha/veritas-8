@@ -68,7 +68,7 @@ export function LocationsAndDetails() {
               </p>
               
               <div 
-                className="w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group mt-auto"
+                className="w-full h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-xl overflow-hidden border border-white/10 bg-[#18181B] relative group mt-auto"
                 onMouseEnter={() => setHasInteracted(true)}
               >
                 <iframe 

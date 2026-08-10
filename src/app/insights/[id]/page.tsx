@@ -200,7 +200,7 @@ export default function ArticlePage() {
             <div className="flex gap-4 items-center mb-6 text-[15px] font-bold tracking-widest uppercase text-white/70">
               <span className="text-[#D02717]">{article.topic}</span>
               <span>•</span>
-              <span>{article.readTime}</span>
+              <span className="normal-case">{article.readTime}</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1] mb-8 text-white">

@@ -60,14 +60,14 @@ export function ClientsSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-4 flex flex-col items-start lg:pr-8"
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
               Our Impact
             </h2>
             <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
               Designing for true business outcomes.
             </h3>
             
-            <p className="text-[14px] md:text-[15px] text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
+            <p className="text-[15px] md:text-base text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
               Most ownership programs are designed around compliance requirements. The best ones are designed around business outcomes.
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ export function ClientsSection() {
             className="lg:col-span-8 flex flex-col w-full"
           >
             {/* Red Text */}
-            <div className="text-[#D02717] font-medium text-[16px] lg:text-[18px] leading-[1.5] max-w-[600px] mb-8 lg:mb-10">
+            <div className="text-[#D02717] font-medium text-base lg:text-[18px] leading-[1.5] max-w-[600px] mb-8 lg:mb-10">
               At Veritas, we believe ownership should do more than just satisfy regulations. It should help businesses grow.
             </div>
 
@@ -104,7 +104,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={100} suffix="+" duration={2} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[14px] lg:text-[15px] tracking-tight">
+                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
                     Esop Schemes Designed
                   </div>
                </div>
@@ -116,7 +116,7 @@ export function ClientsSection() {
                       Ind AS, IAS 19,<br/>US GAAP
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[14px] lg:text-[15px] tracking-tight">
+                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
                     Compliant
                   </div>
                </div>
@@ -128,7 +128,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={15} suffix="+" duration={1.5} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[14px] lg:text-[15px] tracking-tight">
+                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
                     Sectors Served
                   </div>
                </div>
@@ -140,7 +140,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={6} suffix="+" duration={1.2} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[14px] lg:text-[15px] tracking-tight">
+                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
                     Years of Actuarial Partnerships
                   </div>
                </div>

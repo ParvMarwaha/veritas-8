@@ -44,7 +44,7 @@ function StoryCard({ title, desc, index }: { title: string; desc: string; index:
         <h4 className="text-xl md:text-[24px] lg:text-[28px] font-bold mb-4 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {title}
         </h4>
-        <p className="text-[14px] lg:text-[15px] leading-[1.65] text-[#090909]/70 group-hover:text-white/80 font-light transition-colors duration-700">
+        <p className="text-[15px] md:text-base leading-[1.65] text-[#090909]/70 group-hover:text-white/80 font-light transition-colors duration-700">
           {desc}
         </p>
       </div>
@@ -76,7 +76,7 @@ export function AboutStory() {
           transition={{ duration: 0.8 }}
           className="lg:col-span-4 flex flex-col items-start"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
             Our Story & Mission
           </h2>
           <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
@@ -92,7 +92,7 @@ export function AboutStory() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-8 flex flex-col w-full"
         >
-          <div className="text-[#D02717] font-medium text-[16px] lg:text-[18px] leading-[1.5] max-w-[600px] mb-8 lg:mb-10">
+          <div className="text-[#D02717] font-medium text-base lg:text-[18px] leading-[1.5] max-w-[600px] mb-8 lg:mb-10">
             We believe that ownership is the ultimate driver of alignment, engagement, and sustainable growth.
           </div>
           

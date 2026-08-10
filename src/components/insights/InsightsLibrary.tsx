@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { AnimatedButton } from '../AnimatedButton';
 
 type SortOption = 'Latest' | 'Most Read' | 'Recommended';
 
@@ -169,10 +170,10 @@ export function InsightsLibrary({ activeTopic }: { activeTopic: string }) {
               
               {/* Tag and Read Time */}
               <div className="flex justify-between items-center mb-4">
-                <span className="text-[#D02717] font-bold tracking-[0.15em] text-[15px] uppercase">
+                <span className="text-[#18181B] font-bold tracking-[0.15em] text-[15px] uppercase">
                   {article.topic}
                 </span>
-                <span className="text-[15px] font-medium tracking-wide text-[#18181B]/50 uppercase">
+                <span className="text-[15px] font-medium tracking-wide text-[#18181B]">
                   {article.readTime}
                 </span>
               </div>
@@ -202,9 +203,9 @@ export function InsightsLibrary({ activeTopic }: { activeTopic: string }) {
         
         {/* Load More */}
         <div className="mt-20 flex justify-center">
-          <button className="px-8 py-4 border border-black/20 hover:border-black/50 text-[#18181B] text-[15px] font-bold tracking-widest uppercase rounded-full transition-all duration-300">
+          <AnimatedButton variant="outline" className="px-8 py-4 border border-black/20 hover:border-black/50 text-[#18181B] text-[15px] font-bold tracking-wide rounded-full transition-all duration-300">
             Load More Articles
-          </button>
+          </AnimatedButton>
         </div>
 
       </div>

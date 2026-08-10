@@ -90,7 +90,7 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-3 block drop-shadow-sm"
+                className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-3 block drop-shadow-sm"
               >
                 From our Knowledge&nbsp;Hub
               </motion.span>

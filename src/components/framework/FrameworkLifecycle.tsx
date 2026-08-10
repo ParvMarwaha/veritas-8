@@ -76,13 +76,13 @@ export function FrameworkLifecycle() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24 flex flex-col items-center text-center"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
             End-to-End Execution
           </h2>
           <h3 className="text-3xl md:text-[42px] lg:text-[48px] font-semibold tracking-tighter leading-[1.1]">
             The Lifecycle Timeline
           </h3>
-          <p className="mt-6 text-white/50 max-w-[600px] font-light text-[15px] md:text-[16px]">
+          <p className="mt-6 text-white/50 max-w-[600px] font-light text-[15px] md:text-base">
             From initial conception to ongoing accounting, our framework supports your equity programs at every stage of corporate growth.
           </p>
         </motion.div>

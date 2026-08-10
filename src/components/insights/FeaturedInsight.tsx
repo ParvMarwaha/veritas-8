@@ -46,10 +46,10 @@ export function FeaturedInsight() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="flex gap-4 items-center mb-6 text-[15px] font-bold tracking-widest uppercase text-[#18181B]/50">
-                  <span className="text-[#D02717]">Global Markets</span>
-                  <span className="w-1 h-1 rounded-full bg-black/20"></span>
-                  <span>5 Min Read</span>
+                <div className="flex gap-4 items-center mb-6 text-[15px] font-bold tracking-widest uppercase text-[#18181B]">
+                  <span>Global Markets</span>
+                  <span className="w-1 h-1 rounded-full bg-[#18181B]"></span>
+                  <span className="normal-case">5 Min Read</span>
                 </div>
                 
                 <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.05] mb-6 text-[#D02717]">

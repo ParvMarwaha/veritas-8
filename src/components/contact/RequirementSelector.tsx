@@ -48,7 +48,7 @@ export function RequirementSelector({ onSelect }: { onSelect: (req: string) => v
           transition={{ duration: 0.8 }}
           className="mb-12 md:mb-20 flex flex-col items-start"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
             Step 01
           </h2>
           <h3 className="text-3xl md:text-[42px] lg:text-[54px] font-semibold tracking-tighter leading-[1.1] text-white">

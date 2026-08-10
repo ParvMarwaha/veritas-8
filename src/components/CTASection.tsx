@@ -22,7 +22,7 @@ export function CTASection({ isInteractiveBg = false, showBackground = true }: {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5"
+          className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5"
         >
           Get Started
         </motion.h2>

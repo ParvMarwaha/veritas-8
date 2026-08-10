@@ -81,7 +81,7 @@ function ServiceCard({ card, index }: { card: { id: string; title: string; desc:
         <h3 className="text-xl md:text-2xl lg:text-[30px] font-bold mb-3 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {card.title}
         </h3>
-        <p className="text-[14px] lg:text-[15px] leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
+        <p className="text-[15px] md:text-base leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
           {card.desc}
         </p>
       </div>
@@ -130,13 +130,13 @@ export function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="lg:col-span-4 flex flex-col items-start pt-2 lg:pt-0 lg:sticky lg:top-40 h-fit z-20"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
             Our Services
           </h2>
           <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
             Four essential pillars of equity design.
           </h3>
-          <p className="text-[14px] md:text-[15px] text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
+          <p className="text-[15px] md:text-base text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
             Built around four essential pillars, our services combine financial precision, legal clarity, governance expertise, and employee engagement to create ownership structures that scale with your business.
           </p>
         </motion.div>
@@ -155,7 +155,7 @@ export function ServicesSection() {
 
           {/* Center Circle - Clean & Elegant */}
           <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] lg:w-[140px] lg:h-[140px] bg-white rounded-full items-center justify-center z-30 pointer-events-none shadow-md">
-            <span className="text-[14px] lg:text-[15px] font-semibold text-black tracking-tight text-center leading-[1.2]">
+            <span className="text-[15px] md:text-base font-semibold text-black tracking-tight text-center leading-[1.2]">
               How to get<br/>it right?
             </span>
           </div>

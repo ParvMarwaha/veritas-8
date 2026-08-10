@@ -73,7 +73,7 @@ export function AboutToday() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-[15px] uppercase mb-6 lg:mb-8">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-6 lg:mb-8">
             Veritas Today
           </h2>
           
@@ -81,18 +81,18 @@ export function AboutToday() {
             Shaping the future of equitable business structures.
           </h3>
           
-          <p className="text-[15px] md:text-[16px] text-[#090909]/70 leading-[1.8] max-w-[520px] tracking-tight mb-12 lg:mb-16 font-light">
+          <p className="text-[15px] md:text-base text-[#090909]/70 leading-[1.8] max-w-[520px] tracking-tight mb-12 lg:mb-16 font-light">
             Today, Veritas stands at the intersection of regulatory compliance and strategic growth. We partner with forward-thinking organizations to deploy ownership frameworks that do more than just satisfy the law—they actively drive performance and foster deeply engaged teams.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-12 lg:gap-16">
             <div className="flex flex-col">
               <div className="text-[40px] lg:text-[46px] font-bold text-[#090909] mb-2 lg:mb-3 tracking-tighter leading-none">50+</div>
-              <div className="text-[15px] lg:text-[15px] text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Programs Launched</div>
+              <div className="text-[15px] md:text-base text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Programs Launched</div>
             </div>
             <div className="flex flex-col">
               <div className="text-[40px] lg:text-[46px] font-bold text-[#D02717] mb-2 lg:mb-3 tracking-tighter leading-none">100%</div>
-              <div className="text-[15px] lg:text-[15px] text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Regulatory Compliance</div>
+              <div className="text-[15px] md:text-base text-[#090909]/50 uppercase tracking-[0.1em] font-medium">Regulatory Compliance</div>
             </div>
           </div>
         </motion.div>

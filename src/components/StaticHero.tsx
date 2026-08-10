@@ -69,7 +69,7 @@ export function StaticHero({
         <motion.h2 variants={itemVariants} className={`text-2xl sm:text-4xl md:text-[2.75rem] font-sans font-medium tracking-tighter leading-[1.1] mb-6 md:whitespace-nowrap ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
           designed for growth, not just compliance
         </motion.h2>
-        <motion.p variants={itemVariants} className={`max-w-lg mx-auto text-[14px] md:text-[15px] font-sans font-light tracking-tight leading-relaxed mb-8 ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}>
+        <motion.p variants={itemVariants} className={`max-w-lg mx-auto text-[15px] md:text-base font-sans font-light tracking-tight leading-relaxed mb-8 ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}>
           We help leaders design ownership programs that attract talent, align incentives, and create value.
         </motion.p>
         <motion.div variants={itemVariants} className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 mt-6">
@@ -104,14 +104,14 @@ export function StaticHero({
               ))}
             </div>
             
-            <span className={`text-[13px] md:text-[15px] font-sans tracking-tight text-left ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
+            <span className={`text-[15px] md:text-base font-sans tracking-tight text-left ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
               Trusted by more than<br className="sm:hidden" /> <strong className={`font-semibold ${isInteractiveBg ? 'text-[#18181B]' : 'text-white'}`}>1,000 Companies</strong>
             </span>
           </div>
 
           <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-[#D02717]" />
 
-          <span className={`text-[13px] md:text-[15px] font-sans tracking-tight text-center max-w-[250px] sm:max-w-none ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
+          <span className={`text-[15px] md:text-base font-sans tracking-tight text-center max-w-[250px] sm:max-w-none ${isInteractiveBg ? 'text-[#18181B]/80' : 'text-white/80'}`}>
             Strategic Ownership and Sustainable Business Growth.
           </span>
         </motion.div>
