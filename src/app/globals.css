@@ -15,6 +15,8 @@
   html {
     font-size: 18px;
     overflow-x: clip;
+    /* Viewport-height correction factor (see "--zf" note below). 1 = no correction. */
+    --zf: 1;
   }
   
   /* Desktop only: The zoomed-out aesthetic */
@@ -22,7 +24,32 @@
     html {
       font-size: 90%;
       zoom: 90%;
+      --zf: 1;
     }
+  }
+
+  /*
+   * Big screens: the layout is designed around a ~1440px laptop (90% zoom). On a 1920px+ monitor it
+   * would sit in the middle of the screen at the same absolute size, looking small and lost. So from
+   * 1600px up the whole page is scaled up in steps, which keeps the proportions it has on the laptop.
+   *
+   * "--zf" is 0.9 / zoom. CSS zoom also scales vh-based lengths, so anything sized in vh must be
+   * multiplied by --zf to stay the same share of the screen:  calc(90vh * var(--zf, 1)).
+   */
+  @media (min-width: 1600px) {
+    html { zoom: 100%; --zf: 0.9; }
+  }
+  @media (min-width: 1800px) {
+    html { zoom: 120%; --zf: 0.75; }
+  }
+  @media (min-width: 2200px) {
+    html { zoom: 145%; --zf: 0.6207; }
+  }
+  @media (min-width: 2600px) {
+    html { zoom: 175%; --zf: 0.5143; }
+  }
+  @media (min-width: 3200px) {
+    html { zoom: 220%; --zf: 0.4091; }
   }
   
   body {

@@ -102,7 +102,7 @@ export default function Home() {
         setIsInteractiveBg={setIsInteractiveBg}
       />
       
-      <div className="sticky top-0 w-full h-[101vh] z-0 overflow-hidden">
+      <div className="sticky top-0 w-full h-[calc(101vh*var(--zf,1))] z-0 overflow-hidden">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="w-full h-full transform-gpu will-change-transform">
           <StaticHero 
             onReady={handleReady} 

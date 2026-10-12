@@ -88,7 +88,7 @@ export function CategoryView({ id }: { id: SeriesId }) {
       {/* ---------------- Hero ---------------- */}
       <section
         ref={heroRef}
-        className="relative w-full min-h-[75vh] flex flex-col justify-end bg-[#090909] text-white pt-36 md:pt-48 pb-20 md:pb-28 px-6 md:px-16 overflow-hidden"
+        className="relative w-full min-h-[calc(75vh*var(--zf,1))] flex flex-col justify-end bg-[#090909] text-white pt-36 md:pt-48 pb-20 md:pb-28 px-6 md:px-16 overflow-hidden"
       >
         {/* The same artwork as this category's panel on the hub, scaled up behind the title */}
         <CategoryArt

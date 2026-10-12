@@ -302,7 +302,7 @@ export function ArticleView({ slug }: { slug: string }) {
   const minutes = readMinutes(article);
 
   return (
-    <main className="w-full bg-white text-[#18181B] font-sans selection:bg-[#D02717]/30 min-h-screen">
+    <main className="w-full bg-white text-[#18181B] font-sans selection:bg-[#D02717]/30 min-h-[calc(100vh*var(--zf,1))]">
       <Navbar
         isReady
         isMenuOpen={isMenuOpen}

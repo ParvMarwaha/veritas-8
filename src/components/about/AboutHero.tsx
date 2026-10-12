@@ -44,7 +44,7 @@ export function AboutHero() {
   }), []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[90vh] flex flex-col justify-center bg-white text-[#18181B] pb-16 md:pb-24 pt-32 md:pt-48 px-6 md:px-16 overflow-hidden">
+    <section ref={containerRef} className="relative w-full min-h-[calc(90vh*var(--zf,1))] flex flex-col justify-center bg-white text-[#18181B] pb-16 md:pb-24 pt-32 md:pt-48 px-6 md:px-16 overflow-hidden">
       <div className="absolute inset-0 z-10 opacity-[23%] pointer-events-auto mix-blend-multiply">
         <InteractiveHeroBackground layoutMode="hero" />
       </div>

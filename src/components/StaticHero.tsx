@@ -53,7 +53,7 @@ export function StaticHero({
   }), []);
 
   return (
-    <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[calc(100vh*var(--zf,1))] flex flex-col items-center justify-center overflow-hidden">
       {isInteractiveBg ? <InteractiveHeroBackground /> : <StaticHeroBackground onRevealComplete={onReady} />}
       
       {/* Hero Content */}

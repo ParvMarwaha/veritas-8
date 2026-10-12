@@ -70,7 +70,7 @@ export default function FrameworkPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#090909] text-white/90 font-sans selection:bg-[#D02717]/30">
+    <main className="min-h-[calc(100vh*var(--zf,1))] bg-[#090909] text-white/90 font-sans selection:bg-[#D02717]/30">
       <Navbar 
         isReady={isAppReady} 
         isMenuOpen={isMenuOpen} 
