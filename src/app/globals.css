@@ -79,7 +79,9 @@
 }
 
 .animate-marquee-scroll {
-  animation: marquee-scroll 100s linear infinite;
+  /* 2 copies of the logo list, so the loop distance is one copy (was 3 copies at 100s) */
+  animation: marquee-scroll 36s linear infinite;
+  will-change: transform;
 }
 
 /* Pause only when a specific logo (span) is hovered */
@@ -251,6 +253,11 @@ svg[data-play="false"] .art-ping {
   animation-play-state: paused;
 }
 
+/* Phones and tablets: the endless "breathing" of ~170 SVG tiles keeps the SVG repainting for no visible gain */
+@media (max-width: 1023px), (hover: none) {
+  .art-breathe { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .art-breathe, .art-ping { animation: none; }
   .art-draw { animation: none; stroke-dashoffset: 0; }
@@ -289,4 +296,17 @@ svg[data-play="false"] .art-ping {
     .type-label { font-size: 16px; }
     .type-meta  { font-size: 15px; }
   }
+}
+
+/* Page reveal (template.tsx): a dark sheet that fades out. Plain CSS so it starts at first paint and
+   never depends on JS hydration or requestAnimationFrame, which are slow on phones. */
+@keyframes page-reveal {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+.page-reveal {
+  animation: page-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-reveal { animation-duration: 0.01s; }
 }

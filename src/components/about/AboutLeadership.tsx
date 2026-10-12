@@ -12,6 +12,8 @@ function LeaderRow({ leader }: { leader: { name: string, role: string, image: st
           <img
             src={leader.image}
             alt={leader.name}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>

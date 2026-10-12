@@ -91,7 +91,7 @@ export function InsightsHero() {
       ref={containerRef}
       className="relative w-full min-h-[calc(100svh*var(--zf,1))] flex flex-col justify-end bg-white text-[#18181B] pt-32 md:pt-40 pb-14 md:pb-20 px-6 md:px-16 overflow-hidden"
     >
-      <div className="absolute inset-0 z-10 opacity-[18%] pointer-events-auto mix-blend-multiply">
+      <div className="absolute inset-0 z-10 opacity-[18%] pointer-events-auto">
         <InteractiveHeroBackground layoutMode="hero" />
       </div>
 

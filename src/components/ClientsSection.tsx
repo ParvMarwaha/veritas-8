@@ -159,15 +159,19 @@ export function ClientsSection() {
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <div className="flex whitespace-nowrap items-center w-max animate-marquee-scroll">
-          {/* Duplicate logos to ensure seamless looping without any absolute positioning overlaps */}
-          {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((logo, index) => (
+          {/* Two copies are all a seamless loop needs: the keyframes slide by exactly one copy (-50%).
+              (It used to be six copies, a 29,000px-wide layer with 102 blend-mode images, which made phones
+              show blank tiles and stutter.) */}
+          {[...logos, ...logos].map((logo, index) => (
             <span 
               key={index} 
-              className="mx-12 lg:mx-16 cursor-pointer flex items-center justify-center w-[180px] md:w-[260px] h-[100px] md:h-[130px] group mix-blend-multiply"
+              className="mx-4 md:mx-12 lg:mx-16 cursor-pointer flex items-center justify-center w-[120px] md:w-[260px] h-[72px] md:h-[130px] group"
             >
               <img 
                 src={logo.url} 
                 alt={logo.name}
+                loading="lazy"
+                decoding="async"
                 className={`w-full h-full object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 ${logo.scale || "scale-100 group-hover:scale-110"}`}
               />
             </span>
