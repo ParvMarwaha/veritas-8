@@ -10,7 +10,6 @@ import { AboutHero } from '@/components/about/AboutHero';
 import { AboutStory } from '@/components/about/AboutStory';
 import { AboutValues } from '@/components/about/AboutValues';
 import { AboutLeadership } from '@/components/about/AboutLeadership';
-import { AboutToday } from '@/components/about/AboutToday';
 
 export default function AboutPage() {
   const [isAppReady, setIsAppReady] = useState(true);
@@ -23,7 +22,6 @@ export default function AboutPage() {
   const storyRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
   const leadershipRef = useRef<HTMLDivElement>(null);
-  const todayRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
 
@@ -50,7 +48,6 @@ export default function AboutPage() {
       const story = storyRef.current?.getBoundingClientRect();
       const values = valuesRef.current?.getBoundingClientRect();
       const leadership = leadershipRef.current?.getBoundingClientRect();
-      const today = todayRef.current?.getBoundingClientRect();
       const cta = ctaRef.current?.getBoundingClientRect();
       const footer = footerRef.current?.getBoundingClientRect();
 
@@ -69,17 +66,12 @@ export default function AboutPage() {
         theme = 'light';
       }
 
-      // 4. Today is Light
-      if (today && today.top <= offset && today.bottom > offset) {
-        theme = 'light';
-      }
-
-      // 5. CTA is Light (matching home page)
+      // 4. CTA is Light (matching home page)
       if (cta && cta.top <= offset) {
         theme = 'light';
       }
 
-      // 6. Footer is Dark
+      // 5. Footer is Dark
       if (footer && footer.top <= offset) {
         theme = 'dark';
       }
@@ -138,11 +130,6 @@ export default function AboutPage() {
           <div ref={leadershipRef}>
             <AboutLeadership />
           </div>
-        </div>
-        
-        {/* 5. Today Section */}
-        <div ref={todayRef} className="relative w-full z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] bg-white">
-          <AboutToday />
         </div>
         
         <div ref={ctaRef} className="relative z-[60]">

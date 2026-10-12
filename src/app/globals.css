@@ -26,6 +26,9 @@
   }
   
   body {
+    /* Default running-text size (matches .type-body below). Without this, unsized text
+       inherited the root size, which is only 14.4px on desktop. */
+    font-size: 16px;
     background-color: #090909;
     color: #ffffff;
     /* Hide the scrollbar for an editorial, immersive feel */
@@ -33,6 +36,10 @@
     overflow-x: clip;
   }
   
+  @media (min-width: 768px) {
+    body { font-size: 18px; }
+  }
+
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
@@ -172,5 +179,87 @@
   .custom-btn-text:hover .btn-text-1 {
     transform: translateY(-150%);
     opacity: 0;
+  }
+}
+
+/* Insights category artwork (CategoryArt.tsx) */
+@keyframes art-breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes art-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes art-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes art-ping {
+  0% { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(3.2); }
+}
+
+.art-breathe { animation: art-breathe 6s ease-in-out infinite; }
+.art-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: art-draw 2.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.art-pop {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: art-pop 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.art-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: art-ping 2.8s ease-out infinite;
+}
+
+/* Hold the draw-on animations until the artwork scrolls into view */
+svg[data-play="false"] .art-draw,
+svg[data-play="false"] .art-pop,
+svg[data-play="false"] .art-ping {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-breathe, .art-ping { animation: none; }
+  .art-draw { animation: none; stroke-dashoffset: 0; }
+  .art-pop { animation: none; opacity: 1; }
+}
+
+/*
+ * Running-text scale. Use these instead of one-off text-[Npx] / md:text-base classes.
+ *
+ * Why px and not rem: the root size and the 90% zoom both change at 1024px (see top of file),
+ * so rem-based sizes came out smaller on desktop than on tablet. These values already allow for
+ * the zoom, i.e. 18px at >=1024px renders as roughly 16px on screen.
+ *
+ *   .type-xl     hero tagline / article opening line
+ *   .type-lead   intro paragraphs under big headings
+ *   .type-body   standard paragraphs and list items
+ *   .type-small  secondary text: card summaries, captions, table cells, footer, fine print
+ *   .type-label  uppercase eyebrow labels above headings, and CTA links
+ *   .type-meta   smallest uppercase meta text: kickers, read time, counts
+ */
+@layer components {
+  .type-xl    { font-size: 19px; line-height: 1.45; }
+  .type-lead  { font-size: 17px; line-height: 1.55; }
+  .type-body  { font-size: 16px; line-height: 1.7; }
+  .type-small { font-size: 15px; line-height: 1.65; }
+  .type-label { font-size: 15px; line-height: 1.4; }
+  .type-meta  { font-size: 13px; line-height: 1.4; }
+
+  /* Tablet and desktop share one set of values, so nothing is smaller on a tablet than on a laptop.
+     (>=1024px is then scaled by the 90% zoom, so 18px body renders at about 16px there.) */
+  @media (min-width: 768px) {
+    .type-xl    { font-size: 25px; }
+    .type-lead  { font-size: 21px; }
+    .type-body  { font-size: 18px; }
+    .type-small { font-size: 16px; }
+    .type-label { font-size: 16px; }
+    .type-meta  { font-size: 15px; }
   }
 }

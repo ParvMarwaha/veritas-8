@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export function Footer() {
   const containerRef = useRef<HTMLElement>(null);
@@ -63,30 +64,30 @@ export function Footer() {
         {/* Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:w-[70%] gap-10 md:gap-8">
           <div>
-            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-[15px] md:text-base text-white/80">
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Why Veritas</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Solutions</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Knowledge Hub</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Contact Us</a></li>
+            <h4 className="font-bold type-small text-[#D02717] mb-6">Quick Links</h4>
+            <ul className="space-y-4 type-small text-white/80">
+              <li><Link href="/about" className="hover:text-[#D02717] transition-colors">About Us</Link></li>
+              <li><Link href="/about" className="hover:text-[#D02717] transition-colors">Why Veritas</Link></li>
+              <li><Link href="/framework" className="hover:text-[#D02717] transition-colors">Solutions</Link></li>
+              <li><Link href="/insights" className="hover:text-[#D02717] transition-colors">Knowledge Hub</Link></li>
+              <li><Link href="/contact" className="hover:text-[#D02717] transition-colors">Contact Us</Link></li>
               <li><a href="#" className="hover:text-[#D02717] transition-colors">Careers</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Our Services</h4>
-            <ul className="space-y-4 text-[15px] md:text-base text-white/80">
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">ESOP's</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Actuarial Valuations</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">ESOP's</a></li>
-              <li><a href="#" className="hover:text-[#D02717] transition-colors">Actuarial Valuations</a></li>
+            <h4 className="font-bold type-small text-[#D02717] mb-6">Our Services</h4>
+            <ul className="space-y-4 type-small text-white/80">
+              <li><Link href="/framework" className="hover:text-[#D02717] transition-colors">ESOP&apos;s</Link></li>
+              <li><Link href="/framework" className="hover:text-[#D02717] transition-colors">Actuarial Valuations</Link></li>
+              <li><Link href="/framework" className="hover:text-[#D02717] transition-colors">ESOP&apos;s</Link></li>
+              <li><Link href="/framework" className="hover:text-[#D02717] transition-colors">Actuarial Valuations</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-[15px] md:text-base text-[#D02717] mb-6">Contact Info</h4>
-            <p className="text-[15px] md:text-base text-white/80 leading-relaxed max-w-[220px]">
+            <h4 className="font-bold type-small text-[#D02717] mb-6">Contact Info</h4>
+            <p className="type-small text-white/80 leading-relaxed max-w-[220px]">
               Emaar The Palm Square,<br/>
               Unit No: 002, 15th Floor,<br/>
               Golf Course Ext Rd, Sector 66,<br/>
@@ -98,7 +99,7 @@ export function Footer() {
       </div>
       
       {/* Bottom Bar */}
-      <div className="max-w-[1400px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 text-[15px] md:text-base text-white/70">
+      <div className="max-w-[1400px] mx-auto pt-8 border-t border-white/20 flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 type-small text-white/70">
         
         {/* Left Side (Aligns with Logo) */}
         <div className="lg:w-[30%]">
@@ -108,7 +109,7 @@ export function Footer() {
         {/* Right Side (Aligns with Columns using Grid) */}
         <div className="flex flex-col md:grid md:grid-cols-3 lg:w-[70%] gap-6 md:gap-8">
           <div>
-            <a href="#" className="hover:text-[#D02717] transition-colors font-medium text-[15px] md:text-base">LinkedIn</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors font-medium type-small">LinkedIn</a>
           </div>
           
           <div className="hidden md:block">
@@ -116,8 +117,8 @@ export function Footer() {
           </div>
           
           <div className="flex gap-6">
-            <a href="#" className="hover:text-[#D02717] transition-colors text-[15px] md:text-base">Disclaimer</a>
-            <a href="#" className="hover:text-[#D02717] transition-colors text-[15px] md:text-base">Terms and Conditions</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors type-small">Disclaimer</a>
+            <a href="#" className="hover:text-[#D02717] transition-colors type-small">Terms and Conditions</a>
           </div>
         </div>
         

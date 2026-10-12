@@ -65,7 +65,7 @@ export function WhatHappensNext() {
               <h4 className="text-[18px] md:text-[20px] font-semibold tracking-tight mb-3">
                 {step.title}
               </h4>
-              <p className="text-[14px] text-[#18181B]/70 leading-relaxed max-w-[280px]">
+              <p className="type-small text-[#18181B]/70 leading-relaxed max-w-[300px]">
                 {step.desc}
               </p>
             </motion.div>

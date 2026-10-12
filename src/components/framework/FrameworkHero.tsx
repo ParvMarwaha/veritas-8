@@ -65,10 +65,10 @@ export function FrameworkHero() {
             variants={itemVariants}
             className="flex flex-col w-full lg:max-w-[480px] mb-2 lg:mb-3"
           >
-            <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80 mb-6">
+            <p className="type-lead font-sans font-light tracking-tight leading-[1.5] text-[#18181B]/80 mb-6">
               A comprehensive, end-to-end approach to designing, implementing, and managing ownership structures that drive true alignment between your company and its people.
             </p>
-            <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
+            <p className="type-lead font-sans font-light tracking-tight leading-[1.5] text-[#18181B]/80">
               From mathematical pool sizing to risk mitigation, precise legal documentation, and employee communication, we cover every aspect of the equity lifecycle.
             </p>
           </motion.div>

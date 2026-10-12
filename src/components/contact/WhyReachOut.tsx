@@ -23,7 +23,7 @@ export function WhyReachOut() {
               A consultative approach to complex challenges.
             </h2>
             <div className="w-12 h-[3px] bg-[#D02717] mb-8" />
-            <p className="text-[1.05rem] text-white/70 leading-relaxed">
+            <p className="type-body text-white/70 leading-relaxed">
               We don't do generic administrative processing. We believe in deeply understanding your corporate structure, strategic goals, and talent requirements before recommending an equity or governance solution. Reaching out to Veritas means starting a conversation with industry experts who will actively architect your path forward.
             </p>
           </motion.div>
@@ -46,8 +46,8 @@ export function WhyReachOut() {
                 className="bg-white/5 border border-white/10 p-6 md:p-8"
               >
                 <div className="w-2 h-2 rounded-full bg-[#D02717] mb-4" />
-                <h4 className="text-[16px] font-medium tracking-tight mb-2">{feature.title}</h4>
-                <p className="text-[13px] text-white/60 leading-relaxed">{feature.text}</p>
+                <h4 className="type-body font-medium tracking-tight mb-2">{feature.title}</h4>
+                <p className="type-small text-white/60 leading-relaxed">{feature.text}</p>
               </motion.div>
             ))}
           </div>

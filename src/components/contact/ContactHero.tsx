@@ -65,10 +65,10 @@ export function ContactHero() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start w-full">
           <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col space-y-6 pt-1">
-            <p className="text-[1.1rem] md:text-[1.25rem] font-sans font-medium tracking-tight leading-[1.4] text-[#18181B]">
+            <p className="type-xl font-sans font-medium tracking-tight leading-[1.4] text-[#18181B]">
               Let's build a foundation for growth.
             </p>
-            <p className="text-[0.95rem] md:text-[1.05rem] font-sans font-light tracking-tight leading-[1.4] text-[#18181B]/80">
+            <p className="type-lead font-sans font-light tracking-tight leading-[1.5] text-[#18181B]/80">
               Select your requirement below to help us route your inquiry to the right expert. Whether you need to launch a new ESOP or manage corporate transactions, we are here to provide clarity.
             </p>
           </motion.div>

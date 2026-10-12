@@ -22,7 +22,7 @@ export function CTASection({ isInteractiveBg = false, showBackground = true }: {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5"
+          className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5"
         >
           Get Started
         </motion.h2>
@@ -42,7 +42,7 @@ export function CTASection({ isInteractiveBg = false, showBackground = true }: {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`text-[15px] md:text-base mb-10 max-w-xl font-light ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}
+          className={`type-body mb-10 max-w-xl font-light ${isInteractiveBg ? 'text-[#18181B]/70' : 'text-white/70'}`}
         >
           Join the vanguard of modern organizations building a sustainable culture of ownership and trust.
         </motion.p>
@@ -53,7 +53,7 @@ export function CTASection({ isInteractiveBg = false, showBackground = true }: {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <AnimatedButton variant="brand" className="px-8 py-3.5 rounded-full min-w-[160px]">
+          <AnimatedButton href="/contact" variant="brand" className="px-8 py-3.5 rounded-full min-w-[160px]">
             Get in Touch
           </AnimatedButton>
         </motion.div>

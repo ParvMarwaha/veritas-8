@@ -60,14 +60,14 @@ export function ClientsSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-4 flex flex-col items-start lg:pr-8"
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
               Our Impact
             </h2>
             <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
               Designing for true business outcomes.
             </h3>
             
-            <p className="text-[15px] md:text-base text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
+            <p className="type-body text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
               Most ownership programs are designed around compliance requirements. The best ones are designed around business outcomes.
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={100} suffix="+" duration={2} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
+                  <div className="type-small text-[#090909]/80 tracking-tight">
                     Esop Schemes Designed
                   </div>
                </div>
@@ -116,7 +116,7 @@ export function ClientsSection() {
                       Ind AS, IAS 19,<br/>US GAAP
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
+                  <div className="type-small text-[#090909]/80 tracking-tight">
                     Compliant
                   </div>
                </div>
@@ -128,7 +128,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={15} suffix="+" duration={1.5} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
+                  <div className="type-small text-[#090909]/80 tracking-tight">
                     Sectors Served
                   </div>
                </div>
@@ -140,7 +140,7 @@ export function ClientsSection() {
                       <AnimatedCounter to={6} suffix="+" duration={1.2} />
                     </div>
                   </div>
-                  <div className="text-[#090909]/80 text-[15px] md:text-base tracking-tight">
+                  <div className="type-small text-[#090909]/80 tracking-tight">
                     Years of Actuarial Partnerships
                   </div>
                </div>

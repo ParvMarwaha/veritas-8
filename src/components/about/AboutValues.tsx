@@ -22,7 +22,7 @@ function ValueCard({ title, desc, index }: { title: string; desc: string; index:
         <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-[#090909] transition-colors duration-700">
           {title}
         </h3>
-        <p className="text-[15px] md:text-base leading-[1.6] text-white/60 font-light group-hover:text-black/80 transition-colors duration-700">
+        <p className="type-body leading-[1.6] text-white/60 font-light group-hover:text-black/80 transition-colors duration-700">
           {desc}
         </p>
       </div>
@@ -108,7 +108,7 @@ export function AboutValues() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center text-center mb-16 lg:mb-24"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
             What We Stand For
           </h2>
           <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] max-w-[600px]">

@@ -3,27 +3,15 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { series } from '@/data/insights';
+import { CategoryArt } from '@/components/insights/CategoryArt';
 
-const insights = [
-  {
-    id: "01",
-    title: "The Future of Employee Ownership",
-    description: "As the global workforce evolves, traditional equity models are struggling to keep pace. Discover how innovative companies are restructuring ownership to drive sustainable growth and build trust.",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600",
-  },
-  {
-    id: "02",
-    title: "Navigating ESOP Valuations in 2026",
-    description: "A comprehensive look at how market dynamics are forcing a recalibration of startup valuations and cap table strategies across the tech sector. Learn what founders need to know before their next round.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "03",
-    title: "Global Equity Compliance & Strategy",
-    description: "Expanding internationally? Here is the definitive playbook for managing cross-border equity compliance without slowing down your operations or creating tax liabilities for your distributed team.",
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
-  }
-];
+// The homepage teaser shows the three Insights series; each card opens its category page.
+const insights = series.map((s) => ({
+  id: s.id,
+  title: s.title,
+  description: s.description,
+}));
 
 export function InsightsSection() {
   const displayInsights = insights.slice(0, 3); 
@@ -90,7 +78,7 @@ export function InsightsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-3 block drop-shadow-sm"
+                className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-3 block drop-shadow-sm"
               >
                 From our Knowledge&nbsp;Hub
               </motion.span>
@@ -115,9 +103,9 @@ export function InsightsSection() {
             >
               <Link 
                 href="/insights"
-                className="group flex items-center gap-3 text-[15px] font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit hover:translate-x-1"
+                className="group flex items-center gap-3 type-label font-bold uppercase tracking-widest text-white transition-all duration-300 w-fit hover:translate-x-1"
               >
-                View All Articles
+                View All Insights
                 <span className="w-8 h-[1px] bg-white/30 group-hover:bg-[#D02717] group-hover:w-12 transition-all duration-500" />
               </Link>
             </motion.div>
@@ -133,7 +121,7 @@ export function InsightsSection() {
               transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
               className="h-full"
             >
-              <Link href={`/insights/${item.id}`} className="flex flex-col group cursor-pointer h-full">
+              <Link href={`/insights/category/${item.id}`} className="flex flex-col group cursor-pointer h-full">
                 {/* Top Block: Fixed height on desktop aligns the titles */}
                 <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
                   <motion.div 
@@ -151,7 +139,7 @@ export function InsightsSection() {
                 </div>
 
                 {/* Description Text with increased bottom margin for spacing */}
-                <p className="text-[14px] text-white leading-[1.8] transition-colors duration-700 mb-10 lg:mb-16">
+                <p className="type-small text-white leading-[1.8] transition-colors duration-700 mb-10 lg:mb-16">
                   {item.description}
                 </p>
 
@@ -159,10 +147,9 @@ export function InsightsSection() {
                 <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-colors duration-700 z-10 pointer-events-none" />
                   
-                  <img 
-                    src={item.img} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+<CategoryArt
+                    id={item.id}
+                    className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   />
                 </div>
               </Link>

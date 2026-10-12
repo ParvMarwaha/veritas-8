@@ -24,21 +24,21 @@ export function LocationsAndDetails() {
             
             <div className="space-y-12">
               <div>
-                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">General Inquiries</p>
+                <p className="text-[#D02717] font-bold type-label uppercase tracking-[0.2em] mb-4">General Inquiries</p>
                 <a href="mailto:contact@veritasequity.com" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   contact@veritasequity.com
                 </a>
               </div>
               
               <div>
-                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">Partnership & Media</p>
+                <p className="text-[#D02717] font-bold type-label uppercase tracking-[0.2em] mb-4">Partnership & Media</p>
                 <a href="mailto:partners@veritasequity.com" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   partners@veritasequity.com
                 </a>
               </div>
               
               <div>
-                <p className="text-[#D02717] font-bold text-[15px] uppercase tracking-[0.2em] mb-4">Phone</p>
+                <p className="text-[#D02717] font-bold type-label uppercase tracking-[0.2em] mb-4">Phone</p>
                 <a href="tel:+18005550199" className="text-[20px] md:text-[24px] font-light hover:text-[#D02717] transition-colors">
                   +1 (800) 555-0199
                 </a>
@@ -62,7 +62,7 @@ export function LocationsAndDetails() {
             
             <div className="flex flex-col flex-grow">
               <h4 className="text-[18px] font-medium tracking-tight mb-4 text-[#D02717]">India Headquarters</h4>
-              <p className="text-[14px] text-white/60 leading-relaxed mb-10">
+              <p className="type-small text-white/60 leading-relaxed mb-10">
                 Emaar The Palm Square, Unit No: 002, 15th Floor,<br/>
                 Golf Course Ext Rd, Sector 66, Gurugram, Haryana 122102
               </p>

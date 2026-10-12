@@ -31,7 +31,7 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
               Step 02
             </h2>
             <h3 className="text-3xl md:text-[42px] lg:text-[48px] font-semibold tracking-tighter leading-[1.1] mb-6">
@@ -40,11 +40,11 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
             
             {selectedRequirement ? (
               <div className="mt-8 p-6 bg-[#FAFAFA] border-l-[3px] border-[#D02717]">
-                <p className="text-[15px] uppercase tracking-widest text-[#18181B]/50 font-bold mb-2">Selected Requirement</p>
+                <p className="type-label uppercase tracking-widest text-[#18181B]/50 font-bold mb-2">Selected Requirement</p>
                 <p className="text-[18px] font-medium text-[#18181B]">{selectedRequirement}</p>
               </div>
             ) : (
-              <p className="text-[1rem] text-[#18181B]/70 leading-relaxed max-w-[400px]">
+              <p className="type-body text-[#18181B]/70 leading-relaxed max-w-[400px]">
                 Please provide your details so we can direct your inquiry to the right expert on our team.
               </p>
             )}
@@ -77,30 +77,30 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative group">
-                    <input type="text" id="name" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Name" />
-                    <label htmlFor="name" className="absolute left-0 -top-4 text-[12px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] peer-focus:-top-4 peer-focus:text-[12px] peer-focus:text-[#D02717]">Full Name</label>
+                    <input type="text" id="name" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Name" />
+                    <label htmlFor="name" className="absolute left-0 -top-4 text-[13px] lg:text-[14px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] lg:peer-placeholder-shown:text-[18px] peer-focus:-top-4 peer-focus:text-[13px] lg:peer-focus:text-[14px] peer-focus:text-[#D02717]">Full Name</label>
                   </div>
                   
                   <div className="relative group">
-                    <input type="text" id="company" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Company" />
-                    <label htmlFor="company" className="absolute left-0 -top-4 text-[12px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] peer-focus:-top-4 peer-focus:text-[12px] peer-focus:text-[#D02717]">Company Name</label>
+                    <input type="text" id="company" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Company" />
+                    <label htmlFor="company" className="absolute left-0 -top-4 text-[13px] lg:text-[14px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] lg:peer-placeholder-shown:text-[18px] peer-focus:-top-4 peer-focus:text-[13px] lg:peer-focus:text-[14px] peer-focus:text-[#D02717]">Company Name</label>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative group">
-                    <input type="email" id="email" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Email" />
-                    <label htmlFor="email" className="absolute left-0 -top-4 text-[12px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] peer-focus:-top-4 peer-focus:text-[12px] peer-focus:text-[#D02717]">Business Email</label>
+                    <input type="email" id="email" required className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Email" />
+                    <label htmlFor="email" className="absolute left-0 -top-4 text-[13px] lg:text-[14px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] lg:peer-placeholder-shown:text-[18px] peer-focus:-top-4 peer-focus:text-[13px] lg:peer-focus:text-[14px] peer-focus:text-[#D02717]">Business Email</label>
                   </div>
                   
                   <div className="relative group">
-                    <input type="tel" id="phone" className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Phone" />
-                    <label htmlFor="phone" className="absolute left-0 -top-4 text-[12px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] peer-focus:-top-4 peer-focus:text-[12px] peer-focus:text-[#D02717]">Phone Number</label>
+                    <input type="tel" id="phone" className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent" placeholder="Phone" />
+                    <label htmlFor="phone" className="absolute left-0 -top-4 text-[13px] lg:text-[14px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] lg:peer-placeholder-shown:text-[18px] peer-focus:-top-4 peer-focus:text-[13px] lg:peer-focus:text-[14px] peer-focus:text-[#D02717]">Phone Number</label>
                   </div>
                 </div>
 
                 <div className="relative group">
-                  <select id="stage" required defaultValue="" className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] text-black/80 outline-none transition-colors focus:border-[#D02717] appearance-none cursor-pointer">
+                  <select id="stage" required defaultValue="" className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] text-black/80 outline-none transition-colors focus:border-[#D02717] appearance-none cursor-pointer">
                     <option value="" disabled>Select Company Stage</option>
                     <option value="early">Early Stage / Seed</option>
                     <option value="growth">Growth Stage / Series A-C</option>
@@ -115,8 +115,8 @@ export function SmartContactForm({ selectedRequirement }: { selectedRequirement:
                 </div>
 
                 <div className="relative group pt-4">
-                  <textarea id="message" required rows={4} className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent resize-none" placeholder="Message"></textarea>
-                  <label htmlFor="message" className="absolute left-0 top-0 text-[12px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] peer-focus:top-0 peer-focus:text-[12px] peer-focus:text-[#D02717]">Additional Details</label>
+                  <textarea id="message" required rows={4} className="w-full bg-transparent border-b border-black/20 py-3 text-[16px] lg:text-[18px] outline-none transition-colors focus:border-[#D02717] peer placeholder-transparent resize-none" placeholder="Message"></textarea>
+                  <label htmlFor="message" className="absolute left-0 top-0 text-[13px] lg:text-[14px] text-black/50 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-[16px] lg:peer-placeholder-shown:text-[18px] peer-focus:top-0 peer-focus:text-[13px] lg:peer-focus:text-[14px] peer-focus:text-[#D02717]">Additional Details</label>
                 </div>
 
                 <div className="pt-6">

@@ -76,13 +76,13 @@ export function FrameworkLifecycle() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24 flex flex-col items-center text-center"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
             End-to-End Execution
           </h2>
           <h3 className="text-3xl md:text-[42px] lg:text-[48px] font-semibold tracking-tighter leading-[1.1]">
             The Lifecycle Timeline
           </h3>
-          <p className="mt-6 text-white/50 max-w-[600px] font-light text-[15px] md:text-base">
+          <p className="mt-6 text-white/50 max-w-[600px] font-light type-body">
             From initial conception to ongoing accounting, our framework supports your equity programs at every stage of corporate growth.
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ export function FrameworkLifecycle() {
                         transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
                       >
                         <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-white/5 mt-2">
-                          <p className="text-white/60 font-light text-[15px] leading-[1.6] mb-6 pt-6">
+                          <p className="text-white/60 font-light type-body leading-[1.6] mb-6 pt-6">
                             {stage.desc}
                           </p>
                           
@@ -156,7 +156,7 @@ export function FrameworkLifecycle() {
                             {stage.details.map((detail, idx) => (
                               <div key={idx} className="flex items-center space-x-3">
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#D02717]/80 shrink-0" />
-                                <span className="text-[14px] text-white/80 tracking-tight">{detail}</span>
+                                <span className="type-small text-white/80 tracking-tight">{detail}</span>
                               </div>
                             ))}
                           </div>

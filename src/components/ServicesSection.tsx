@@ -21,6 +21,7 @@ function ServiceCard({ card, index }: { card: { id: string; title: string; desc:
   const cardConfigs = {
     0: { // Top-Left Card
       textPos: "justify-start",
+      padding: "py-8 lg:py-10",
       arrowPos: "bottom-6 right-6 md:bottom-10 md:right-10",
       arrowPath: "M17 17L7 7M7 7H17M7 7V17", // Points Top-Left
       arrowSlide: "group-hover:-translate-x-3 group-hover:-translate-y-3", // Perfect pop-out distance
@@ -28,20 +29,23 @@ function ServiceCard({ card, index }: { card: { id: string; title: string; desc:
     },
     1: { // Top-Right Card
       textPos: "justify-start",
+      padding: "py-8 lg:py-10",
       arrowPos: "bottom-6 left-6 md:bottom-10 md:left-10",
       arrowPath: "M7 17L17 7M17 7H7M17 7V17", // Points Top-Right
       arrowSlide: "group-hover:translate-x-3 group-hover:-translate-y-3", // Perfect pop-out distance
       sweepPos: "bottom-0 left-0 -translate-x-1/2 translate-y-1/2"
     },
     2: { // Bottom-Left Card
-      textPos: "justify-center",
+      textPos: "justify-start",
+      padding: "pt-8 pb-8 md:pt-[5.5rem] lg:pb-10",
       arrowPos: "top-6 right-6 md:top-10 md:right-10",
       arrowPath: "M17 7L7 17M7 17H17M7 17V7", // Points Bottom-Left
       arrowSlide: "group-hover:-translate-x-3 group-hover:translate-y-3", // Perfect pop-out distance
       sweepPos: "top-0 right-0 translate-x-1/2 -translate-y-1/2"
     },
     3: { // Bottom-Right Card
-      textPos: "justify-center",
+      textPos: "justify-start",
+      padding: "pt-8 pb-8 md:pt-[5.5rem] lg:pb-10",
       arrowPos: "top-6 left-6 md:top-10 md:left-10",
       arrowPath: "M7 7L17 17M17 17H7M17 17V7", // Points Bottom-Right
       arrowSlide: "group-hover:translate-x-3 group-hover:translate-y-3", // Perfect pop-out distance
@@ -55,7 +59,7 @@ function ServiceCard({ card, index }: { card: { id: string; title: string; desc:
     <Link 
       href={`/framework#${card.id}`}
       onMouseMove={handleMouseMove}
-      className={`group relative bg-[#EAEAEA] px-8 lg:px-12 py-8 lg:py-10 h-[240px] lg:h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] block`}
+      className={`group relative bg-[#EAEAEA] px-8 lg:px-12 ${config.padding} min-h-[240px] lg:min-h-[280px] flex flex-col ${config.textPos} overflow-hidden cursor-pointer transition-transform duration-700 hover:z-20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] block`}
     >
       {/* 1. High Impact Geometric Sweep Fill from Center Circle */}
       <div 
@@ -81,7 +85,7 @@ function ServiceCard({ card, index }: { card: { id: string; title: string; desc:
         <h3 className="text-xl md:text-2xl lg:text-[30px] font-bold mb-3 tracking-tight text-[#090909] group-hover:text-white transition-colors duration-700">
           {card.title}
         </h3>
-        <p className="text-[15px] md:text-base leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
+        <p className="type-body leading-[1.6] text-[#090909]/70 max-w-[340px] font-light transition-colors duration-700 group-hover:text-white/80">
           {card.desc}
         </p>
       </div>
@@ -130,13 +134,13 @@ export function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="lg:col-span-4 flex flex-col items-start pt-2 lg:pt-0 lg:sticky lg:top-40 h-fit z-20"
         >
-          <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+          <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
             Our Services
           </h2>
           <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
             Four essential pillars of equity design.
           </h3>
-          <p className="text-[15px] md:text-base text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
+          <p className="type-body text-[#090909]/70 leading-[1.6] max-w-[340px] tracking-tight">
             Built around four essential pillars, our services combine financial precision, legal clarity, governance expertise, and employee engagement to create ownership structures that scale with your business.
           </p>
         </motion.div>

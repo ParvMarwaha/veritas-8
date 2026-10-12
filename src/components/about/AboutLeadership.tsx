@@ -1,61 +1,36 @@
 'use client';
 
 import React from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function LeaderRow({ leader }: { leader: { name: string, role: string, image: string } }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    const x = (clientX - left) / width - 0.5;
-    const y = (clientY - top) / height - 0.5;
-    
-    // Move up to 30px in any direction based on cursor position
-    mouseX.set(x * 60); 
-    mouseY.set(y * 60);
-  }
-
-  function handleMouseLeave() {
-    mouseX.set(0);
-    mouseY.set(0);
-  }
-
   return (
-    <div 
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="flex flex-col space-y-4 group relative z-10 hover:z-20"
-    >
-      {/* Hover Image Box */}
-      <motion.div 
-        style={{ x: smoothX, y: smoothY }}
-        className="hidden md:block absolute top-1/2 -translate-y-1/2 right-[25%] lg:right-[35%] w-[200px] lg:w-[240px] aspect-[4/5] bg-[#D9D9D9] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none z-30 shadow-2xl overflow-hidden"
-      >
-        {leader.image && (
-          <img src={leader.image} alt={leader.name} className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700 ease-out" />
-        )}
-      </motion.div>
-
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-20">
-        <div className="flex flex-col items-start gap-1 bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-r-lg pr-4">
-          <h4 className="text-xl md:text-[28px] font-semibold text-[#090909] tracking-tight group-hover:text-[#D02717] transition-colors duration-300 mix-blend-difference">
-            {leader.name}
-          </h4>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-black/40 text-[12px] md:text-[13px] font-medium hover:text-[#D02717] transition-all duration-300 transform origin-left hover:scale-105 inline-block mt-1">
-            LinkedIn
-          </a>
+    <div className="group relative">
+      <div className="flex items-center gap-5 sm:gap-8 md:gap-10 py-8 md:py-10">
+        {/* Portrait: always visible */}
+        <div className="shrink-0 w-[96px] sm:w-[120px] md:w-[150px] lg:w-[170px] aspect-[4/5] bg-[#D9D9D9] overflow-hidden">
+          <img
+            src={leader.image}
+            alt={leader.name}
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+          />
         </div>
-        <span className="text-[#D02717] font-medium text-[15px] md:text-base uppercase tracking-wide pb-1 md:pb-3 bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-l-lg pl-4">
-          {leader.role}
-        </span>
+
+        <div className="flex flex-1 flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
+          <div className="flex flex-col items-start gap-1">
+            <h4 className="text-xl md:text-[28px] font-semibold text-[#090909] tracking-tight group-hover:text-[#D02717] transition-colors duration-300">
+              {leader.name}
+            </h4>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-black/40 type-meta font-medium hover:text-[#D02717] transition-all duration-300 transform origin-left hover:scale-105 inline-block mt-1">
+              LinkedIn
+            </a>
+          </div>
+          <span className="text-[#D02717] font-medium type-label uppercase tracking-wide">
+            {leader.role}
+          </span>
+        </div>
       </div>
-      <div className="w-full h-[1px] bg-black/10 mt-6 group-hover:bg-[#D02717]/30 transition-colors duration-500 relative z-20"></div>
+      <div className="w-full h-[1px] bg-black/10 group-hover:bg-[#D02717]/30 transition-colors duration-500"></div>
     </div>
   );
 }
@@ -80,7 +55,7 @@ export function AboutLeadership() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-4 flex flex-col items-start lg:pr-8"
           >
-            <h2 className="text-[#D02717] font-bold tracking-[0.2em] text-[15px] md:text-base uppercase mb-5">
+            <h2 className="text-[#D02717] font-bold tracking-[0.2em] type-label uppercase mb-5">
               Leadership Team
             </h2>
             <h3 className="text-3xl md:text-[42px] font-semibold tracking-tighter leading-[1.1] mb-6 max-w-[380px] text-[#090909]">
@@ -95,9 +70,9 @@ export function AboutLeadership() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-8 flex flex-col w-full"
           >
-            <div className="w-full h-[1px] bg-black/10 mb-12"></div>
+            <div className="w-full h-[1px] bg-black/10"></div>
             
-            <div className="flex flex-col space-y-12">
+            <div className="flex flex-col">
               {leaders.map((leader, index) => (
                 <LeaderRow key={index} leader={leader} />
               ))}
