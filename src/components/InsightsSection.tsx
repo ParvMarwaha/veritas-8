@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { getArticle, getSeries } from '@/data/insights';
-import { CategoryArt } from '@/components/insights/CategoryArt';
+import Image from 'next/image';
 
 // The homepage teaser shows three articles (one from each series); each card opens its article.
 const featuredSlugs = [
@@ -14,7 +14,7 @@ const featuredSlugs = [
 ];
 const insights = featuredSlugs.map((slug) => {
   const a = getArticle(slug)!;
-  return { id: a.slug, series: getSeries(a.seriesId).id, title: `${a.kicker}: ${a.title}`, description: a.summary };
+  return { id: a.slug, series: getSeries(a.seriesId).id, title: `${a.kicker}: ${a.title}`, description: a.summary, image: `/insights/${a.slug}-v2.jpg` };
 });
 
 export function InsightsSection() {
@@ -151,9 +151,12 @@ export function InsightsSection() {
                 <div className="w-full aspect-square bg-[#111111] overflow-hidden relative mt-12 lg:mt-auto">
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-colors duration-700 z-10 pointer-events-none" />
                   
-<CategoryArt
-                    id={item.series}
-                    className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   />
                 </div>
               </Link>
