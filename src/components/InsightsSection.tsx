@@ -3,15 +3,19 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { series } from '@/data/insights';
+import { getArticle, getSeries } from '@/data/insights';
 import { CategoryArt } from '@/components/insights/CategoryArt';
 
-// The homepage teaser shows the three Insights series; each card opens its category page.
-const insights = series.map((s) => ({
-  id: s.id,
-  title: s.title,
-  description: s.description,
-}));
+// The homepage teaser shows three articles (one from each series); each card opens its article.
+const featuredSlugs = [
+  'lets-get-the-mathematics-right',
+  'esop-charge-non-cash-but-not-notional',
+  'pre-ipo-guide-timing-your-plan-for-maximum-impact',
+];
+const insights = featuredSlugs.map((slug) => {
+  const a = getArticle(slug)!;
+  return { id: a.slug, series: getSeries(a.seriesId).id, title: `${a.kicker}: ${a.title}`, description: a.summary };
+});
 
 export function InsightsSection() {
   const displayInsights = insights.slice(0, 3); 
@@ -121,7 +125,7 @@ export function InsightsSection() {
               transition={{ delay: 0.2 + (idx * 0.15), duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
               className="h-full"
             >
-              <Link href={`/insights/category/${item.id}`} className="flex flex-col group cursor-pointer h-full">
+              <Link href={`/insights/${item.id}`} className="flex flex-col group cursor-pointer h-full">
                 {/* Top Block: Fixed height on desktop aligns the titles */}
                 <div className="flex flex-col lg:h-[220px] mb-8 lg:mb-0">
                   <motion.div 
@@ -148,7 +152,7 @@ export function InsightsSection() {
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-colors duration-700 z-10 pointer-events-none" />
                   
 <CategoryArt
-                    id={item.id}
+                    id={item.series}
                     className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   />
                 </div>
