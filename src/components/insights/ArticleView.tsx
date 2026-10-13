@@ -384,13 +384,26 @@ export function ArticleView({ slug }: { slug: string }) {
               <p className="text-xl md:text-2xl font-light tracking-tight leading-[1.4] max-w-xl text-[#18181B]">
                 If you have any comments, thoughts or feedback, please feel free to write to us. We would love to hear from you!
               </p>
-              <Link
-                href="/contact"
-                className="custom-btn custom-btn-brand font-sans font-medium tracking-tight text-[14px] px-8 py-3.5 rounded-full min-w-[160px] flex justify-center w-fit shrink-0"
-              >
-                <span className="btn-text-1">Get in Touch</span>
-                <span className="btn-text-2" aria-hidden="true">Get in Touch</span>
-              </Link>
+              <div className="flex flex-col gap-1.5 shrink-0">
+                <span className="text-xl md:text-2xl font-medium tracking-tight text-[#D02717]">
+                  Vichitra Malhotra, FIAI
+                </span>
+                <span className="text-base md:text-lg font-light text-[#18181B]/80">
+                  Founder and Consulting Actuary
+                </span>
+                <a
+                  href="mailto:v.malhotra@veritas-india.com"
+                  className="text-base md:text-lg font-light text-[#D02717] hover:underline underline-offset-4 w-fit"
+                >
+                  v.malhotra@veritas-india.com
+                </a>
+                <a
+                  href="tel:+919372876627"
+                  className="text-base md:text-lg font-light text-[#18181B] hover:text-[#D02717] transition-colors w-fit"
+                >
+                  +91-9372876627
+                </a>
+              </div>
             </div>
 
             <div>
